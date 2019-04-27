@@ -1,4 +1,4 @@
-import 'package:demo/Position.dart';
+import 'package:demo/position.dart';
 import 'package:demo/status_modifier.dart';
 
 import 'package:demo/entity.dart';

@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:demo/Dimension.dart';
+import 'package:demo/dimension.dart';
 
 import 'entities/skateboard.dart';
 import 'package:demo/entity.dart';
