@@ -1,7 +1,23 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto);
 
+html, body{
+    height: 100%;
+    width: 100%;
+    margin:0;
+}
 p {
     text-align: center;
     font-size: 50px;
     font-family: 'Roboto', sans-serif;
+}
+#star{
+    height: 50px;
+    width: 50px;
+    content:url(img/star_need_a_new_Star.png);
+}
+#gameStage{
+    margin:auto;
+    background: aqua;
+    height: 100%;
+    width: 100%;
 }

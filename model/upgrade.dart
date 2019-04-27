@@ -1,4 +1,4 @@
-import 'status_modifier.dart';
+import 'package:demo/status_modifier.dart';
 
 abstract class Upgrade{
   String name;

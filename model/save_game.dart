@@ -1,4 +1,4 @@
-import 'package:demo/upgrade.dart';
+import 'upgrade.dart';
 
 class SaveGame{
   List<Upgrade> upgrades;
