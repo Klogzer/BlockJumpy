@@ -15,6 +15,8 @@ abstract class Entity{
   Position position;
   // the size of the Entity
   Dimension dimension;
+  // the BaseSpeed of the Entity
+  int speed;
   // boolean to toggle visibility of Entity
   bool visible;
   // boolean to toggle collisionDetection
@@ -37,6 +39,15 @@ abstract class Entity{
     position.changePosition(x,y);
     // collision Detection etc
   }
+  // private method
+  // Collision detection based on Position and Dimension
+  bool _detectCollision();
+  // adds Statusmodifier
+  bool addEffectToList();
+  // removes StatusModifier
+  bool removeStatusModifier();
+  // display the Entity or not
+
 }
 
 
