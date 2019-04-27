@@ -1,7 +1,7 @@
 import 'package:demo/Position.dart';
+import 'package:demo/status_modifier.dart';
 
-import 'entity.dart';
-import '../status_modifier/status_modifier.dart';
+import 'package:demo/entity.dart';
 
 class Skateboard implements Entity{
   @override

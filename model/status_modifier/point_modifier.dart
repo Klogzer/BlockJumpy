@@ -1,4 +1,4 @@
-import 'status_modifier.dart';
+import 'package:demo/status_modifier.dart';
 
 class PointModifier extends StatusModifier{
   @override

@@ -1,5 +1,5 @@
 
-import 'status_modifier.dart';
+import 'package:demo/status_modifier.dart';
 
 class StarModifier extends StatusModifier{
   @override

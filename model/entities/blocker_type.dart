@@ -1,4 +1,4 @@
-import 'entity.dart';
+import 'package:demo/entity.dart';
 
 abstract class BlockerType extends Entity{
 
