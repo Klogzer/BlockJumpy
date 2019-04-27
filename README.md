@@ -7,4 +7,5 @@ Es ist so konfiguriert, dass Sie einfache
 
 mit einer einfachen Build-Pipeline auf GitLab-Pages deployen können.
 
-http://marius.mauritz.pages.mylab.th-luebeck.de/team-4e/
+
+Project-URL: https://webtech.mylab.th-luebeck.de/ss2019/team-4e
