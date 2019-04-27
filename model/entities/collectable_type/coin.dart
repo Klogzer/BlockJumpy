@@ -4,7 +4,7 @@ import 'package:demo/Position.dart';
 import '../collectable_type.dart';
 import '../effect_type.dart';
 
-class Coin implements CollectableType{
+class Coin extends CollectableType{
   @override
   bool collidable;
 

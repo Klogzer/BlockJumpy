@@ -3,7 +3,7 @@ import 'package:demo/Position.dart';
 
 import '../blocker_type.dart';
 
-class Stone implements BlockerType{
+class Stone extends BlockerType{
   @override
   bool collidable;
 

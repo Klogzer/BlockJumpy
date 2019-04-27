@@ -3,7 +3,7 @@ import 'package:demo/Position.dart';
 
 import '../effect_type.dart';
 
-class Oil implements EffectType{
+class Oil extends EffectType{
   @override
   bool collidable;
 

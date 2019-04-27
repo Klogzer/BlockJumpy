@@ -3,7 +3,7 @@ import 'package:demo/Position.dart';
 
 import '../blocker_type.dart';
 
-class Barrel implements BlockerType{
+class Barrel extends BlockerType{
   @override
   bool collidable;
 
@@ -37,11 +37,6 @@ class Barrel implements BlockerType{
     return null;
   }
 
-  @override
-  bool moveBy(int x, int y) {
-    // TODO: implement moveBy
-    return null;
-  }
 
   @override
   bool removeStatusModifier() {

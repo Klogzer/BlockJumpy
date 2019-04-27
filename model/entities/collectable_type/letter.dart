@@ -3,7 +3,7 @@ import 'package:demo/Position.dart';
 
 import '../collectable_type.dart';
 
-class Letter implements CollectableType{
+class Letter extends CollectableType{
   @override
   bool collidable;
 
