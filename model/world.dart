@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:demo/Dimension.dart';
 
 import 'entities/skateboard.dart';
-import 'entity.dart';
+import 'entities/entity.dart';
 
 class World{
 

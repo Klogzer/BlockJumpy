@@ -5,7 +5,7 @@ import 'dart:html';
 import 'package:demo/Position.dart';
 import 'package:demo/Dimension.dart';
 
-import 'status_modifier.dart';
+import '../status_modifier/status_modifier.dart';
 
 abstract class Entity{
 
