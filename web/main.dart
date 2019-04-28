@@ -1,11 +1,12 @@
 import 'dart:html';
 
-void main() {
-  var id = "star";
-  final el = document.querySelector("#gameStage");
+import 'package:viewMain/star_element.dart';
 
-  final el2 = Element.tag("div")..id="$id";
-  el.insertAdjacentElement("afterbegin", el2);
+
+
+void main() {
+  var star = new StarElement();
+  star.draw();
 
 }
 
