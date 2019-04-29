@@ -1,25 +1,51 @@
+#game {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 480px;
+  height: 800px;
+  border: solid black 1px;
+}
 
+#info-box {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  background-color: grey;
+}
 
+.info-itm {
+}
 
-html, body{
-    height: 100%;
-    width: 100%;
-    margin:0;
+#overlay {
+  display:none;
 }
-p {
-    text-align: center;
-    font-size: 50px;
-    font-family: 'Roboto', sans-serif;
+
+#menu {
+  display:none;
 }
-#player{
-    height: 50px;
-    width: 50px;
-    content:url(img/star_need_a_new_Star.png);
+
+#stage {
+  background: blue;
 }
-#gameStage{
-    background:red;
-    height: 100vh;
-    max-height: 100vh;
-    width: 56.25vh;
-    margin: auto;
+
+#player {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: red;
+  left: 215px;
+  bottom: 60px;
 }
+
+.platform {
+  position: absolute;
+  width: 100px;
+  height: 20px;
+  background: green; }
+
+  #p1 {
+    left: 190px;
+    bottom: 40px;
+  }
