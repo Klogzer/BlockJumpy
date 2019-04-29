@@ -4,7 +4,6 @@ import 'package:demo/model/world.dart';
 void main() {
   var el = createElement("div", "star");
   addElement(el);
-  addElement(el);
   World world = new World();
 }
 
