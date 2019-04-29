@@ -39,9 +39,9 @@ body {
 #player {
   position: absolute;
   background-image: url("player.png");
-  width: 50px;
-  height: 50px;
-  background: red;
+  width: 70px;
+  height: 40px;
+  /*background: red;*/
   left: 215px;
   bottom: 60px;
 }
@@ -64,6 +64,7 @@ body {
   #p2 {
       left: 65px;
       bottom: 120px;
+      background: red;
   }
   
   #p3 {
