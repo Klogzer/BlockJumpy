@@ -37,13 +37,16 @@ body {
 }
 
 #player {
-  position: absolute;
+  /*position: absolute;*/
   background-image: url("player.png");
+  background-repeat: no-repeat;
   width: 70px;
   height: 40px;
   /*background: red;*/
   left: 215px;
   bottom: 60px;
+  margin: 0;
+  padding: 0;
 }
 
 #player.icon {
