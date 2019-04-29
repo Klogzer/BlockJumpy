@@ -1,5 +1,5 @@
 import 'dart:html';
 
 void main() {
-    final player = querySelector('#player')
+    final player = querySelector('#player');
 }
