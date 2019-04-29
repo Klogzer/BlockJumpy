@@ -1,20 +1,24 @@
 import 'dart:html';
 
+import 'package:demo/model/world.dart';
 void main() {
-  var el = createElement("div", "star", 2);
-  drawElement(el);
+  var el = createElement("div", "star");
+  addElement(el);
+  addElement(el);
+  World world = new World();
 }
 
 List list = new List();
 
-Element createElement(tag, type, id) {
-  return Element.tag(tag)..id = "$type $id";
+Element createElement(tag, type) {
+  return Element.tag(tag)
+    ..id = "$type";
+}
+// needs to be a unique Element
+addElement(el) {
+  //searches for gameStage div
+  final el2 = document.querySelector("#gameStage");
+  // inserts this new Element at the top of gameStage div
+  el2.insertAdjacentElement("afterbegin", el);
 }
 
-drawElement(el) {
-  //searches for gameStage div
-  final el = document.querySelector("#gameStage");
-  // inserts this new Element at the top of gameStage div
-  list.add(el);
-  el.insertAdjacentElement("beforebegin", el);
-}
