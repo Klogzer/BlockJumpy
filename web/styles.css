@@ -37,20 +37,19 @@ body {
 }
 
 #player {
-  /*position: absolute;*/
-  background-image: url("player.png");
+  position: absolute;
+  
   background-repeat: no-repeat;
   width: 70px;
   height: 40px;
-  /*background: red;*/
+  background: black;
   left: 215px;
   bottom: 60px;
-  margin: 0;
-  padding: 0;
 }
 
 #player.icon {
    background: white;
+   background-image: url("player.png");
 }
 
 .platform {
@@ -78,5 +77,11 @@ body {
   #p4 {
       left: 265px;
       bottom: 280px;
+      background: yellow;
+  }
+
+  #p5 {
+      left: 20px;
+      bottom: 580px;
   }
   
