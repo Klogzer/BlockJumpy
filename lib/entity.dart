@@ -38,9 +38,11 @@ abstract class Entity{
   bool moveBy(int x,int y){
     position.changePosition(x,y);
     // collision Detection etc
+    return true;
   }
   // private method
   // Collision detection based on Position and Dimension
+  // ignore: unused_element
   bool _detectCollision();
   // adds Statusmodifier
   bool addEffectToList();

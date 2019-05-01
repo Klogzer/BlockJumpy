@@ -2,7 +2,6 @@
 import 'package:demo/position.dart';
 import 'package:demo/status_modifier.dart';
 
-import 'package:demo/status_modifier.dart';
 import '../collectable_type.dart';
 
 class Coin extends CollectableType{
