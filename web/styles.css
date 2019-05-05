@@ -54,32 +54,25 @@ body {
   position: absolute;
   width: 100px;
   height: 20px;
-  background: green; }
-
-  #p1 {
-    left: 190px;
-    bottom: 40px;
-  }
-  
-  #p2 {
-      left: 65px;
-      bottom: 120px;
-      background: red;
-  }
-  
-  #p3 {
-      left: 305px;
-      bottom: 200px;
-  }
-  
-  #p4 {
-      left: 265px;
-      bottom: 280px;
-      background: yellow;
   }
 
-  #p5 {
-      left: 20px;
-      bottom: 580px;
-  }
+.normalPlatform {
+  background: green;  
+}
+
+.boostPlatform {
+  background: yellow;
+}
+
+.oneTimePlatform {
+  background: lightgreen;
+}
+
+.porotectionPlatform {
+  background: blue;
+}
+
+.deadlyPlatform {
+  background: red;
+}
   
