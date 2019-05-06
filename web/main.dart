@@ -2,6 +2,8 @@ import 'dart:html';
 
 
 void main() {
+  Element meinEle = document.querySelector("#gameStage");
+  meinEle.requestFullscreen();
   Main main = new Main();
 
   for(int i = 0; i<= 10;i++){
