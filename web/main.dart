@@ -3,15 +3,25 @@ import 'dart:html';
 
 void main() {
   Main main = new Main();
-  var el = main.createElement("div", "star");
-  main.addElement(el);
+
+  for(int i = 0; i<= 10;i++){
+    var el = main.createElement("div", "star", i);
+    main.addElement(main.map[i]);
+  }
+  Element el = main.map[9];
+  el.style.height ="100px";
+  el.style.width ="100px";
+
+
 }
 
 class Main {
-  List list = new List();
+  Map map = new Map();
 
-  Element createElement(tag, type) {
-    return Element.tag(tag)..id = "$type";
+  Element createElement(tag, type, id) {
+    Element ele = Element.tag(tag)..id = "$type";
+    map.putIfAbsent(id, () => ele);
+    return ele;
   }
 
 // needs to be a unique Element
