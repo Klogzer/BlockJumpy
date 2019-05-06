@@ -5,10 +5,12 @@ import 'package:demo/dimension.dart';
 import 'entities/skateboard.dart';
 import 'package:demo/entity.dart';
 
+
 class World{
+  get player => Skateboard();
 
   List<Entity> entities;
-  Skateboard player;
+
   Dimension size;
 
   //@todo

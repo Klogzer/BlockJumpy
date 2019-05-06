@@ -1,5 +1,9 @@
+import 'dart:html';
+
+import 'package:demo/dimension.dart' as prefix0;
 import 'package:demo/position.dart';
 import 'package:demo/status_modifier.dart';
+import 'package:demo/dimension.dart';
 
 import 'package:demo/entity.dart';
 
@@ -8,10 +12,10 @@ class Skateboard implements Entity{
   bool collidable;
 
   @override
-  bool collisionDetection;
+  Dimension dimension = Dimension(10,10);
 
   @override
-  var dimension;
+  bool collisionDetection;
 
   @override
   String name;
