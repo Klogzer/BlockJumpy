@@ -2,15 +2,17 @@ import 'dart:html';
 
 import 'dart:math';
 
+import 'view.dart';
+
 class Controller {
   // physix and stuff
   // View
   // model
   bool end = false;
   // Timer etc
-  Controller(){
+  Controller(View view){
 
-
+    view.prepareGameStage();
     // Keyboard eventlistening
     window.onKeyDown.listen((KeyboardEvent ev) {
       if (end) return;
