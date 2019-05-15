@@ -1,4 +1,5 @@
 mixin PositionObject {
+
   int _xPosition;
   int _yPosition;
 

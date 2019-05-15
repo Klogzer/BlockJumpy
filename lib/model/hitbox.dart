@@ -1,30 +1,27 @@
-class Hitbox {
+import 'package:jumpdx9001deluxe/model/position_object.dart';
+import 'package:jumpdx9001deluxe/model/size_object.dart';
 
-   bool active;
+class Hitbox with PositionObject, SizeObject {
 
-   Hitbox(bool active) {
+  bool _active;
 
-   }
+  Hitbox(this._active);
 
    bool overlap(Hitbox element) {
+     return false;
+     //TODO: implement functionality
 
    }
 
-   bool getActive() {
-
-     return active;
-
-   }
+  bool get active => _active;
 
    void activate() {
-
-     active = true;
+     _active = true;
 
    }
 
    void deactivate() {
-
-     active = false;
+     _active = false;
 
    }
 
