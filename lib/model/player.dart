@@ -3,7 +3,10 @@ import 'package:jumpdx9001deluxe/model/game_element.dart';
 
 class Player extends GameElement with DynamicObject {
 
-  Player() : super(1, 'player');
+  Player() : super(1, 'player'){
+    xPosition = 50;
+    yPosition = 50;
+  }
 
   @override
   void move() {

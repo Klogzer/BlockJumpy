@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:html';
 
 import 'dart:math';
@@ -25,8 +26,11 @@ class Controller {
       switch (ev.keyCode) {
         case KeyCode.LEFT:
           print("Left");
+          game.movePlayerLeft();
           break;
         case KeyCode.RIGHT:
+          game.movePlayerRight();
+          print(game.getElements().first.xPosition);
           print("Right");
           break;
         case KeyCode.UP:
@@ -57,5 +61,12 @@ class Controller {
         print(dx.toString() + "|dx " + dy.toString() + "|dy");
       }
     });
+    startRender();
+  }
+  // initialisierung des RenderTimers
+  startRender() {
+    int refreshRate = (1000/30).floor();
+    Duration duration = Duration(milliseconds: refreshRate);
+    return new Timer.periodic(duration, (Timer t) => view.update(game));
   }
 }

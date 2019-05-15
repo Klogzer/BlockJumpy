@@ -13,10 +13,9 @@ class View {
   void update(Game game) {
     String left;
     String bottom;
-    GameElement currentEntity;
     Element viewElement;
-    game.getElements().forEach((entity) => {
-          viewElement = domMap[entity.id],
+    game.getElements().forEach((currentEntity) => {
+          viewElement = domMap[currentEntity.id],
           viewElement.style.bottom = currentEntity.yPosition.toString() + "px",
           viewElement.style.left = currentEntity.xPosition.toString() + "px",
         });
