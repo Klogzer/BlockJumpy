@@ -1,4 +1,4 @@
-import 'player.dart';
+import 'package:jumpdx9001deluxe/model/player.dart';
 
 class Level {
   Player _player;

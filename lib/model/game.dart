@@ -1,5 +1,5 @@
-import 'game_element.dart';
-import 'level.dart';
+import 'package:jumpdx9001deluxe/model/game_element.dart';
+import 'package:jumpdx9001deluxe/model/level.dart';
 
 class Game {
   Level level;
