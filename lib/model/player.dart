@@ -12,12 +12,12 @@ class Player extends GameElement with DynamicObject {
   }
 
   //gets changes and sets value;
-  void moveLeft() {
-    xPosition--;
+  void moveLeft(double factor) {
+    xPosition = (xPosition + (2 * factor)) as int;
   }
 
   //gets changes and sets value;
-  void moveRight() {
-    xPosition++;
+  void moveRight(double factor) {
+    xPosition = (xPosition + (2 * factor)) as int;
   }
 }
