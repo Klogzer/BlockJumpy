@@ -2,6 +2,8 @@ import 'dart:html';
 
 import 'dart:math';
 
+import 'package:jumpdx9001deluxe/model/game.dart';
+
 import 'view.dart';
 
 class Controller {
@@ -9,25 +11,36 @@ class Controller {
   // View
   // model
   bool end = false;
-  // Timer etc
-  Controller(View view){
 
-    view.prepareGameStage();
+  Game game;
+
+  View view;
+
+  // Timer etc
+  Controller(this.view, this.game) {
+    view.prepareGameStage(game);
     // Keyboard eventlistening
     window.onKeyDown.listen((KeyboardEvent ev) {
       if (end) return;
       switch (ev.keyCode) {
-        case KeyCode.LEFT:  print("Left"); break;
-        case KeyCode.RIGHT: print("Right"); break;
-        case KeyCode.UP:    print("Up"); break;
-        case KeyCode.DOWN:  print("Down"); break;
+        case KeyCode.LEFT:
+          print("Left");
+          break;
+        case KeyCode.RIGHT:
+          print("Right");
+          break;
+        case KeyCode.UP:
+          print("Up");
+          break;
+        case KeyCode.DOWN:
+          print("Down");
+          break;
       }
     });
 
     // Device orientation event handler.
     //
     window.onDeviceOrientation.listen((ev) {
-
       // No device orientation
       if (ev.alpha == null && ev.beta == null && ev.gamma == null) {
         // no deviceorientation found do something here
@@ -44,8 +57,5 @@ class Controller {
         print(dx.toString() + "|dx " + dy.toString() + "|dy");
       }
     });
-
-
   }
-
 }

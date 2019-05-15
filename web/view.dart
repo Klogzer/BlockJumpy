@@ -14,38 +14,28 @@ class View {
     String left;
     String bottom;
     GameElement currentEntity;
-    domMap.forEach((key, ele) => {
-          currentEntity = game.getElements().where((entity)=> entity.id == key) as GameElement,
-          //ele.style.bottom = currentEntity.bottom,
-          //ele.style.left = currentEntity.left,
+    Element viewElement;
+    game.getElements().forEach((entity) => {
+          viewElement = domMap[entity.id],
+          viewElement.style.bottom = currentEntity.yPosition.toString() + "px",
+          viewElement.style.left = currentEntity.xPosition.toString() + "px",
         });
   }
 
-  void prepareGameStage() {
-    print("doing");
-    // List list = game.getList();
-    // List<GameElement> list = [[][]];
-    // mock start
-    Map<int, String> map = Map();
-    map.putIfAbsent(1, () => "normalPlatform");
-    map.putIfAbsent(2, () => "normalPlatform");
-    // mock end
-    //
-
-    Element ele;
+  void prepareGameStage(Game game) {
+    Element viewElement;
     int i = 1;
-    map.forEach((id, name) => {
-          ele = Element.div(),
-          ele.classes.add(name),
-          ele.classes.add("platform"),
+    game.getElements().forEach((entity) => {
+          viewElement = Element.div(),
+          viewElement.classes.add(entity.type),
           // set according to Model
-          ele.style.left = (50 * i).toString() + "px",
-          ele.style.bottom = (100 * i).toString() + "px",
-          ele.style.position = "absolute",
+          viewElement.style.left = entity.xPosition.toString() + "px",
+          viewElement.style.bottom = entity.yPosition.toString() + "px",
+          viewElement.style.position = "absolute",
           i++,
-          stage.insertAdjacentElement("afterBegin", ele),
+          stage.insertAdjacentElement("afterBegin", viewElement),
           // put in the map to call it later without the hazzle to get a real css id
-          domMap.putIfAbsent(id, () => ele)
+          domMap.putIfAbsent(entity.id, () => viewElement)
         });
     /*
         <img class="platform normalPlatform" id="1" style="left: 200px; bottom: 100px">
