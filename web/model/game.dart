@@ -1,5 +1,5 @@
-import 'GameElement.dart';
-import 'Level.dart';
+import 'game_element.dart';
+import 'level.dart';
 
 class Game {
   Level level;

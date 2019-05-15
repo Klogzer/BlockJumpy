@@ -1,4 +1,4 @@
-import 'Player.dart';
+import 'player.dart';
 
 class Level {
   Player _player;
