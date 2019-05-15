@@ -29,6 +29,7 @@ class View {
           viewElement = Element.div(),
           viewElement.classes.add(entity.type),
           // set according to Model
+          print(entity.xPosition),
           viewElement.style.left = entity.xPosition.toString() + "px",
           viewElement.style.bottom = entity.yPosition.toString() + "px",
           viewElement.style.position = "absolute",
