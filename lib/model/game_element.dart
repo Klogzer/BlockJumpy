@@ -1,4 +1,8 @@
-abstract class GameElement {
+import 'package:jumpdx9001deluxe/model/position_object.dart';
+import 'package:jumpdx9001deluxe/model/size_object.dart';
+
+abstract class GameElement with PositionObject, SizeObject {
+
   final int _id;
   final String _type;
 

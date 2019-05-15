@@ -1,7 +1,6 @@
 import 'dart:html';
 
-import 'package:jumpdx9001deluxe/model/Game.dart';
-import 'package:jumpdx9001deluxe/model/GameElement.dart';
+import 'package:jumpdx9001deluxe/model/game.dart';
 
 class View {
   String appearance;
