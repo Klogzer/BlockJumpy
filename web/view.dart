@@ -1,6 +1,7 @@
 import 'dart:html';
 
 import 'package:jumpdx9001deluxe/model/game.dart';
+import 'package:jumpdx9001deluxe/model/game_element.dart';
 
 class View {
   String appearance;
@@ -12,10 +13,11 @@ class View {
   void update(Game game) {
     String left;
     String bottom;
+    GameElement currentEntity;
     domMap.forEach((key, ele) => {
-          left = ele.getComputedStyle().left,
-          bottom = ele.getComputedStyle().bottom,
-          ele.style.bottom = bottom,
+          currentEntity = game.getElements().where((entity)=> entity.id == key) as GameElement,
+          //ele.style.bottom = currentEntity.bottom,
+          //ele.style.left = currentEntity.left,
         });
   }
 
