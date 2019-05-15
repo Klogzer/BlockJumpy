@@ -9,11 +9,11 @@ class Level {
 
   Player get player => _player;
 
-  void movePlayerRight() {
+  void movePlayerRight(double factor) {
     player.moveRight();
   }
 
-  void movePlayerLeft() {
+  void movePlayerLeft(double factor) {
     player.moveLeft();
   }
 }
