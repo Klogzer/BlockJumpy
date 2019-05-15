@@ -1,5 +1,4 @@
-FROM google/dart:2.2
- AS builder
+FROM google/dart:2.2 AS builder
 ENV PATH="${PATH}:/root/.pub-cache/bin"
 RUN pub global activate webdev
 COPY . /root/build-here/
