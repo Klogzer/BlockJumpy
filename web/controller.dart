@@ -12,6 +12,7 @@ class Controller {
   // View
   // model
   bool end = false;
+  Timer renderTimer;
 
   Game game;
 
@@ -19,7 +20,14 @@ class Controller {
 
   // Timer etc
   Controller(this.view, this.game) {
-    view.prepareGameStage(game);
+    // New game is started by user
+    view.start.onClick.listen((_) {
+      view.prepareGameStage(game);
+      view.update(game);
+      renderTimer = startRender();
+      stopGameByTimer();
+    });
+
     // Keyboard eventlistening
     window.onKeyDown.listen((KeyboardEvent ev) {
       if (end) return;
@@ -61,12 +69,23 @@ class Controller {
         print(dx.toString() + "|dx " + dy.toString() + "|dy");
       }
     });
-    startRender();
   }
+
   // initialisierung des RenderTimers
   startRender() {
-    int refreshRate = (1000/30).floor();
+    int refreshRate = (1000 / 30).floor();
     Duration duration = Duration(milliseconds: refreshRate);
-    return new Timer.periodic(duration, (Timer t) => view.update(game));
+    return new Timer.periodic(
+        duration,
+        (Timer t) => {
+              view.update(game),
+              // ending condition
+              (game.getElements().first.xPosition >= 100) ? t.cancel() : null,
+            });
+  }
+
+  stopGameByTimer() {
+    Duration duration = Duration(seconds: 10);
+    return new Timer(duration, () => {view.end = true, print("end")});
   }
 }

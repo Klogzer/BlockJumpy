@@ -1,76 +1,91 @@
 body {
-  background-color: lightgrey;
+    background-color: lightgrey;
 }
 
-#game {
-  position: fixed;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 480px;
-  height: 800px;
-  border: solid black 1px;
-  background-color: white;
+#mainContainer {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 480px;
+    height: 800px;
+    border: solid black 1px;
+    background-color: white;
 }
 
-#info-box {
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  background-color: grey;
-}
-
-.info-itm {
-  text-align: center;
-}
-
-#overlay {
-  display:none;
+#gameContainer {
+    display: none;
 }
 
 #menu {
-  display:none;
+    width: 100%;
+    text-align: center;
+}
+
+#start , #credits {
+    padding: 5px 20px 5px 20px;
+    font-style: normal;
+    font-size: 2rem;
+    text-decoration: none;
+    color: white;
+    background: darkgrey;
+    border: 3px solid darkgreen;
+}
+
+#info-box {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background-color: grey;
+}
+
+.info-itm {
+    text-align: center;
+}
+
+#overlay {
+    display: none;
 }
 
 #stage {
-  background: blue;
+    background: blue;
 }
 
 .player {
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  background: black;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: black;
 }
 
 #player.icon {
-   background: white;
-   background-image: url("player.png");
+    background: white;
+    background-image: url("player.png");
 }
 
 .platform {
-  position: absolute;
-  width: 100px;
-  height: 20px;
-  }
+    position: absolute;
+    width: 100px;
+    height: 20px;
+}
 
 .normalPlatform {
-  background: green;  
+    background: green;
 }
 
 .boostPlatform {
-  background: yellow;
+    background: yellow;
 }
 
 .oneTimePlatform {
-  background: brown;
+    background: brown;
 }
 
 .porotectionPlatform {
-  background: blue;
+    background: blue;
 }
 
 .deadlyPlatform {
-  background: red;
+    background: red;
 }
   

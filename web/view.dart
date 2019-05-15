@@ -4,13 +4,28 @@ import 'package:jumpdx9001deluxe/model/game.dart';
 import 'package:jumpdx9001deluxe/model/game_element.dart';
 
 class View {
-  String appearance;
+  // MockGameOver
+  bool end = false;
+  // Map to handle its Elements
   Map<int, Element> domMap = Map();
 
   // querySelector for Stage
   final stage = querySelector("#stage");
+  // querySelector for menu
+  final menu = querySelector("#menu");
+  // querySelector for start
+  final start = querySelector("#start");
+  // querySelector for gameContainer
+  final gameContainer = querySelector("#gameContainer");
+
+
 
   void update(Game game) {
+    //if gameover
+    if(end){
+      gameContainer.style.display = "none";
+      menu.style.display = "block";
+    }
     String left;
     String bottom;
     Element viewElement;
@@ -22,6 +37,17 @@ class View {
   }
 
   void prepareGameStage(Game game) {
+    // removes all Element from map
+    domMap.clear();
+    // emptys stage div
+    stage.innerHtml ="";
+
+    // resets mock gameover
+    end = false;
+
+
+    menu.style.display = "none";
+    gameContainer.style.display="block";
     Element viewElement;
     int i = 1;
     game.getElements().forEach((entity) => {
