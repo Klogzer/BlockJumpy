@@ -1,6 +1,7 @@
-FROM google/dart-runtime-base
+FROM google/dart:2.2
  AS builder
 ENV PATH="${PATH}:/root/.pub-cache/bin"
+RUN pub webdev --version
 RUN pub global activate webdev
 COPY . /root/build-here/
 WORKDIR /root/build-here
