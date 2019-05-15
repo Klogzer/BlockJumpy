@@ -26,10 +26,10 @@ class Controller {
       switch (ev.keyCode) {
         case KeyCode.LEFT:
           print("Left");
-          game.movePlayerLeft();
+          game.movePlayerLeft(2);
           break;
         case KeyCode.RIGHT:
-          game.movePlayerRight();
+          game.movePlayerRight(2);
           print(game.getElements().first.xPosition);
           print("Right");
           break;
