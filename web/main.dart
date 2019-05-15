@@ -1,7 +1,9 @@
 import 'dart:html';
 
 import 'controller.dart';
+import 'view.dart';
 
 void main() {
-  Controller con = Controller();
+  View view = View();
+  Controller con = Controller(view);
 }
