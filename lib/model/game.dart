@@ -15,12 +15,12 @@ class Game {
 
   void nextLevel(int levelID) {}
 
-  void movePlayerRight() {
-    level.movePlayerRight();
+  void movePlayerRight(double factor) {
+    level.movePlayerRight(factor);
   }
 
-  void movePlayerLeft() {
-    level.movePlayerLeft();
+  void movePlayerLeft(double factor) {
+    level.movePlayerLeft(factor);
   }
 
   List<GameElement> getElements() {
