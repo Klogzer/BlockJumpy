@@ -1,8 +1,7 @@
 FROM google/dart:2.2
  AS builder
 ENV PATH="${PATH}:/root/.pub-cache/bin"
-RUN pub webdev --version
-RUN pub global activate webdev
+RUN pub global activate webdev 2.2.0
 COPY . /root/build-here/
 WORKDIR /root/build-here
 RUN pub get && \
