@@ -1,4 +1,3 @@
-import 'package:jumpdx9001deluxe/model/game_element.dart';
 import 'package:jumpdx9001deluxe/model/level.dart';
 
 class Game {
@@ -16,7 +15,7 @@ class Game {
   update(){
     print(level.player.xPosition.toString());
     // inclusive player
-    level.moveEntities();
+    //level.moveEntities();
   }
   bool newGame() {}
 
@@ -25,7 +24,7 @@ class Game {
 
   // entrypoint for actionlistener
   void acceleratePlayer(double dx,double dy) {
-    level.player.accelerate(dx, dy);
+    //level.player.accelerate(dx, dy);
   }
 
   // entrypoint for view

@@ -4,3 +4,7 @@ const int fps = 60;
 const int tickModel = 60;
 // const for gravity
 const double gravity = 2;
+// internal Stage width
+const int StageXDimension = 1000;
+// internal Stage height
+const int StageYDimension = 2000;
