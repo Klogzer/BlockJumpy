@@ -18,13 +18,12 @@ class Game {
     // foreach entity.moveBy(velocity);
     print(level.player.xPosition.toString());
     level.moveEntities();
-    level.player.move();
   }
   bool newGame() {}
 
   void nextLevel(int levelID) {}
 
-  void movePlayer(double dx,double dy) {
+  void acceleratePlayer(double dx,double dy) {
     level.player.accelerate(dx, dy);
   }
 

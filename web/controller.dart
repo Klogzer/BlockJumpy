@@ -34,10 +34,10 @@ class Controller {
       switch (ev.keyCode) {
         case KeyCode.LEFT:
           print("Left");
-          game.movePlayer(-1, 0);
+          game.acceleratePlayer(-1, 0);
           break;
         case KeyCode.RIGHT:
-          game.movePlayer(1, 0);
+          game.acceleratePlayer(1, 0);
           print("Right");
           break;
         case KeyCode.UP:
@@ -54,10 +54,10 @@ class Controller {
       switch (ev.keyCode) {
         case KeyCode.LEFT:
           print("Left");
-          game.movePlayer(0, 0);
+          game.acceleratePlayer(0, 0);
           break;
         case KeyCode.RIGHT:
-          game.movePlayer(0, 0);
+          game.acceleratePlayer(0, 0);
           print("Right");
           break;
         case KeyCode.UP:
@@ -85,7 +85,7 @@ class Controller {
         //
         final dy = min(50, max(10, ev.beta)) - 30;
         final dx = min(20, max(-20, ev.gamma));
-        print(dx.toString() + "|dx " + dy.toString() + "|dy");
+        game.acceleratePlayer(dx, dy);
       }
     });
   }
@@ -93,7 +93,7 @@ class Controller {
   // initialisierung des RenderTimers
   // eigentlich kein bedarf die wiederholungrate höher zu haben als das model rechnet
   updateView() {
-    int refreshRate = (1000 / 144).floor();
+    int refreshRate = (1000 / 30).floor();
     Duration duration = Duration(milliseconds: refreshRate);
     return new Timer.periodic(
         duration,

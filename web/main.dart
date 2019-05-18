@@ -8,5 +8,5 @@ import 'view.dart';
 void main() {
   Game game = Game();
   View view = View();
-  Controller con = Controller(view,game);
+  Controller(view,game);
 }

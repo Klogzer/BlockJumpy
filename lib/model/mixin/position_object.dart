@@ -1,13 +1,18 @@
+import 'package:jumpdx9001deluxe/model/vector.dart';
+
 mixin PositionObject {
 
   double _xPosition;
   double _yPosition;
-  // -1,1
-  // -1 max speed left, 1 max speed right
-  double velocity = 0;
-  // -1,1
-  // -1 max speed down, 1 max speed up
-  double gravity = -1;
+
+  // no movement its 0/0
+  // Speed in each direction
+  Vector normalVector = Vector.zero();
+
+  Vector acceleration = Vector.zero();
+
+  double force;
+
 
   double get xPosition => _xPosition;
 
@@ -23,12 +28,13 @@ mixin PositionObject {
   // vector based movement
   // function which is reapeatedly called
   void move(){
-    this.xPosition += velocity;
-    this.yPosition += gravity;
+
+    this.xPosition += normalVector.x;
+    this.yPosition += normalVector.y;
   }
   void accelerate(double dx, double dy){
-    velocity = dx;
-    gravity = dy;
+    normalVector.x = dx;
+    normalVector.y = dy;
   }
 
 }
