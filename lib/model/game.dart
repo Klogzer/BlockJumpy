@@ -14,7 +14,6 @@ class Game {
   // and collision and so on
   // add the functionality to let the model calculate at a certain tick rate
   update(){
-    print(level.player.xPosition.toString());
     // inclusive player
     level.moveEntities();
   }

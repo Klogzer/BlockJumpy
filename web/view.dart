@@ -28,7 +28,6 @@ class View {
       gameContainer.style.display = "none";
       menu.style.display = "block";
     }
-    print(game.level.player.xPosition.toString());
     Element viewElement;
     game.entities.forEach((GameElement currentEntity) => {
           //print(currentEntity.xPosition.round.toString()),

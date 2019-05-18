@@ -8,7 +8,6 @@ import 'package:jumpdx9001deluxe/model/game.dart';
 import 'view.dart';
 import 'package:jumpdx9001deluxe/constants.dart';
 
-
 class Controller {
   // physix and stuff
   // View
@@ -81,13 +80,21 @@ class Controller {
       // Device orientation available
       else {
         // movement from orientation event
-        //
-        // beta: 30° no move, 10° full up, 50° full down
-        // gamma: 0° no move, -20° full left, 20° full right
-        //
-        final dy = min(50, max(10, ev.beta)) - 30;
-        final dx = min(20, max(-20, ev.gamma));
-        game.acceleratePlayer(dx, dy);
+        var gamma = ev.gamma;
+        // DEADZONE
+        final int DEADZONE = 2;
+        // tilt for max acceleration
+        int range = 30;
+
+        final dx = (gamma > DEADZONE || gamma < -DEADZONE)
+            ? ((gamma > range || gamma < -range)
+            ? ((gamma.isNegative) ? -range : range)
+            : gamma)
+            : 0;
+
+        // normalize
+        print((dx/range).toString() +":dx");
+        game.acceleratePlayer(dx / range, 0);
       }
     });
   }
@@ -105,6 +112,7 @@ class Controller {
               //(game.getElements().first.xPosition >= 100) ? t.cancel() : null,
             });
   }
+
   // die Anzahl an ticks des modells
   // 144hz heist für das modell eine Höchsgeschwindigkeit von 144pixeln pro sekunde
   updateModel() {
@@ -112,12 +120,13 @@ class Controller {
     Duration duration = Duration(milliseconds: tick);
     return new Timer.periodic(
         duration,
-            (Timer t) => {
-          game.update(),
-          // ending condition
-          //(game.getElements().first.xPosition >= 100) ? t.cancel() : null,
-        });
+        (Timer t) => {
+              game.update(),
+              // ending condition
+              //(game.getElements().first.xPosition >= 100) ? t.cancel() : null,
+            });
   }
+
   stopGameByTimer() {
     Duration duration = Duration(seconds: 10);
     return new Timer(duration, () => {view.end = true, print("end")});
