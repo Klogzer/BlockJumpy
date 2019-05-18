@@ -1,5 +1,5 @@
-import 'package:jumpdx9001deluxe/model/position_object.dart';
-import 'package:jumpdx9001deluxe/model/size_object.dart';
+import 'package:jumpdx9001deluxe/model/mixin/position_object.dart';
+import 'package:jumpdx9001deluxe/model/mixin/size_object.dart';
 
 class Hitbox with PositionObject, SizeObject {
 

@@ -1,3 +1,3 @@
-abstract class Platform {
+abstract class PlatformNotHTML {
 
 }

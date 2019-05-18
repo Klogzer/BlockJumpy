@@ -12,7 +12,8 @@ class Controller {
   // View
   // model
   bool end = false;
-  Timer renderTimer;
+  Timer viewTimer;
+  Timer modelTimer;
 
   Game game;
 
@@ -23,9 +24,8 @@ class Controller {
     // New game is started by user
     view.start.onClick.listen((_) {
       view.prepareGameStage(game);
-      view.update(game);
-      renderTimer = startRender();
-      stopGameByTimer();
+      modelTimer = updateModel();
+      viewTimer = updateView();
     });
 
     // Keyboard eventlistening
@@ -34,11 +34,30 @@ class Controller {
       switch (ev.keyCode) {
         case KeyCode.LEFT:
           print("Left");
-          game.movePlayerLeft(2);
+          game.movePlayer(-1, 0);
           break;
         case KeyCode.RIGHT:
-          game.movePlayerRight(2);
-          print(game.getElements().first.xPosition);
+          game.movePlayer(1, 0);
+          print("Right");
+          break;
+        case KeyCode.UP:
+          print("Up");
+          break;
+        case KeyCode.DOWN:
+          print("Down");
+          break;
+      }
+    });
+    // Keyboard eventlistening
+    window.onKeyUp.listen((KeyboardEvent ev) {
+      if (end) return;
+      switch (ev.keyCode) {
+        case KeyCode.LEFT:
+          print("Left");
+          game.movePlayer(0, 0);
+          break;
+        case KeyCode.RIGHT:
+          game.movePlayer(0, 0);
           print("Right");
           break;
         case KeyCode.UP:
@@ -72,18 +91,31 @@ class Controller {
   }
 
   // initialisierung des RenderTimers
-  startRender() {
-    int refreshRate = (1000 / 30).floor();
+  // eigentlich kein bedarf die wiederholungrate höher zu haben als das model rechnet
+  updateView() {
+    int refreshRate = (1000 / 144).floor();
     Duration duration = Duration(milliseconds: refreshRate);
     return new Timer.periodic(
         duration,
         (Timer t) => {
               view.update(game),
               // ending condition
-              (game.getElements().first.xPosition >= 100) ? t.cancel() : null,
+              //(game.getElements().first.xPosition >= 100) ? t.cancel() : null,
             });
   }
-
+  // die Anzahl an ticks des modells
+  // 144hz heist für das modell eine Höchsgeschwindigkeit von 144pixeln pro sekunde
+  updateModel() {
+    int tick = (1000 / 60).floor();
+    Duration duration = Duration(milliseconds: tick);
+    return new Timer.periodic(
+        duration,
+            (Timer t) => {
+          game.update(),
+          // ending condition
+          //(game.getElements().first.xPosition >= 100) ? t.cancel() : null,
+        });
+  }
   stopGameByTimer() {
     Duration duration = Duration(seconds: 10);
     return new Timer(duration, () => {view.end = true, print("end")});

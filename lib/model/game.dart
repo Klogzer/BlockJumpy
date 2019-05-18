@@ -10,24 +10,24 @@ class Game {
   Game() {
     this.level = new Level();
   }
-
+  // this is needed for smooth movement
+  // and collision and so on
+  // add the functionality to let the model calculate at a certain tick rate
+  update(){
+    // everyThing moves by its velocity
+    // foreach entity.moveBy(velocity);
+    print(level.player.xPosition.toString());
+    level.moveEntities();
+    level.player.move();
+  }
   bool newGame() {}
 
   void nextLevel(int levelID) {}
 
-  void movePlayerRight(double factor) {
-    level.movePlayerRight(factor);
+  void movePlayer(double dx,double dy) {
+    level.player.accelerate(dx, dy);
   }
 
-  void movePlayerLeft(double factor) {
-    level.movePlayerLeft(factor);
-  }
 
-  List<GameElement> getElements() {
-    List<GameElement> elements = new List();
-
-    elements.add(level.player);
-
-    return elements;
-  }
+  get elements => level.entities;
 }

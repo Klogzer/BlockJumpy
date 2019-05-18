@@ -1,12 +1,13 @@
-import 'package:jumpdx9001deluxe/model/position_object.dart';
-import 'package:jumpdx9001deluxe/model/size_object.dart';
+import 'package:jumpdx9001deluxe/model/mixin/position_object.dart';
+import 'package:jumpdx9001deluxe/model/mixin/size_object.dart';
 
 abstract class GameElement with PositionObject, SizeObject {
 
   final int _id;
-  final String _type;
+  final List<String> _types;
 
-  GameElement(this._id, this._type, xPos, yPos, xDim, yDim) {
+
+  GameElement(this._id, this._types, xPos, yPos, xDim, yDim) {
     xPosition = xPos;
     yPosition = yPos;
     xSize = xDim;
@@ -14,5 +15,7 @@ abstract class GameElement with PositionObject, SizeObject {
   }
   int get id => _id;
 
-  String get type => _type;
+  List<String> get types => _types;
+
+
 }
