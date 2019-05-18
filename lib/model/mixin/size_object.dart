@@ -1,17 +1,17 @@
 mixin SizeObject {
 
-  int _xSize;
-  int _ySize;
+  double _xSize;
+  double _ySize;
 
-  int get xSize => _xSize;
+  double get xSize => _xSize;
 
-  set xSize(int xSize) {
+  set xSize(double xSize) {
     _xSize = xSize;
   }
 
-  int get ySize => _ySize;
+  double get ySize => _ySize;
 
-  set ySize(int ySize) {
+  set ySize(double ySize) {
     _ySize = ySize;
   }
   

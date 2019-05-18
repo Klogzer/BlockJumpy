@@ -1,13 +1,14 @@
+import 'package:jumpdx9001deluxe/model/hitbox.dart';
 import 'package:jumpdx9001deluxe/model/mixin/position_object.dart';
 import 'package:jumpdx9001deluxe/model/mixin/size_object.dart';
 
-abstract class GameElement with PositionObject, SizeObject {
+abstract class GameElement extends Hitbox{
 
   final int _id;
   final List<String> _types;
 
 
-  GameElement(this._id, this._types, xPos, yPos, xDim, yDim) {
+  GameElement(this._id, this._types, xPos, yPos, xDim, yDim){
     xPosition = xPos;
     yPosition = yPos;
     xSize = xDim;
