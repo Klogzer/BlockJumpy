@@ -30,7 +30,7 @@ class View {
     }
     print(game.level.player.xPosition.toString());
     Element viewElement;
-    game.elements.forEach((GameElement currentEntity) => {
+    game.entities.forEach((GameElement currentEntity) => {
           //print(currentEntity.xPosition.round.toString()),
           viewElement = domMap[currentEntity.id],
           //print(viewElement.classes.toString()),
@@ -53,7 +53,7 @@ class View {
     menu.style.display = "none";
     gameContainer.style.display = "block";
     Element viewElement;
-    game.elements.forEach((entity) => {
+    game.entities.forEach((entity) => {
           viewElement = Element.div(),
           viewElement.classes = entity.types,
           // set according to Model

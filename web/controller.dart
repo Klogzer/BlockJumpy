@@ -6,6 +6,8 @@ import 'dart:math';
 import 'package:jumpdx9001deluxe/model/game.dart';
 
 import 'view.dart';
+import 'package:jumpdx9001deluxe/constants.dart';
+
 
 class Controller {
   // physix and stuff
@@ -93,7 +95,7 @@ class Controller {
   // initialisierung des RenderTimers
   // eigentlich kein bedarf die wiederholungrate höher zu haben als das model rechnet
   updateView() {
-    int refreshRate = (1000 / 30).floor();
+    int refreshRate = (1000 / fps).floor();
     Duration duration = Duration(milliseconds: refreshRate);
     return new Timer.periodic(
         duration,
@@ -106,7 +108,7 @@ class Controller {
   // die Anzahl an ticks des modells
   // 144hz heist für das modell eine Höchsgeschwindigkeit von 144pixeln pro sekunde
   updateModel() {
-    int tick = (1000 / 60).floor();
+    int tick = (1000 / tickModel).floor();
     Duration duration = Duration(milliseconds: tick);
     return new Timer.periodic(
         duration,

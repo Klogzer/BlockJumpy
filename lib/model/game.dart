@@ -14,19 +14,20 @@ class Game {
   // and collision and so on
   // add the functionality to let the model calculate at a certain tick rate
   update(){
-    // everyThing moves by its velocity
-    // foreach entity.moveBy(velocity);
     print(level.player.xPosition.toString());
+    // inclusive player
     level.moveEntities();
   }
   bool newGame() {}
 
   void nextLevel(int levelID) {}
 
+
+  // entrypoint for actionlistener
   void acceleratePlayer(double dx,double dy) {
     level.player.accelerate(dx, dy);
   }
 
-
-  get elements => level.entities;
+  // entrypoint for view
+  get entities => level.entities;
 }
