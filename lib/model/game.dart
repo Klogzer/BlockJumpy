@@ -15,7 +15,7 @@ class Game {
   update(){
     print(level.player.xPosition.toString());
     // inclusive player
-    //level.moveEntities();
+    level.updateEntities();
   }
   bool newGame() {}
 

@@ -15,5 +15,5 @@ class Level {
   Player get player => _player;
 
   // moves each entity according to its velocity and gravity
-//void moveEntities() => entities.forEach((ele) => ele.move());
+  void updateEntities() => entities.forEach((ele) => ele.update());
 }

@@ -11,6 +11,7 @@ class Player extends GameElement with DynamicObject {
     newDaynamicEvent(new Vector(force, draft));
   }
 
+  @override
   void update() {
     yPosition += (-2 * duration + 250) as int;
     if (yPosition <= 0) jump;
