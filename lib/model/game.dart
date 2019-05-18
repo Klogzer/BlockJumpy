@@ -1,4 +1,3 @@
-import 'package:jumpdx9001deluxe/model/game_element.dart';
 import 'package:jumpdx9001deluxe/model/level.dart';
 
 class Game {
@@ -15,7 +14,7 @@ class Game {
   // add the functionality to let the model calculate at a certain tick rate
   update(){
     // inclusive player
-    level.moveEntities();
+    level.updateEntities();
   }
   bool newGame() {}
 
@@ -24,7 +23,7 @@ class Game {
 
   // entrypoint for actionlistener
   void acceleratePlayer(double dx,double dy) {
-    level.player.accelerate(dx, dy);
+    //level.player.accelerate(dx, dy);
   }
 
   // entrypoint for view

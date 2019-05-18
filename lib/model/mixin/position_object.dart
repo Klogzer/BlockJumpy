@@ -1,40 +1,26 @@
-import 'package:jumpdx9001deluxe/model/vector.dart';
+import 'package:jumpdx9001deluxe/constants.dart';
 
 mixin PositionObject {
 
   double _xPosition;
   double _yPosition;
 
-  // no movement its 0/0
-  // Speed in each direction
-  Vector normalVector = Vector.zero();
-
-  Vector acceleration = Vector.zero();
-
-  double force;
-
-
   double get xPosition => _xPosition;
 
   set xPosition(double xPosition) {
+    while (xPosition > StageXDimension) {
+      xPosition -= StageXDimension;
+    }
     _xPosition = xPosition;
   }
 
   double get yPosition => _yPosition;
 
   set yPosition(double yPosition) {
+    while (yPosition > StageYDimension) {
+      yPosition -= StageYDimension;
+    }
     _yPosition = yPosition;
-  }
-  // vector based movement
-  // function which is reapeatedly called
-  void move(){
-
-    this.xPosition += normalVector.x;
-    this.yPosition += normalVector.y;
-  }
-  void accelerate(double dx, double dy){
-    normalVector.x = dx;
-    normalVector.y = dy;
   }
 
 }
