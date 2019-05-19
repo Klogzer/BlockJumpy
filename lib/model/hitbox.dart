@@ -31,16 +31,6 @@ class Hitbox with PositionObject, SizeObject {
 
   @override
   String toString() {
-    return [xPosition,yPosition,xSize,ySize].toString();
-  }
-  Map toJson() => {
-    'xPosition':xPosition,
-    'yPosition':yPosition,
-    'xSize':xSize,
-    'ySize':ySize
-  };
-
-    Hitbox.fromJson(map) {
-    Hitbox(true,map['xPosition'],map['yPosition'],map['xSize'],map['ySize']);
+    return [xPosition, yPosition, xSize, ySize].toString();
   }
 }

@@ -1,5 +1,4 @@
 import 'package:jumpdx9001deluxe/constants.dart';
-import 'package:jumpdx9001deluxe/model/level.dart';
 
 mixin PositionObject {
 
@@ -27,9 +26,9 @@ mixin PositionObject {
       yPosition -= StageYDimension;
     }
 
-//    if (yPosition < 0) {
-//      yPosition += StageYDimension;
-//    }
+    if (yPosition < 0) {
+      yPosition += StageYDimension;
+    }
 
     _yPosition = yPosition;
   }

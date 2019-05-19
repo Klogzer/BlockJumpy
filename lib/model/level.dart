@@ -10,7 +10,7 @@ class Level {
   Level() {
     this._player = new Player(this);
     entities.add(_player);
-    entities.add(NormalPlatform(500, 100, 100, 20));
+    //entities.add(NormalPlatform(500, 100, 100, 20));
     entities.add(NormalPlatform(100, 300, 100, 20));
     entities.add(NormalPlatform(800, 500, 100, 20));
     entities.add(NormalPlatform(50, 700, 100, 20));
@@ -26,16 +26,4 @@ class Level {
 
   // moves each entity according to its velocity and gravity
   void updateEntities() => entities.forEach((ele) => ele.update());
-
-  Map toJson() => {
-        'player': _player,
-        'entities': entities,
-      };
-
-  Level.fromJson(map) {
-    // should be a GameElement
-    _player = Player.fromJson(map['player']);
-    // should be a list
-    entities = map['entities'];
-  }
 }
