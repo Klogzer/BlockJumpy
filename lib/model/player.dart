@@ -8,8 +8,8 @@ class Player extends GameElement with DynamicObject {
   //TODO: This is a stub, functional Constructor needed.
   Player() : super(1, ["player"], 100, 100, 50, 50);
 
-  void jump(double force, double draft) {
-    newDaynamicEvent(new Vector(force, draft));
+  void jump(double draft, double force) {
+    newDaynamicEvent(new Vector(draft, force));
   }
 
   @override
@@ -25,7 +25,7 @@ class Player extends GameElement with DynamicObject {
     this.yPosition += velocity.y - gravity;
 
     //Stub for collision detection
-    if (yPosition <= 0) jump(2, 0);
+    if (yPosition <= 0) jump(0, 2);
   }
 
   void accelerate(double dx, double dy) {
