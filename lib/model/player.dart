@@ -1,4 +1,3 @@
-import 'package:jumpdx9001deluxe/constants.dart';
 import 'package:jumpdx9001deluxe/model/game_element.dart';
 import 'package:jumpdx9001deluxe/model/mixin/dynamic_object.dart';
 import 'package:jumpdx9001deluxe/model/vector.dart';
@@ -14,7 +13,7 @@ class Player extends GameElement with DynamicObject {
 
   @override
   void update() {
-    velocity.y = gravity + ((-0.1 * duration) + 1);
+    velocity.y = -1 + ((-0.1 * duration++) + 1);
 
     this.xPosition += velocity.x;
     this.yPosition += velocity.y;

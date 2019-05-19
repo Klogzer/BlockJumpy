@@ -14,6 +14,10 @@ mixin DynamicObject {
     _velocity = velocity;
   }
 
-  int get duration => duration;
+  int get duration => _duration;
+
+  set duration(int duration) {
+    _duration = duration;
+  }
 
 }
