@@ -12,9 +12,9 @@ mixin PositionObject {
       xPosition -= StageXDimension;
     }
 
-//    if (xPosition < 0) {
-//      xPosition += StageXDimension;
-//    }
+    if (xPosition < 0) {
+      xPosition += StageXDimension;
+    }
 
     _xPosition = xPosition;
   }
@@ -26,9 +26,9 @@ mixin PositionObject {
       yPosition -= StageYDimension;
     }
 
-    if (yPosition < 0) {
-      yPosition += StageYDimension;
-    }
+//    if (yPosition < 0) {
+//      yPosition += StageYDimension;
+//    }
 
     _yPosition = yPosition;
   }
