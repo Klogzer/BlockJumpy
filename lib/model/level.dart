@@ -26,5 +26,8 @@ class Level {
   Player get player => _player;
 
   // moves each entity according to its velocity and gravity
-  void updateEntities() => entities.forEach((ele) => ele.update());
+  void updateEntities() => entities.forEach((element) => element.update());
+
+  void scroll(double value) =>
+      entities.forEach((element) => element.yPosition -= value);
 }

@@ -12,3 +12,5 @@ const int StageYDimension = 900;
 const double stdJump = 20;
 // horizontal accelaration speed
 const int horizontalAccelarationFactor = 5;
+// ...
+const double scrollThreshold = 500;

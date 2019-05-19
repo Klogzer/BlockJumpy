@@ -32,7 +32,8 @@ class Player extends GameElement with DynamicObject {
     hitbox.overlap(element.hitbox) ? element.types.any((element) =>
         element.contains("player")) ? null : jump(0, stdJump) : null);
 
-    if (yPosition <= 0) jump(0, stdJump);
+    if (yPosition > scrollThreshold) level.scroll(yPosition - scrollThreshold);
+
   }
   void accelerate(double dx, double dy) {
     accelaration.x = dx * horizontalAccelarationFactor;
