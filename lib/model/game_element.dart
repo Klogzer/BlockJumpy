@@ -45,8 +45,10 @@ abstract class GameElement with PositionObject, SizeObject {
     double yPosition = map['yPosition'];
     double xSize = map['xSize'];
     double ySize = map['ySize'];
-    Hitbox hitbox = Hitbox.fromJson(map['hitbox']);
-    if((map['types'] as List).contains("player")){
+    // no Constructor...
+    //Hitbox _hitbox = Hitbox.fromJson(map['hitbox']);
+
+    if((map['types']).contains("player")){
       return Player.test();
     }
     if((map['types'] as List).contains("normalPlatform")){

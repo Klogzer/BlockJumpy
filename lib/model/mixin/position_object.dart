@@ -1,4 +1,5 @@
 import 'package:jumpdx9001deluxe/constants.dart';
+import 'package:jumpdx9001deluxe/model/level.dart';
 
 mixin PositionObject {
 
