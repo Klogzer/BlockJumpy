@@ -9,9 +9,8 @@ class Player extends GameElement with DynamicObject {
   Level level;
 
   //TODO: This is a stub, functional Constructor needed.
-  Player.newP(id,List<String> types,xPos,yPos,xSize,ySize) : super(id, types, xPos, yPos, xSize, ySize);
-  Player.test() : super(1, ["player"], 200, 200, 50, 50);
-  Player(this.level) : super(1, ["player"], 100, 100, 50, 50);
+  Player(this.level, id, xPosition, yPosition)
+      : super(id, ["player"], yPosition, yPosition, 50, 50);
 
   void jump(double draft, double force) {
     newDaynamicEvent(new Vector(draft, force));
