@@ -14,11 +14,18 @@ abstract class GameElement with PositionObject, SizeObject {
     yPosition = yPos;
     xSize = xDim;
     ySize = yDim;
+    _hitbox = new Hitbox(true, xPosition, yPosition, xSize, ySize);
   }
   int get id => _id;
 
   List<String> get types => _types;
 
   void update() {}
+
+  Hitbox get hitbox => _hitbox;
+
+  set hitbox(Hitbox value) {
+    _hitbox = value;
+  }
 
 }

@@ -9,7 +9,7 @@ class Level {
   Level() {
     this._player = new Player();
     entities.add(_player);
-    entities.add(NormalPlatform());
+    entities.add(NormalPlatform(500, 100, 100, 20));
   }
 
   Player get player => _player;

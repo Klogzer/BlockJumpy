@@ -1,8 +1,8 @@
-import 'package:jumpdx9001deluxe/model/game_element.dart';
+import 'package:jumpdx9001deluxe/model/platform.dart';
 
-class NormalPlatform extends GameElement  {
+class NormalPlatform extends Platform {
 
-  //TODO: This is a stub, functional Constructor needed.
-  NormalPlatform() : super(2, ["platform","normalPlatform"], 0, 0, 50, 50);
+  NormalPlatform(xPos, yPos, xDim, yDim)
+      : super(2, ["platform", "normalPlatform"], xPos, yPos, xDim, yDim);
 
 }

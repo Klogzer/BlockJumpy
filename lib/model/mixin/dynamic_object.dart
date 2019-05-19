@@ -1,17 +1,17 @@
 import 'package:jumpdx9001deluxe/model/vector.dart';
 
 mixin DynamicObject {
-  Vector _velocity = new Vector(0, 0);
+  Vector _acceleration = new Vector(0, 0);
 
-  void newDaynamicEvent(Vector velocity) {
-    this.velocity.y = velocity.y;
-    //this.velocity.x = velocity.x;
+  void newDaynamicEvent(Vector acceleration) {
+    this.accelaration.y = acceleration.y;
+    //this.accelaration.x = acceleration.x;
   }
 
-  Vector get velocity => _velocity;
+  Vector get accelaration => _acceleration;
 
-  set velocity(Vector velocity) {
-    _velocity = velocity;
+  set accelaration(Vector accelaration) {
+    _acceleration = accelaration;
   }
 
 }

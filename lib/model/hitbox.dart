@@ -5,7 +5,6 @@ class Hitbox with PositionObject, SizeObject {
 
   bool _active;
 
-
   Hitbox(this._active, xPos, yPos, xDim, yDim) {
     xPosition = xPos;
     yPosition = yPos;
