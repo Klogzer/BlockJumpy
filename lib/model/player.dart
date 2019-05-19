@@ -14,16 +14,15 @@ class Player extends GameElement with DynamicObject {
 
   @override
   void update() {
+
     print('Gravity is $gravity, duration is $duration.');
 
-    velocity.y = -gravity + ((-0.1 * duration) + 1);
-
-    print('y is $velocity.y');
+    velocity.y *= 0.5;
 
     duration += 1;
 
     this.xPosition += velocity.x;
-    this.yPosition += velocity.y;
+    this.yPosition += velocity.y - gravity;
 
     //Stub for collision detection
     if (yPosition <= 0) jump(0, 0);
