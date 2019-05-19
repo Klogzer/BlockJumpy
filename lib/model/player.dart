@@ -14,7 +14,7 @@ class Player extends GameElement with DynamicObject {
 
   @override
   void update() {
-    velocity.y = ((gravity) + (-0.01 * duration) + 1) as double;
+    velocity.y = ((-gravity) + (-2 * duration) + 1);
 
     this.xPosition += velocity.x;
     this.yPosition += velocity.y;
