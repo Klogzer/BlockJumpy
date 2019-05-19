@@ -1,7 +1,7 @@
 import 'package:jumpdx9001deluxe/model/vector.dart';
 
 mixin DynamicObject {
-  int _duration;
+  int _duration = 0;
   Vector _velocity = new Vector(0, 0);
 
   void newDaynamicEvent(Vector velocity) {
