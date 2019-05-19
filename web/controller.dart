@@ -31,11 +31,6 @@ class Controller {
       viewTimer = updateView();
     });
 
-    view.jsonbutton.onClick.listen((_) {
-      //game.level = Level.fromJson("str");
-      //game.level = Level.fromJson("str");
-    });
-
     // Keyboard eventlistening
     window.onKeyDown.listen((KeyboardEvent ev) {
       if (end) return;

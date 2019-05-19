@@ -27,5 +27,5 @@ class Game {
   }
 
   // entrypoint for view
-  get entities => level.map;
+  get entities => level.entities;
 }
