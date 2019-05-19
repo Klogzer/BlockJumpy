@@ -37,7 +37,7 @@ class Controller {
     view.jsonbutton.onClick.listen((_) {
       //view.jsonbutton.innerHtml = game.level.toJson().toString();
       //view.jsonbutton.innerHtml = json.encode(game.level.toJson());
-      game.level = Level.fromJson(json.decode(jsonString));
+      //game.level = Level.fromJson(json.decode(jsonString));
       view.jsonbutton.innerHtml = Level.fromJson(json.decode(jsonString)).toString();
     });
 

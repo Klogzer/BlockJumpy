@@ -26,7 +26,9 @@ class Level {
   Level.fromJson(map) {
     // should be a GameElement
     _player = Player.fromJson(map['player']);
+
     // should be a list
-    entities = map['entities'];
+    (map['entities']as List).forEach((v)=> entities.add(Player.fromJson(v)));
+
   }
 }

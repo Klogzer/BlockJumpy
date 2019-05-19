@@ -32,8 +32,7 @@ class View {
       menu.style.display = "block";
     }
     Element viewElement;
-    game.entities.forEach(
-        (key, List<GameElement> list) => list.forEach((currentEntity) => {
+    game.entities.forEach( (currentEntity)=> {
               //print(currentEntity.xPosition.round.toString()),
               viewElement = domMap[currentEntity.id],
               //print(viewElement.classes.toString()),
@@ -41,7 +40,7 @@ class View {
                   currentEntity.yPosition.round().toString() + "px",
               viewElement.style.left =
                   currentEntity.xPosition.round().toString() + "px",
-            }));
+            });
   }
 
   void prepareGameStage(Game game) {
@@ -56,7 +55,7 @@ class View {
     menu.style.display = "none";
     gameContainer.style.display = "block";
     Element viewElement;
-    game.entities.forEach((key, List<GameElement> list) => list.forEach((entity) => {
+    game.entities.forEach((entity) => {
           viewElement = Element.div(),
           viewElement.classes = entity.types,
           // set according to Model
@@ -66,6 +65,6 @@ class View {
           stage.insertAdjacentElement("afterBegin", viewElement),
           // put in the map to call it later without the hazzle to get a real css id
           domMap.putIfAbsent(entity.id, () => viewElement)
-        }));
+        });
   }
 }
