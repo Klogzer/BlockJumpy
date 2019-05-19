@@ -6,12 +6,14 @@ mixin DynamicObject {
 
   void newDaynamicEvent(Vector velocity) {
     _duration = 0;
+  }
+
+  Vector get velocity => _velocity;
+
+  set velocity(Vector velocity) {
     _velocity = velocity;
   }
 
   int get duration => duration;
-
-
-  Vector get velocity => _velocity;
 
 }

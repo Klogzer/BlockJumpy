@@ -24,7 +24,7 @@ class Game {
 
   // entrypoint for actionlistener
   void acceleratePlayer(double dx,double dy) {
-    //level.player.accelerate(dx, dy);
+    level.player.accelerate(dx, dy);
   }
 
   // entrypoint for view

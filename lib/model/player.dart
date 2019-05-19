@@ -13,7 +13,16 @@ class Player extends GameElement with DynamicObject {
 
   @override
   void update() {
-    yPosition += (-2 * duration + 250) as int;
+    velocity.y = ((-1) + (1)) as double;
+
+    this.xPosition += velocity.x;
+    this.yPosition += velocity.y;
+
+    //Stub for collision detection
     if (yPosition <= 0) jump;
+  }
+
+  void accelerate(double dx, double dy) {
+    velocity.x = dx;
   }
 }
