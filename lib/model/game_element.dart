@@ -30,31 +30,4 @@ abstract class GameElement with PositionObject, SizeObject {
     _hitbox = value;
   }
 
-  Map toJson() => {
-    'id':_id,
-    'xPosition':xPosition,
-    'yPosition':yPosition,
-    'xSize':xSize,
-    'ySize':ySize,
-    'types':_types,
-    'hitbox':hitbox
-  };
-  static GameElement fromJson(Map<String,dynamic> map) {
-    int id = map['id'];
-    double xPosition = map['xPosition'];
-    double yPosition = map['yPosition'];
-    double xSize = map['xSize'];
-    double ySize = map['ySize'];
-    // no Constructor...
-    //Hitbox _hitbox = Hitbox.fromJson(map['hitbox']);
-
-    if((map['types']).contains("player")){
-      return Player.test();
-    }
-    if((map['types'] as List).contains("normalPlatform")){
-      return NormalPlatform(xPosition,yPosition,xSize,ySize);
-    }
-    return null;
-  }
-
 }

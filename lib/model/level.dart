@@ -18,17 +18,13 @@ class Level {
   // moves each entity according to its velocity and gravity
   void updateEntities() => entities.forEach((ele) => ele.update());
 
-  Map toJson() => {
-        'player': _player,
-        'entities': entities,
-      };
-
-  Level.fromJson(map) {
-    // should be a GameElement
-    _player = Player.fromJson(map['player']);
-
-    // should be a list
-    (map['entities']as List).forEach((v)=> entities.add(Player.fromJson(v)));
-
+  Level.fromJson(json) {
+    _player = Player.fromPosition(
+        this, int.parse(json['player'].first), int.parse(json['player'].last));
+    entities.add(_player);
+    json['normalPlatform'].forEach((sublist) => entities.add(
+        NormalPlatform.fromJson(
+            int.parse(sublist.first), int.parse(sublist.last))));
+    print(entities.toString());
   }
 }

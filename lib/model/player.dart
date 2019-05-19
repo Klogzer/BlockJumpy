@@ -40,7 +40,6 @@ class Player extends GameElement with DynamicObject {
     accelaration.x = dx * horizontalAccelarationFactor;
   }
 
-  Player.fromJson(Map<String, dynamic> json) : super(json['id'],json['types'].cast<String>(), json['xPosition'], json['yPosition'], json['xSize'], json['ySize']) {
-    hitbox = json['hitbox'] != null ? new Hitbox.fromJson(json['hitbox']) : null;
-  }
+  Player.fromPosition(this.level,xPos, yPos) : super(100, ["player"], xPos, yPos, 50, 50);
+
 }
