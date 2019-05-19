@@ -24,6 +24,6 @@ class Player extends GameElement with DynamicObject {
   }
 
   void accelerate(double dx, double dy) {
-    velocity.x = dx;
+    velocity.x = dx * horizontalAccelarationFactor;
   }
 }

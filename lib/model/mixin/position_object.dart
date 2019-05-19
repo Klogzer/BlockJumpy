@@ -11,15 +11,25 @@ mixin PositionObject {
     while (xPosition > StageXDimension) {
       xPosition -= StageXDimension;
     }
+
+    if (xPosition < 0) {
+      xPosition += StageXDimension;
+    }
+
     _xPosition = xPosition;
   }
 
   double get yPosition => _yPosition;
 
   set yPosition(double yPosition) {
-    while (yPosition > StageYDimension) {
+    if (yPosition > StageYDimension) {
       yPosition -= StageYDimension;
     }
+
+    if (yPosition < 0) {
+      yPosition += StageYDimension;
+    }
+
     _yPosition = yPosition;
   }
 

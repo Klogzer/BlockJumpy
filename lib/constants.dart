@@ -10,3 +10,5 @@ const int StageXDimension = 1000;
 const int StageYDimension = 900;
 // standard jump
 const double stdJump = 15;
+// horizontal accelaration speed
+const int horizontalAccelarationFactor = 2;
