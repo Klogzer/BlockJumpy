@@ -11,6 +11,9 @@ import 'view.dart';
 import 'package:jumpdx9001deluxe/constants.dart';
 
 class Controller {
+  String jsonString =
+      '{"player":{"id":1,"xPosition":100,"yPosition":100,"xSize":50,"ySize":50,"types":["player"],"hitbox":{"xPosition":100,"yPosition":100,"xSize":50,"ySize":50}},"entities":[{"id":1,"xPosition":100,"yPosition":100,"xSize":50,"ySize":50,"types":["player"],"hitbox":{"xPosition":100,"yPosition":100,"xSize":50,"ySize":50}},{"id":2,"xPosition":500,"yPosition":100,"xSize":100,"ySize":20,"types":["platform","normalPlatform"],"hitbox":{"xPosition":500,"yPosition":100,"xSize":100,"ySize":20}}]}';
+
   // physix and stuff
   // View
   // model
@@ -29,6 +32,13 @@ class Controller {
       view.prepareGameStage(game);
       modelTimer = updateModel();
       viewTimer = updateView();
+    });
+
+    view.jsonbutton.onClick.listen((_) {
+      //view.jsonbutton.innerHtml = game.level.toJson().toString();
+      //view.jsonbutton.innerHtml = json.encode(game.level.toJson());
+      game.level = Level.fromJson(json.decode(jsonString));
+      view.jsonbutton.innerHtml = Level.fromJson(json.decode(jsonString)).toString();
     });
 
     // Keyboard eventlistening

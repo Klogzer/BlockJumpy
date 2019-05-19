@@ -40,5 +40,7 @@ class Hitbox with PositionObject, SizeObject {
     'ySize':ySize
   };
 
-  static Hitbox fromJson(map) {}
+    Hitbox.fromJson(map) {
+    Hitbox(true,map['xPosition'],map['yPosition'],map['xSize'],map['ySize']);
+  }
 }

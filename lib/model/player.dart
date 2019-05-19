@@ -1,5 +1,6 @@
 import 'package:jumpdx9001deluxe/constants.dart';
 import 'package:jumpdx9001deluxe/model/game_element.dart';
+import 'package:jumpdx9001deluxe/model/hitbox.dart';
 import 'package:jumpdx9001deluxe/model/level.dart';
 import 'package:jumpdx9001deluxe/model/mixin/dynamic_object.dart';
 import 'package:jumpdx9001deluxe/model/vector.dart';
@@ -35,8 +36,11 @@ class Player extends GameElement with DynamicObject {
 
     if (yPosition <= 0) jump(0, stdJump);
   }
-
   void accelerate(double dx, double dy) {
     accelaration.x = dx * horizontalAccelarationFactor;
+  }
+
+  Player.fromJson(Map<String, dynamic> json) : super(json['id'],json['types'].cast<String>(), json['xPosition'], json['yPosition'], json['xSize'], json['ySize']) {
+    hitbox = json['hitbox'] != null ? new Hitbox.fromJson(json['hitbox']) : null;
   }
 }

@@ -22,6 +22,9 @@ class View {
   // querySelector for gameContainer
   final gameContainer = querySelector("#gameContainer");
 
+  // querySelector for jsonButton
+  final jsonbutton = querySelector("#json");
+
   void update(Game game) {
     //if gameover
     if (end) {
@@ -29,15 +32,16 @@ class View {
       menu.style.display = "block";
     }
     Element viewElement;
-    game.entities.forEach((GameElement currentEntity) => {
-          //print(currentEntity.xPosition.round.toString()),
-          viewElement = domMap[currentEntity.id],
-          //print(viewElement.classes.toString()),
-          viewElement.style.bottom =
-              currentEntity.yPosition.round().toString() + "px",
-          viewElement.style.left =
-              currentEntity.xPosition.round().toString() + "px",
-        });
+    game.entities.forEach(
+        (key, List<GameElement> list) => list.forEach((currentEntity) => {
+              //print(currentEntity.xPosition.round.toString()),
+              viewElement = domMap[currentEntity.id],
+              //print(viewElement.classes.toString()),
+              viewElement.style.bottom =
+                  currentEntity.yPosition.round().toString() + "px",
+              viewElement.style.left =
+                  currentEntity.xPosition.round().toString() + "px",
+            }));
   }
 
   void prepareGameStage(Game game) {
@@ -52,7 +56,7 @@ class View {
     menu.style.display = "none";
     gameContainer.style.display = "block";
     Element viewElement;
-    game.entities.forEach((entity) => {
+    game.entities.forEach((key, List<GameElement> list) => list.forEach((entity) => {
           viewElement = Element.div(),
           viewElement.classes = entity.types,
           // set according to Model
@@ -62,6 +66,6 @@ class View {
           stage.insertAdjacentElement("afterBegin", viewElement),
           // put in the map to call it later without the hazzle to get a real css id
           domMap.putIfAbsent(entity.id, () => viewElement)
-        });
+        }));
   }
 }
