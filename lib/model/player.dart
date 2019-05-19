@@ -14,12 +14,7 @@ class Player extends GameElement with DynamicObject {
 
   @override
   void update() {
-
-    print('Gravity is $gravity, duration is $duration.');
-
-    velocity.y *= 0.98;
-
-    duration += 1;
+    velocity.y *= 0.985;
 
     this.xPosition += velocity.x;
     this.yPosition += velocity.y - gravity;
