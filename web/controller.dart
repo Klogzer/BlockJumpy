@@ -1,9 +1,11 @@
 import 'dart:async';
+import 'dart:convert';
 import 'dart:html';
 
 import 'dart:math';
 
 import 'package:jumpdx9001deluxe/model/game.dart';
+import 'package:jumpdx9001deluxe/model/level.dart';
 
 import 'view.dart';
 import 'package:jumpdx9001deluxe/constants.dart';
@@ -27,6 +29,11 @@ class Controller {
       view.prepareGameStage(game);
       modelTimer = updateModel();
       viewTimer = updateView();
+    });
+
+    view.jsonbutton.onClick.listen((_) {
+      //game.level = Level.fromJson("str");
+      //game.level = Level.fromJson("str");
     });
 
     // Keyboard eventlistening
