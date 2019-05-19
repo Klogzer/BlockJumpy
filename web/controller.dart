@@ -2,13 +2,11 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:html';
 
-import 'dart:math';
-
+import 'package:jumpdx9001deluxe/constants.dart';
 import 'package:jumpdx9001deluxe/model/game.dart';
 import 'package:jumpdx9001deluxe/model/level.dart';
 
 import 'view.dart';
-import 'package:jumpdx9001deluxe/constants.dart';
 
 class Controller {
   String jsonString =
@@ -37,7 +35,7 @@ class Controller {
     view.jsonbutton.onClick.listen((_) {
       //view.jsonbutton.innerHtml = game.level.toJson().toString();
       //view.jsonbutton.innerHtml = json.encode(game.level.toJson());
-      game.level = Level.fromJson(json.decode(jsonString));
+      //game.level = Level.fromJson(json.decode(jsonString));
       view.jsonbutton.innerHtml = Level.fromJson(json.decode(jsonString)).toString();
     });
 
