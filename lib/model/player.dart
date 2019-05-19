@@ -25,7 +25,7 @@ class Player extends GameElement with DynamicObject {
     this.yPosition += velocity.y - gravity;
 
     //Stub for collision detection
-    if (yPosition <= 0) jump(0, 2);
+    if (yPosition <= 0) jump(0, stdJump);
   }
 
   void accelerate(double dx, double dy) {
