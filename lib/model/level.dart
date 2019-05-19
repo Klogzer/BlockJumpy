@@ -7,7 +7,7 @@ class Level {
   List<GameElement> entities = List();
 
   Level() {
-    this._player = new Player();
+    this._player = new Player(this);
     entities.add(_player);
     entities.add(NormalPlatform(500, 100, 100, 20));
   }
