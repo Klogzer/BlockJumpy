@@ -17,7 +17,7 @@ class Player extends GameElement with DynamicObject {
 
     print('Gravity is $gravity, duration is $duration.');
 
-    velocity.y *= 0.5;
+    velocity.y *= 0.98;
 
     duration += 1;
 
@@ -25,7 +25,7 @@ class Player extends GameElement with DynamicObject {
     this.yPosition += velocity.y - gravity;
 
     //Stub for collision detection
-    if (yPosition <= 0) jump(0, 0);
+    if (yPosition <= 0) jump(2, 0);
   }
 
   void accelerate(double dx, double dy) {

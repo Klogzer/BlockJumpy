@@ -5,7 +5,9 @@ mixin DynamicObject {
   Vector _velocity = new Vector(0, 0);
 
   void newDaynamicEvent(Vector velocity) {
-    _duration = 0;
+    this.duration = 0;
+    this.velocity.y = velocity.y;
+    //this.velocity.x = velocity.x;
   }
 
   Vector get velocity => _velocity;
