@@ -8,6 +8,12 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="favicon.ico">
     <script defer src="main.dart.js"></script>
+    <script>
+        var goFS = document.getElementById("start");
+        goFS.addEventListener("click", function() {
+            document.body.requestFullscreen();
+        }, false);
+    </script>
     <title>JUMP DX 9001 deluxe</title>
 </head>
 <body>
@@ -17,6 +23,7 @@
     <div id="menu" style="top:100px">
         <div id="start">Start Game</div>
         <div id="credits">Credits</div>
+        <div id="goFS">Go fullscreen</div>
     </div>
     <div id="gameContainer">
         <div id="info-box">
@@ -31,5 +38,11 @@
         </div>
     </div>
 </div>
+<script>
+    var goFS = document.getElementById("goFS");
+    goFS.addEventListener("click", function() {
+        document.body.requestFullscreen();
+    }, false);
+</script>
 </body>
 </html>
