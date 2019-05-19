@@ -29,5 +29,5 @@ class Level {
   void updateEntities() => entities.forEach((element) => element.update());
 
   void scroll(double value) =>
-      entities.forEach((element) => element.yPosition -= value);
+      entities.forEach((element) => element.scroll(value));
 }
