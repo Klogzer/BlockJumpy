@@ -30,6 +30,8 @@ class Player extends GameElement with DynamicObject {
     if (accelaration.y <= gravity) level.entities.forEach((element) =>
     hitbox.overlap(element.hitbox) ? element.types.any((element) =>
         element.contains("player")) ? null : jump(0, stdJump) : null);
+
+    if (yPosition <= 0) jump(0, stdJump);
   }
 
   void accelerate(double dx, double dy) {
