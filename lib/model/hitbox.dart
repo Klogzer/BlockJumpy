@@ -1,11 +1,18 @@
 import 'package:jumpdx9001deluxe/model/mixin/position_object.dart';
 import 'package:jumpdx9001deluxe/model/mixin/size_object.dart';
 
-abstract class Hitbox with PositionObject, SizeObject {
+class Hitbox with PositionObject, SizeObject {
+
   bool _active;
 
-  //currently needs an element to check if it collides
-  // better would be a return of the element it collides with
+  Hitbox(this._active, xPos, yPos, xDim, yDim) {
+    xPosition = xPos;
+    yPosition = yPos;
+    xSize = xDim;
+    ySize = yDim;
+  }
+
+
   bool overlap(Hitbox element) {
     // collision detection based on the positions and sizes ( rectangular only)
     return (this.xPosition < element.xPosition + element.xSize &&

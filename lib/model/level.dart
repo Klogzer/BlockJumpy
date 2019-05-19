@@ -1,8 +1,5 @@
-import 'dart:html';
-
 import 'package:jumpdx9001deluxe/model/game_element.dart';
 import 'package:jumpdx9001deluxe/model/normal_platform.dart';
-import 'package:jumpdx9001deluxe/model/platform.dart';
 import 'package:jumpdx9001deluxe/model/player.dart';
 
 class Level {
@@ -12,11 +9,11 @@ class Level {
   Level() {
     this._player = new Player();
     entities.add(_player);
-    entities.add(NormalPlatform());
+    entities.add(NormalPlatform(500, 100, 100, 20));
   }
 
   Player get player => _player;
 
   // moves each entity according to its velocity and gravity
-  void moveEntities() => entities.forEach((ele) => ele.move());
+  void updateEntities() => entities.forEach((ele) => ele.update());
 }
