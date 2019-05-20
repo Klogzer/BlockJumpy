@@ -10,7 +10,7 @@
     <script defer src="main.dart.js"></script>
     <script>
         var goFS = document.getElementById("start");
-        goFS.addEventListener("click", function() {
+        goFS.addEventListener("click", function () {
             document.body.requestFullscreen();
         }, false);
     </script>
@@ -24,15 +24,19 @@
         <div id="start">Start Game</div>
         <div id="credits">Credits</div>
         <div id="goFS">Go fullscreen</div>
+        <div id="level1">Level 1</div>
+        <div id="level2">Level 2</div>
+        <textarea id="textArea" name="json"></textarea>
+
     </div>
     <div id="gameContainer">
         <div id="info-box">
             <div class="info-itm">Level:</div>
-            <div class="info-itm">02</div>
+            <div class="info-itm" id="level">02</div>
             <div class="info-itm">Punkte:</div>
-            <div class="info-itm">111111</div>
+            <div class="info-itm" id="score">111111</div>
             <div class="info-itm">Highscore:</div>
-            <div class="info-itm">999999</div>
+            <div class="info-itm" id="highscore">999999</div>
         </div>
         <div id="stage">
         </div>
@@ -40,7 +44,7 @@
 </div>
 <script>
     var goFS = document.getElementById("goFS");
-    goFS.addEventListener("click", function() {
+    goFS.addEventListener("click", function () {
         document.body.requestFullscreen();
     }, false);
 </script>

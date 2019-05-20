@@ -1,3 +1,4 @@
+
 import 'package:jumpdx9001deluxe/model/level.dart';
 
 class Game {
@@ -7,6 +8,8 @@ class Game {
   int levelID;
 
   Game() {
+    levelID = 1;
+
     this.level = new Level();
   }
   // this is needed for smooth movement

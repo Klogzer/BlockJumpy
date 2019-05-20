@@ -22,10 +22,15 @@ abstract class GameElement with PositionObject, SizeObject {
 
   void update() {}
 
+  void scroll(value) {
+    this.yPosition -= value;
+    this.hitbox.yPosition -= value;
+  }
+
   Hitbox get hitbox => _hitbox;
 
-  set hitbox(Hitbox value) {
-    _hitbox = value;
+  set hitbox(Hitbox hitbox) {
+    _hitbox = hitbox;
   }
 
 }

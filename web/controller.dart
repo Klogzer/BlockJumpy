@@ -1,12 +1,13 @@
 import 'dart:async';
+import 'dart:convert';
 import 'dart:html';
+import 'dart:io' as io;
 
-import 'dart:math';
-
+import 'package:jumpdx9001deluxe/constants.dart';
 import 'package:jumpdx9001deluxe/model/game.dart';
+import 'package:jumpdx9001deluxe/model/level.dart';
 
 import 'view.dart';
-import 'package:jumpdx9001deluxe/constants.dart';
 
 class Controller {
   // physix and stuff
@@ -25,8 +26,38 @@ class Controller {
     // New game is started by user
     view.start.onClick.listen((_) {
       view.prepareGameStage(game);
+      view.mainContainer.style.width = StageXDimension.toString() + "px";
       modelTimer = updateModel();
       viewTimer = updateView();
+    });
+
+    view.levelOne.onClick.listen((_) async {
+      //view.jsonbutton.innerHtml = game.level.toJson().toString();
+      //view.jsonbutton.innerHtml = json.encode(game.level.toJson());
+      await HttpRequest.getString('level/level1.json').then((myjson) {
+        Map data = json.decode(myjson);
+        game.level = Level.fromJson(data);
+        view.prepareGameStage(game);
+        view.mainContainer.style.width = StageXDimension.toString() + "px";
+        modelTimer = updateModel();
+        viewTimer = updateView();
+      });
+
+      //view.jsonbutton.innerHtml = game.level.toString();
+      //view.jsonbutton.innerHtml = json.decode(jsonString).toString()               ;
+    });
+
+    view.levelTwo.onClick.listen((_) async {
+      //view.jsonbutton.innerHtml = game.level.toJson().toString();
+      //view.jsonbutton.innerHtml = json.encode(game.level.toJson());
+        Map data = json.decode(view.textArea.value);
+        game.level = Level.fromJson(data);
+        view.prepareGameStage(game);
+        view.mainContainer.style.width = StageXDimension.toString() + "px";
+        modelTimer = updateModel();
+        viewTimer = updateView();
+      //view.jsonbutton.innerHtml = game.level.toString();
+      //view.jsonbutton.innerHtml = json.decode(jsonString).toString()               ;
     });
 
     // Keyboard eventlistening
@@ -88,12 +119,12 @@ class Controller {
 
         final dx = (gamma > DEADZONE || gamma < -DEADZONE)
             ? ((gamma > range || gamma < -range)
-            ? ((gamma.isNegative) ? -range : range)
-            : gamma)
+                ? ((gamma.isNegative) ? -range : range)
+                : gamma)
             : 0;
 
         // normalize
-        print((dx/range).toString() +":dx");
+        print((dx / range).toString() + ":dx");
         game.acceleratePlayer(dx / range, 0);
       }
     });

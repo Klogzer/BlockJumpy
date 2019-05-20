@@ -1,7 +1,6 @@
 import 'dart:html';
 
 import 'package:jumpdx9001deluxe/model/game.dart';
-import 'package:jumpdx9001deluxe/model/game_element.dart';
 
 class View {
   // MockGameOver
@@ -22,22 +21,38 @@ class View {
   // querySelector for gameContainer
   final gameContainer = querySelector("#gameContainer");
 
+  // querySelector for gameContainer
+  final mainContainer = querySelector("#mainContainer");
+
+  // querySelector for textArea
+  final textArea = querySelector("#textArea")as TextAreaElement;
+
+  // querySelector for Stage
+  final score = querySelector("#score");
+
+  // querySelector for jsonButton
+  // querySelector for jsonButton
+  final levelOne = querySelector("#level1");
+  // querySelector for jsonButton
+  final levelTwo = querySelector("#level2");
+
   void update(Game game) {
     //if gameover
     if (end) {
       gameContainer.style.display = "none";
       menu.style.display = "block";
     }
+    score.text = game.level.player.getScoreAsText;
     Element viewElement;
-    game.entities.forEach((GameElement currentEntity) => {
-          //print(currentEntity.xPosition.round.toString()),
-          viewElement = domMap[currentEntity.id],
-          //print(viewElement.classes.toString()),
-          viewElement.style.bottom =
-              currentEntity.yPosition.round().toString() + "px",
-          viewElement.style.left =
-              currentEntity.xPosition.round().toString() + "px",
-        });
+    game.entities.forEach( (currentEntity)=> {
+              //print(currentEntity.xPosition.round.toString()),
+              viewElement = domMap[currentEntity.id],
+              //print(viewElement.classes.toString()),
+              viewElement.style.bottom =
+                  currentEntity.yPosition.round().toString() + "px",
+              viewElement.style.left =
+                  currentEntity.xPosition.round().toString() + "px",
+            });
   }
 
   void prepareGameStage(Game game) {
