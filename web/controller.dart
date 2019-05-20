@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 import 'dart:html';
 
 import 'package:jumpdx9001deluxe/constants.dart';
@@ -44,8 +45,8 @@ class Controller {
     view.jsonbutton.onClick.listen((_) {
       //view.jsonbutton.innerHtml = game.level.toJson().toString();
       //view.jsonbutton.innerHtml = json.encode(game.level.toJson());
-      game.level = Level.fromJson(json.decode(jsonString));
-      view.jsonbutton.innerHtml = game.level.toString();
+      //game.level = Level(json.decode(jsonString));
+      //view.jsonbutton.innerHtml = game.level.toString();
       //view.jsonbutton.innerHtml = json.decode(jsonString).toString()               ;
     });
 

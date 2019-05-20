@@ -1,0 +1,72 @@
+[
+  {
+    "type": [
+      "normalPlatform"
+    ],
+    "xPosition": 500,
+    "yPosition": 100
+  },
+  {
+    "type": [
+      "normalPlatform"
+    ],
+    "xPosition": 100,
+    "yPosition": 300
+  },
+  {
+    "type": [
+      "normalPlatform"
+    ],
+    "xPosition": 800,
+    "yPosition": 500
+  },
+  {
+    "type": [
+      "normalPlatform"
+    ],
+    "xPosition": 50,
+    "yPosition": 700
+  },
+  {
+    "type": [
+      "normalPlatform"
+    ],
+    "xPosition": 500,
+    "yPosition": 750
+  },
+  {
+    "type": [
+      "normalPlatform"
+    ],
+    "xPosition": 900,
+    "yPosition": 100
+  },
+  {
+    "type": [
+      "normalPlatform"
+    ],
+    "xPosition": 800,
+    "yPosition": 700
+  },
+  {
+    "type": [
+      "normalPlatform"
+    ],
+    "xPosition": 600,
+    "yPosition": 350
+  },
+  {
+    "type": [
+      "normalPlatform"
+    ],
+    "xPosition": 400,
+    "yPosition": 600
+  },
+  {
+    "type": [
+      "normalPlatform"
+    ],
+    "xPosition": 3500,
+    "yPosition": 400
+  }
+]

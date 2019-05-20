@@ -21,6 +21,9 @@ class View {
   // querySelector for gameContainer
   final gameContainer = querySelector("#gameContainer");
 
+  // querySelector for Stage
+  final score = querySelector("#score");
+
   // querySelector for jsonButton
   final jsonbutton = querySelector("#json");
 
@@ -30,6 +33,7 @@ class View {
       gameContainer.style.display = "none";
       menu.style.display = "block";
     }
+    score.text = game.level.player.score as String;
     Element viewElement;
     game.entities.forEach( (currentEntity)=> {
               //print(currentEntity.xPosition.round.toString()),
