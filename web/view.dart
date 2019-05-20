@@ -33,7 +33,7 @@ class View {
       gameContainer.style.display = "none";
       menu.style.display = "block";
     }
-    //score.text = game.level.player.score;
+    score.text = 'test';
     Element viewElement;
     game.entities.forEach( (currentEntity)=> {
               //print(currentEntity.xPosition.round.toString()),
