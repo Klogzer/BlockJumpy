@@ -24,11 +24,17 @@ class View {
   // querySelector for gameContainer
   final mainContainer = querySelector("#mainContainer");
 
+  // querySelector for textArea
+  final textArea = querySelector("#textArea")as TextAreaElement;
+
   // querySelector for Stage
   final score = querySelector("#score");
 
   // querySelector for jsonButton
-  final jsonbutton = querySelector("#json");
+  // querySelector for jsonButton
+  final levelOne = querySelector("#level1");
+  // querySelector for jsonButton
+  final levelTwo = querySelector("#level2");
 
   void update(Game game) {
     //if gameover

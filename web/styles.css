@@ -32,6 +32,17 @@ html,body {
     color: white;
     background: darkgrey;
     border: 3px solid darkgreen;
+
+}#menu > textarea{
+ width: 100%;
+     height: 300px;
+    padding: 5px 20px 5px 20px;
+    font-style: normal;
+    font-size: 2rem;
+    text-decoration: none;
+    color: white;
+    background: grey;
+    border: 3px solid darkgreen;
 }
 
 #info-box {
