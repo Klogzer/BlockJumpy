@@ -14,7 +14,6 @@ class Player extends GameElement with DynamicObject {
 
   void jump(double draft, double force) {
     score++;
-    print(score as String);
     newDaynamicEvent(new Vector(draft, force));
   }
 
