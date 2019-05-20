@@ -9,6 +9,8 @@ const int StageXDimension = 1000;
 // internal Stage height
 const int StageYDimension = 900;
 // standard jump
-const double stdJump = 20;
+const double stdJump = 25;
 // horizontal accelaration speed
 const int horizontalAccelarationFactor = 5;
+// ...
+const double scrollThreshold = 500;

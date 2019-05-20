@@ -1,14 +1,10 @@
 import 'dart:async';
-import 'dart:convert';
 import 'dart:html';
 
-import 'dart:math';
-
+import 'package:jumpdx9001deluxe/constants.dart';
 import 'package:jumpdx9001deluxe/model/game.dart';
-import 'package:jumpdx9001deluxe/model/level.dart';
 
 import 'view.dart';
-import 'package:jumpdx9001deluxe/constants.dart';
 
 class Controller {
   String jsonString = json.encode({

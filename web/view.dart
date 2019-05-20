@@ -1,7 +1,6 @@
 import 'dart:html';
 
 import 'package:jumpdx9001deluxe/model/game.dart';
-import 'package:jumpdx9001deluxe/model/game_element.dart';
 
 class View {
   // MockGameOver

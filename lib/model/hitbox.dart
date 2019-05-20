@@ -31,7 +31,6 @@ class Hitbox with PositionObject, SizeObject {
 
   @override
   String toString() {
-    return [xPosition,yPosition,xSize,ySize].toString();
+    return [xPosition, yPosition, xSize, ySize].toString();
   }
-
 }

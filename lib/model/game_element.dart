@@ -1,8 +1,6 @@
 import 'package:jumpdx9001deluxe/model/hitbox.dart';
 import 'package:jumpdx9001deluxe/model/mixin/position_object.dart';
 import 'package:jumpdx9001deluxe/model/mixin/size_object.dart';
-import 'package:jumpdx9001deluxe/model/normal_platform.dart';
-import 'package:jumpdx9001deluxe/model/player.dart';
 
 abstract class GameElement with PositionObject, SizeObject {
 
@@ -24,10 +22,15 @@ abstract class GameElement with PositionObject, SizeObject {
 
   void update() {}
 
+  void scroll(value) {
+    this.yPosition -= value;
+    this.hitbox.yPosition -= value;
+  }
+
   Hitbox get hitbox => _hitbox;
 
-  set hitbox(Hitbox value) {
-    _hitbox = value;
+  set hitbox(Hitbox hitbox) {
+    _hitbox = hitbox;
   }
 
 }
