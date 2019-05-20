@@ -32,7 +32,7 @@ class Player extends GameElement with DynamicObject {
     hitbox.yPosition = yPosition;
 
     //Collision detection
-    if (accelaration.y <= gravity) _level.entities.forEach((element) =>
+    if (accelaration.y <= gravity) level.entities.forEach((element) =>
     hitbox.overlap(element.hitbox) ? element.types.any((element) =>
         element.contains("player")) ? null : jump(0, stdJump) : null);
 
@@ -45,6 +45,12 @@ class Player extends GameElement with DynamicObject {
 
   set score(int value) {
     _score = value;
+  }
+
+  Level get level => _level;
+
+  set level(Level value) {
+    _level = value;
   }
 
 
