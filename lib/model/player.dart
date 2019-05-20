@@ -7,7 +7,7 @@ import 'package:jumpdx9001deluxe/model/vector.dart';
 class Player extends GameElement with DynamicObject {
 
   Level level;
-  int _score = 0;
+  int score = 0;
 
   Player(this.level, id, xPosition, yPosition, xSize, ySize)
       : super(id, ["player"], yPosition, yPosition, xSize, ySize);
@@ -40,12 +40,4 @@ class Player extends GameElement with DynamicObject {
   void accelerate(double dx, double dy) {
     accelaration.x = dx * horizontalAccelarationFactor;
   }
-
-  int get score => _score;
-
-  set score(int value) {
-    _score = value;
-  }
-
-
 }
