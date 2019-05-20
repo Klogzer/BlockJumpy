@@ -28,6 +28,13 @@ class Level {
   // moves each entity according to its velocity and gravity
   void updateEntities() => entities.forEach((element) => element.update());
 
-  void scroll(double value) =>
-      entities.forEach((element) => element.scroll(value));
+  Level.fromJson(json) {
+    _player = Player.fromPosition(
+        this, int.parse(json['player'].first), int.parse(json['player'].last));
+    entities.add(_player);
+    json['normalPlatform'].forEach((sublist) => entities.add(
+        NormalPlatform.fromJson(
+            int.parse(sublist.first), int.parse(sublist.last))));
+    print(entities.toString());
+  }
 }

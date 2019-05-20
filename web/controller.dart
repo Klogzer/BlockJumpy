@@ -7,8 +7,19 @@ import 'package:jumpdx9001deluxe/model/game.dart';
 import 'view.dart';
 
 class Controller {
-  String jsonString =
-      '{"player":{"id":1,"xPosition":100,"yPosition":100,"xSize":50,"ySize":50,"types":["player"],"hitbox":{"xPosition":100,"yPosition":100,"xSize":50,"ySize":50}},"entities":[{"id":1,"xPosition":100,"yPosition":100,"xSize":50,"ySize":50,"types":["player"],"hitbox":{"xPosition":100,"yPosition":100,"xSize":50,"ySize":50}},{"id":2,"xPosition":500,"yPosition":100,"xSize":100,"ySize":20,"types":["platform","normalPlatform"],"hitbox":{"xPosition":500,"yPosition":100,"xSize":100,"ySize":20}}]}';
+  String jsonString = json.encode({
+    "player": ["50", "50"],
+    "normalPlatform": [
+      ["50", "50"],
+      ["111", "500"],
+      ["50", "600"],
+      ["200", "77"],
+      ["19", "55"],
+      ["30", "33"],
+      ["10", "11"],
+      ["50", "22"]
+    ]
+  });
 
   // physix and stuff
   // View
@@ -28,6 +39,14 @@ class Controller {
       view.prepareGameStage(game);
       modelTimer = updateModel();
       viewTimer = updateView();
+    });
+
+    view.jsonbutton.onClick.listen((_) {
+      //view.jsonbutton.innerHtml = game.level.toJson().toString();
+      //view.jsonbutton.innerHtml = json.encode(game.level.toJson());
+      game.level = Level.fromJson(json.decode(jsonString));
+      view.jsonbutton.innerHtml = game.level.toString();
+      //view.jsonbutton.innerHtml = json.decode(jsonString).toString()               ;
     });
 
     // Keyboard eventlistening
@@ -89,12 +108,12 @@ class Controller {
 
         final dx = (gamma > DEADZONE || gamma < -DEADZONE)
             ? ((gamma > range || gamma < -range)
-            ? ((gamma.isNegative) ? -range : range)
-            : gamma)
+                ? ((gamma.isNegative) ? -range : range)
+                : gamma)
             : 0;
 
         // normalize
-        print((dx/range).toString() +":dx");
+        print((dx / range).toString() + ":dx");
         game.acceleratePlayer(dx / range, 0);
       }
     });
