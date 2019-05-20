@@ -6,10 +6,10 @@ import 'package:jumpdx9001deluxe/model/vector.dart';
 
 class Player extends GameElement with DynamicObject {
 
-  Level _level;
+  Level level;
   int _score = 0;
 
-  Player(this._level, id, xPosition, yPosition, xSize, ySize)
+  Player(this.level, id, xPosition, yPosition, xSize, ySize)
       : super(id, ["player"], yPosition, yPosition, xSize, ySize);
 
   void jump(double draft, double force) {
@@ -45,12 +45,6 @@ class Player extends GameElement with DynamicObject {
 
   set score(int value) {
     _score = value;
-  }
-
-  Level get level => _level;
-
-  set level(Level value) {
-    _level = value;
   }
 
 
