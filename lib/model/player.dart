@@ -12,6 +12,8 @@ class Player extends GameElement with DynamicObject {
   Player(this.level, id, xPosition, yPosition, xSize, ySize)
       : super(id, ["player"], yPosition, yPosition, xSize, ySize);
 
+  String get getScoreAsText => score.toString();
+
   void jump(double draft, double force) {
     score++;
     print(score);
