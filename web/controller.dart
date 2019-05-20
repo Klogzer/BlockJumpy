@@ -1,27 +1,15 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:html';
+import 'dart:io' as io;
 
 import 'package:jumpdx9001deluxe/constants.dart';
 import 'package:jumpdx9001deluxe/model/game.dart';
+import 'package:jumpdx9001deluxe/model/level.dart';
 
 import 'view.dart';
 
 class Controller {
-  String jsonString = json.encode({
-    "player": ["50", "50"],
-    "normalPlatform": [
-      ["50", "50"],
-      ["111", "500"],
-      ["50", "600"],
-      ["200", "77"],
-      ["19", "55"],
-      ["30", "33"],
-      ["10", "11"],
-      ["50", "22"]
-    ]
-  });
-
   // physix and stuff
   // View
   // model
@@ -38,14 +26,20 @@ class Controller {
     // New game is started by user
     view.start.onClick.listen((_) {
       view.prepareGameStage(game);
+      view.mainContainer.style.width = StageXDimension.toString()+"px";
       modelTimer = updateModel();
       viewTimer = updateView();
     });
 
-    view.jsonbutton.onClick.listen((_) {
+
+
+    view.jsonbutton.onClick.listen((_) async {
       //view.jsonbutton.innerHtml = game.level.toJson().toString();
       //view.jsonbutton.innerHtml = json.encode(game.level.toJson());
-      //game.level = Level(json.decode(jsonString));
+      await HttpRequest.getString('level1.json').then((myjson) {
+        Map data =  json.decode(myjson);
+        game.level = Level.fromJson(data);
+      });
       //view.jsonbutton.innerHtml = game.level.toString();
       //view.jsonbutton.innerHtml = json.decode(jsonString).toString()               ;
     });

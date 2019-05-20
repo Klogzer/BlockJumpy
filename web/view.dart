@@ -21,6 +21,9 @@ class View {
   // querySelector for gameContainer
   final gameContainer = querySelector("#gameContainer");
 
+  // querySelector for gameContainer
+  final mainContainer = querySelector("#mainContainer");
+
   // querySelector for Stage
   final score = querySelector("#score");
 
