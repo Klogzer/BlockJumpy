@@ -25,7 +25,7 @@ class View {
   final mainContainer = querySelector("#mainContainer");
 
   // querySelector for textArea
-  final textArea = querySelector("#textArea")as TextAreaElement;
+  final textArea = querySelector("#textArea") as TextAreaElement;
 
   // querySelector for Stage
   final score = querySelector("#score");
@@ -33,6 +33,7 @@ class View {
   // querySelector for jsonButton
   // querySelector for jsonButton
   final levelOne = querySelector("#level1");
+
   // querySelector for jsonButton
   final levelTwo = querySelector("#level2");
 
@@ -44,15 +45,16 @@ class View {
     }
     score.text = game.level.player.getScoreAsText;
     Element viewElement;
-    game.entities.forEach( (currentEntity)=> {
-              //print(currentEntity.xPosition.round.toString()),
-              viewElement = domMap[currentEntity.id],
-              //print(viewElement.classes.toString()),
-              viewElement.style.bottom =
-                  currentEntity.yPosition.round().toString() + "px",
-              viewElement.style.left =
-                  currentEntity.xPosition.round().toString() + "px",
-            });
+    game.entities.forEach((entitiy) => {
+          //print(currentEntity.xPosition.round.toString()),
+          viewElement = domMap[entitiy.id],
+          //print(viewElement.classes.toString()),
+          viewElement.style.bottom =
+              entitiy.yPosition.round().toString() + "px",
+          viewElement.style.left = entitiy.xPosition.round().toString() + "px",
+          viewElement.style.width = entitiy.xSize.round().toString() + "px",
+          viewElement.style.height = entitiy.ySize.round().toString() + "px",
+        });
   }
 
   void prepareGameStage(Game game) {
@@ -73,6 +75,8 @@ class View {
           // set according to Model
           viewElement.style.left = entity.xPosition.round().toString() + "px",
           viewElement.style.bottom = entity.yPosition.round().toString() + "px",
+          viewElement.style.width = entity.xSize.round().toString() + "px",
+          viewElement.style.height = entity.ySize.round().toString() + "px",
           viewElement.style.position = "absolute",
           stage.insertAdjacentElement("afterBegin", viewElement),
           // put in the map to call it later without the hazzle to get a real css id

@@ -57,6 +57,7 @@ class Level {
     json['normalPlatform'].forEach((sublist) => entities.add(
         NormalPlatform(nextID++, int.parse(sublist.first), int.parse(sublist.last),50,20)));
     print(entities.toString());
+    // mehr Sachen hinzufügen
   }
 
 
