@@ -8,21 +8,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="favicon.ico">
     <script defer src="main.dart.js"></script>
-    <script>
-        var goFS = document.getElementById("start");
-        goFS.addEventListener("click", function () {
-            var element = document.body.requestFullscreen();
-            if (element.requestFullscreen) {
-                element.requestFullscreen();
-            } else if (element.mozRequestFullScreen) {
-                element.mozRequestFullScreen();
-            } else if (element.webkitRequestFullScreen) {
-                element.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
-            } else if (element.msRequestFullscreen) {
-                element.msRequestFullscreen();
-            }
-        }, false);
-    </script>
+
     <title>JUMP DX 9001 deluxe</title>
 </head>
 <body>
@@ -48,14 +34,25 @@
             <div class="info-itm">Highscore:</div>
             <div class="info-itm" id="highscore">999999</div>
         </div>
+        <div id="menu-btn"></div>
         <div id="stage">
+
         </div>
     </div>
 </div>
 <script>
-    var goFS = document.getElementById("goFS");
+    var goFS = document.getElementById("start");
     goFS.addEventListener("click", function () {
-        document.body.requestFullscreen();
+        var element = document.body.requestFullscreen();
+        if (element.requestFullscreen) {
+            element.requestFullscreen();
+        } else if (element.mozRequestFullScreen) {
+            element.mozRequestFullScreen();
+        } else if (element.webkitRequestFullScreen) {
+            element.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
+        } else if (element.msRequestFullscreen) {
+            element.msRequestFullscreen();
+        }
     }, false);
 </script>
 </body>

@@ -1,21 +1,19 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:html';
-import 'dart:io' as io;
 
 import 'package:jumpdx9001deluxe/constants.dart';
 import 'package:jumpdx9001deluxe/model/game.dart';
 import 'package:jumpdx9001deluxe/model/level.dart';
-
-import 'view.dart';
+import 'package:jumpdx9001deluxe/view/view.dart';
 
 class Controller {
   // physix and stuff
   // View
   // model
   bool end = false;
-  Timer viewTimer;
-  Timer modelTimer;
+  Timer _viewTimer;
+  Timer _modelTimer;
 
   Game game;
 
@@ -25,39 +23,24 @@ class Controller {
   Controller(this.view, this.game) {
     // New game is started by user
     view.start.onClick.listen((_) {
-      view.prepareGameStage(game);
-      view.mainContainer.style.width = StageXDimension.toString() + "px";
-      modelTimer = updateModel();
-      viewTimer = updateView();
+      startGame(game);
     });
 
     view.levelOne.onClick.listen((_) async {
-      //view.jsonbutton.innerHtml = game.level.toJson().toString();
-      //view.jsonbutton.innerHtml = json.encode(game.level.toJson());
       await HttpRequest.getString('level/level1.json').then((myjson) {
         Map data = json.decode(myjson);
         game.level = Level.fromJson(data);
-        view.prepareGameStage(game);
-        view.mainContainer.style.width = StageXDimension.toString() + "px";
-        modelTimer = updateModel();
-        viewTimer = updateView();
+        startGame(game);
       });
-
-      //view.jsonbutton.innerHtml = game.level.toString();
-      //view.jsonbutton.innerHtml = json.decode(jsonString).toString()               ;
     });
 
     view.levelTwo.onClick.listen((_) async {
-      //view.jsonbutton.innerHtml = game.level.toJson().toString();
-      //view.jsonbutton.innerHtml = json.encode(game.level.toJson());
-        Map data = json.decode(view.textArea.value);
-        game.level = Level.fromJson(data);
-        view.prepareGameStage(game);
-        view.mainContainer.style.width = StageXDimension.toString() + "px";
-        modelTimer = updateModel();
-        viewTimer = updateView();
-      //view.jsonbutton.innerHtml = game.level.toString();
-      //view.jsonbutton.innerHtml = json.decode(jsonString).toString()               ;
+      Map data = json.decode(view.textArea.value);
+      game.level = Level.fromJson(data);
+      view.prepareGameStage(game);
+      view.mainContainer.style.width = StageXDimension.toString() + "px";
+      _modelTimer = startModel();
+      _viewTimer = startView();
     });
 
     // Keyboard eventlistening
@@ -72,12 +55,6 @@ class Controller {
           game.acceleratePlayer(1, 0);
           print("Right");
           break;
-        case KeyCode.UP:
-          print("Up");
-          break;
-        case KeyCode.DOWN:
-          print("Down");
-          break;
       }
     });
     // Keyboard eventlistening
@@ -91,12 +68,6 @@ class Controller {
         case KeyCode.RIGHT:
           game.acceleratePlayer(0, 0);
           print("Right");
-          break;
-        case KeyCode.UP:
-          print("Up");
-          break;
-        case KeyCode.DOWN:
-          print("Down");
           break;
       }
     });
@@ -117,8 +88,8 @@ class Controller {
         // tilt for max acceleration
         int range = 30;
 
-        final dx = (gamma > DEADZONE || gamma < -DEADZONE)
-            ? ((gamma > range || gamma < -range)
+        final dx = (gamma.abs() > DEADZONE)
+            ? ((gamma.abs() > range)
                 ? ((gamma.isNegative) ? -range : range)
                 : gamma)
             : 0;
@@ -132,10 +103,10 @@ class Controller {
 
   // initialisierung des RenderTimers
   // eigentlich kein bedarf die wiederholungrate höher zu haben als das model rechnet
-  updateView() {
+  startView() {
     int refreshRate = (1000 / fps).floor();
     Duration duration = Duration(milliseconds: refreshRate);
-    return new Timer.periodic(
+    _viewTimer = Timer.periodic(
         duration,
         (Timer t) => {
               view.update(game),
@@ -144,12 +115,18 @@ class Controller {
             });
   }
 
+  void startGame(game) {
+    view.prepareGameStage(game);
+    startModel();
+    startView();
+  }
+
   // die Anzahl an ticks des modells
   // 144hz heist für das modell eine Höchsgeschwindigkeit von 144pixeln pro sekunde
-  updateModel() {
+  startModel() {
     int tick = (1000 / tickModel).floor();
     Duration duration = Duration(milliseconds: tick);
-    return new Timer.periodic(
+    _modelTimer = Timer.periodic(
         duration,
         (Timer t) => {
               game.update(),
@@ -158,8 +135,15 @@ class Controller {
             });
   }
 
-  stopGameByTimer() {
-    Duration duration = Duration(seconds: 10);
-    return new Timer(duration, () => {view.end = true, print("end")});
+  // called for pausing the model
+  // game is able to be paused
+  pause() {
+    _modelTimer.cancel();
+    _viewTimer.cancel();
+  }
+  // called when resuming, necessity unknown
+  resume(){
+    startModel();
+    startView();
   }
 }

@@ -55,6 +55,13 @@ html,body {
 .info-itm {
     text-align: center;
 }
+#menu-btn{
+    margin-left: auto;
+    margin-right: 0px;
+    width: 50px;
+    height: 50px;
+    background-color: beige;
+}
 
 #overlay {
     display: none;
