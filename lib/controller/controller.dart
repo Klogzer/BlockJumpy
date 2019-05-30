@@ -21,29 +21,53 @@ class Controller {
 
   // Timer etc
   Controller(this.view, this.game) {
-    // New game is started by user
-    view.start.onClick.listen((_) {
-      startGame(game);
+    ///
+    ///
+    /// Actionlistener for buttons in menu
+    ///
+    ///
+
+    /// Level 2
+    view.levelTwo.onClick.listen((_) async {
+      // load json from textfield
+      Map data = json.decode(view.textArea.value);
+      // update level from json
+      game.level = Level.fromJson(data);
+      //start game
+      startGame();
     });
 
+    ///start button
+    view.start.onClick.listen((_) {
+      // start game with default level
+      startGame();
+    });
+
+    view.menuBtn.onClick.listen((_) {
+      pauseGame();
+      view.drawPauseMenu();
+    });
+
+    /// level 1
     view.levelOne.onClick.listen((_) async {
+      // load json file
       await HttpRequest.getString('level/level1.json').then((myjson) {
         Map data = json.decode(myjson);
+        // update level from json
         game.level = Level.fromJson(data);
-        startGame(game);
+        // startGame with the updated level
+        startGame();
       });
     });
 
-    view.levelTwo.onClick.listen((_) async {
-      Map data = json.decode(view.textArea.value);
-      game.level = Level.fromJson(data);
-      view.prepareGameStage(game);
-      view.mainContainer.style.width = StageXDimension.toString() + "px";
-      _modelTimer = startModel();
-      _viewTimer = startView();
-    });
+    ///
+    ///
+    /// Deviceslistener
+    ///
+    ///
 
-    // Keyboard eventlistening
+    /// Keyboard eventlistening
+    /// KEYDOWN
     window.onKeyDown.listen((KeyboardEvent ev) {
       if (end) return;
       switch (ev.keyCode) {
@@ -57,7 +81,9 @@ class Controller {
           break;
       }
     });
-    // Keyboard eventlistening
+
+    /// Keyboard eventlistening
+    /// KEYUP
     window.onKeyUp.listen((KeyboardEvent ev) {
       if (end) return;
       switch (ev.keyCode) {
@@ -72,8 +98,7 @@ class Controller {
       }
     });
 
-    // Device orientation event handler.
-    //
+    /// Device orientation event handler.
     window.onDeviceOrientation.listen((ev) {
       // No device orientation
       if (ev.alpha == null && ev.beta == null && ev.gamma == null) {
@@ -88,14 +113,17 @@ class Controller {
         // tilt for max acceleration
         int range = 30;
 
+        // dx is 0 if (2 > gamma > -2)
+        // dx is +-30 if (30 < gamma < -30)
+        // dx is gamma if (30 >= gamma >= -30)
+
         final dx = (gamma.abs() > DEADZONE)
             ? ((gamma.abs() > range)
                 ? ((gamma.isNegative) ? -range : range)
                 : gamma)
             : 0;
 
-        // normalize
-        print((dx / range).toString() + ":dx");
+        // normalizing dx (1 >= dx >= -1)
         game.acceleratePlayer(dx / range, 0);
       }
     });
@@ -115,9 +143,13 @@ class Controller {
             });
   }
 
-  void startGame(game) {
-    view.prepareGameStage(game);
+  /// starts game
+  void startGame() {
+    //hides menu and shows gamestage
+    view.prepareGameStage();
+    // updates the model
     startModel();
+    // updates DOM
     startView();
   }
 
@@ -135,14 +167,15 @@ class Controller {
             });
   }
 
-  // called for pausing the model
-  // game is able to be paused
-  pause() {
+  /// called for pausing the model
+  /// game is able to be paused
+  pauseGame() {
     _modelTimer.cancel();
     _viewTimer.cancel();
   }
-  // called when resuming, necessity unknown
-  resume(){
+
+  /// called when resuming, necessity unknown
+  resumeGame() {
     startModel();
     startView();
   }

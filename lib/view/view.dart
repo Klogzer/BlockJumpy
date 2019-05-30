@@ -23,6 +23,9 @@ class View {
   // querySelector for gameContainer
   final gameContainer = querySelector("#gameContainer");
 
+  // querySelector for resumeBtn
+  final resumeBtn = querySelector("#resum");
+
   // querySelector for gameContainer
   final mainContainer = querySelector("#mainContainer");
 
@@ -40,7 +43,6 @@ class View {
 
   // querySelector for jsonButton
   final levelTwo = querySelector("#level2");
-
 
   /// inserts GameElement into DOM
   /// keeps track of it
@@ -64,7 +66,7 @@ class View {
         domMap.putIfAbsent(e.id, () => viewElement);
       }
       // get the element in the map
-      else{
+      else {
         viewElement = domMap[e.id];
       }
       // todo implement hidden display:none if not in stage
@@ -74,11 +76,10 @@ class View {
       viewElement.style.width = e.xSize.round().toString() + "px";
       viewElement.style.height = e.ySize.round().toString() + "px";
       viewElement.style.position = "absolute";
-
     }
   }
 
-  void prepareGameStage(Game game) {
+  void prepareGameStage() {
     // removes all Element from map
     mainContainer.style.width = StageXDimension.toString() + "px";
     domMap.clear();
@@ -86,5 +87,16 @@ class View {
     stage.innerHtml = "";
     menu.style.display = "none";
     gameContainer.style.display = "block";
+  }
+
+  drawGameStage() {
+    menu.style.display = "none";
+    gameContainer.style.display = "block";
+  }
+
+  drawPauseMenu() {
+    menu.style.display = "block";
+    gameContainer.style.display = "none";
+    start.text = "Resume";
   }
 }
