@@ -42,7 +42,7 @@ class View {
   final levelOne = querySelector("#level1");
 
   // querySelector for jsonButton
-  final levelTwo = querySelector("#level2");
+  final levelFromTextarea = querySelector("#levelFromTextarea");
 
   /// inserts GameElement into DOM
   /// keeps track of it
@@ -79,22 +79,18 @@ class View {
     }
   }
 
-  void prepareGameStage() {
+  void drawGameStage() {
     // removes all Element from map
-    mainContainer.style.width = StageXDimension.toString() + "px";
     domMap.clear();
+    mainContainer.style.width = StageXDimension.toString() + "px";
     // emptys stage div
     stage.innerHtml = "";
     menu.style.display = "none";
     gameContainer.style.display = "block";
   }
 
-  drawGameStage() {
-    menu.style.display = "none";
-    gameContainer.style.display = "block";
-  }
-
   drawPauseMenu() {
+    mainContainer.style.width = "100%";
     menu.style.display = "block";
     gameContainer.style.display = "none";
     start.text = "Resume";

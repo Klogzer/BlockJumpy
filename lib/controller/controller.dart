@@ -28,7 +28,7 @@ class Controller {
     ///
 
     /// Level 2
-    view.levelTwo.onClick.listen((_) async {
+    view.levelFromTextarea.onClick.listen((_) async {
       // load json from textfield
       Map data = json.decode(view.textArea.value);
       // update level from json
@@ -146,7 +146,7 @@ class Controller {
   /// starts game
   void startGame() {
     //hides menu and shows gamestage
-    view.prepareGameStage();
+    view.drawGameStage();
     // updates the model
     startModel();
     // updates DOM
