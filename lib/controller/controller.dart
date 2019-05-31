@@ -8,9 +8,9 @@ import 'package:jumpdx9001deluxe/model/level.dart';
 import 'package:jumpdx9001deluxe/view/view.dart';
 
 class Controller {
-  // physix and stuff
-  // View
-  // model
+  /// physix and stuff
+  /// View
+  /// model
   bool end = false;
   Timer _viewTimer;
   Timer _modelTimer;
@@ -129,15 +129,15 @@ class Controller {
     });
   }
 
-  // initialisierung des RenderTimers
-  // eigentlich kein bedarf die wiederholungrate höher zu haben als das model rechnet
+  /// initialisierung des RenderTimers
+  /// eigentlich kein bedarf die wiederholungrate höher zu haben als das model rechnet
   startView() {
     int refreshRate = (1000 / fps).floor();
     Duration duration = Duration(milliseconds: refreshRate);
     _viewTimer = Timer.periodic(
         duration,
         (Timer t) => {
-              view.update(game),
+          view.update(),
               // ending condition
               //(game.getElements().first.xPosition >= 100) ? t.cancel() : null,
             });
@@ -153,8 +153,8 @@ class Controller {
     startView();
   }
 
-  // die Anzahl an ticks des modells
-  // 144hz heist für das modell eine Höchsgeschwindigkeit von 144pixeln pro sekunde
+  /// die Anzahl an ticks des modells
+  /// 144hz heist für das modell eine Höchsgeschwindigkeit von 144pixeln pro sekunde
   startModel() {
     int tick = (1000 / tickModel).floor();
     Duration duration = Duration(milliseconds: tick);
