@@ -5,13 +5,12 @@ import 'package:jumpdx9001deluxe/model/player.dart';
 
 // static width
 class Level {
+  int width;
   Player _player;
   int nextID = 0;
   List<GameElement> entities = List();
 
   Level() {
-
-
     this._player = new Player(this, nextID++, 500, 100, 50, 50);
     entities.add(_player);
     entities.add(NormalPlatform(nextID++, 500, 100, 50, 20));
@@ -30,7 +29,6 @@ class Level {
 //
 //    json['normalPlatform'].forEach((sublist) => entities.add(NormalPlatform(nextID++, int.parse(sublist.first), int.parse(sublist.last), 100, 20)));
 //    print(entities.toString());
-
   }
 
   Player get player => _player;
@@ -38,27 +36,35 @@ class Level {
   // moves each entity according to its velocity and gravity
   void updateEntities() {
     entities.forEach((element) => element.update());
-    if (player.yPosition > scrollThreshold) scroll(
-        player.yPosition - scrollThreshold);
+    if (player.yPosition > scrollThreshold) {
+      scroll(player.yPosition - scrollThreshold);
+    }
   }
 
   void scroll(double value) =>
       entities.forEach((element) => element.scroll(value));
 
-  readLevel(String s) {
-
-
-  }
+  readLevel(String s) {}
 
   Level.fromJson(json) {
+    width = json['levelWidth'];
     _player = Player(
-        this,nextID++, int.parse(json['player'].first), int.parse(json['player'].last),50,50);
+        this, nextID++,
+        json['player'][0],
+        json['player'][1],
+        json['player'][2],
+        json['player'][3]
+    );
     entities.add(_player);
-    json['normalPlatform'].forEach((sublist) => entities.add(
-        NormalPlatform(nextID++, int.parse(sublist.first), int.parse(sublist.last),50,20)));
+    json['normalPlatform'].forEach((sublist) =>
+        entities.add(NormalPlatform(
+            nextID++,
+            sublist[0],
+            sublist[1],
+            sublist[2],
+            sublist[3]
+        )));
     print(entities.toString());
     // mehr Sachen hinzufügen
   }
-
-
 }

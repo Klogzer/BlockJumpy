@@ -14,18 +14,6 @@
 <body>
 <div id="mainContainer">
     <div id="overlay">
-    </div>
-    <div id="menu" style="top:100px">
-        <div id="start">Start Game</div>
-        <div id="goFS" onclick="fullscreen()" href="javascript:void(0);">Toggle fullscreen</div>
-        <div id="level1">Level 1</div>
-        <div id="levelFromTextarea">load from Textarea</div>
-        <h2>Textarea for json</h2>
-        <div><textarea id="textArea" name="json"></textarea></div>
-        <div id="credits">Credits</div>
-
-    </div>
-    <div id="gameContainer">
         <div id="info-box">
             <div class="info-itm">Level:</div>
             <div class="info-itm" id="level">02</div>
@@ -35,9 +23,17 @@
             <div class="info-itm" id="highscore">999999</div>
         </div>
         <div id="menu-btn"></div>
-        <div id="stage">
-
-        </div>
+    </div>
+    <div id="menu" style="top:100px">
+        <div id="start">Start Game</div>
+        <div id="goFS" onclick="fullscreen()" href="javascript:void(0);">Toggle fullscreen</div>
+        <div id="level1">Level 1</div>
+        <div id="levelFromTextarea">load from Textarea</div>
+        <h2>Textarea for json</h2>
+        <div><textarea id="textArea" name="json"></textarea></div>
+        <div id="credits">Credits</div>
+    </div>
+    <div id="stage">
     </div>
 </div>
 <script>
@@ -47,34 +43,34 @@
     /// https://stackoverflow.com/questions/36672561/how-to-exit-fullscreen-onclick-using-javascript
     /// Copy + Paste
     function fullscreen() {
-    var isInFullScreen = (document.fullscreenElement && document.fullscreenElement !== null) ||
-        (document.webkitFullscreenElement && document.webkitFullscreenElement !== null) ||
-        (document.mozFullScreenElement && document.mozFullScreenElement !== null) ||
-        (document.msFullscreenElement && document.msFullscreenElement !== null);
+        var isInFullScreen = (document.fullscreenElement && document.fullscreenElement !== null) ||
+            (document.webkitFullscreenElement && document.webkitFullscreenElement !== null) ||
+            (document.mozFullScreenElement && document.mozFullScreenElement !== null) ||
+            (document.msFullscreenElement && document.msFullscreenElement !== null);
 
-    var docElm = document.documentElement;
-    if (!isInFullScreen) {
-        if (docElm.requestFullscreen) {
-            docElm.requestFullscreen();
-        } else if (docElm.mozRequestFullScreen) {
-            docElm.mozRequestFullScreen();
-        } else if (docElm.webkitRequestFullScreen) {
-            docElm.webkitRequestFullScreen();
-        } else if (docElm.msRequestFullscreen) {
-            docElm.msRequestFullscreen();
-        }
-    } else {
-        if (document.exitFullscreen) {
-            document.exitFullscreen();
-        } else if (document.webkitExitFullscreen) {
-            document.webkitExitFullscreen();
-        } else if (document.mozCancelFullScreen) {
-            document.mozCancelFullScreen();
-        } else if (document.msExitFullscreen) {
-            document.msExitFullscreen();
+        var docElm = document.documentElement;
+        if (!isInFullScreen) {
+            if (docElm.requestFullscreen) {
+                docElm.requestFullscreen();
+            } else if (docElm.mozRequestFullScreen) {
+                docElm.mozRequestFullScreen();
+            } else if (docElm.webkitRequestFullScreen) {
+                docElm.webkitRequestFullScreen();
+            } else if (docElm.msRequestFullscreen) {
+                docElm.msRequestFullscreen();
+            }
+        } else {
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            } else if (document.webkitExitFullscreen) {
+                document.webkitExitFullscreen();
+            } else if (document.mozCancelFullScreen) {
+                document.mozCancelFullScreen();
+            } else if (document.msExitFullscreen) {
+                document.msExitFullscreen();
+            }
         }
     }
-}
 </script>
 </body>
 </html>
