@@ -25,18 +25,18 @@ class Player extends GameElement with DynamicObject {
   @override
   void update() {
     //Calculate vertical-vector
-    setXacceleration(getYacceleration() * 0.985);
+    this.acceleration.y *= 0.985;
 
     //Calculate Position
-    this.xPosition += getXacceleration();
-    this.yPosition += getYacceleration() - gravity;
+    this.xPosition += this.acceleration.y;
+    this.yPosition += this.acceleration.y - gravity;
 
     //update Hitbox
     hitbox.xPosition = this.xPosition;
     hitbox.yPosition = this.yPosition;
 
     //Collision detection
-    if (getYacceleration() <= gravity) {
+    if (this.acceleration.y <= gravity) {
       _level.entities.forEach((element) =>
       hitbox.overlap(element.hitbox)
           ? element.types.any((element) => element.contains("player"))
@@ -47,7 +47,7 @@ class Player extends GameElement with DynamicObject {
   }
 
   void accelerate(double dx, double dy) {
-    setXacceleration(dx * horizontalAccelarationFactor);
+    this.acceleration.x = dx * horizontalAccelarationFactor;
   }
 
   @override

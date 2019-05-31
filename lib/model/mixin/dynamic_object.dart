@@ -13,20 +13,4 @@ mixin DynamicObject {
   set acceleration(Vector acceleration) {
     _acceleration = acceleration;
   }
-
-  double getXacceleration() {
-    return acceleration.x;
-  }
-
-  setXacceleration(double x) {
-    acceleration.x = x;
-  }
-
-  double getYacceleration() {
-    return acceleration.y;
-  }
-
-  setYacceleration(double y) {
-    acceleration.y = y;
-  }
 }
