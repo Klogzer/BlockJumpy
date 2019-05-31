@@ -19,7 +19,6 @@ class Game {
     // inclusive player
     level.updateEntities();
   }
-  bool newGame() {}
 
   void nextLevel(int levelID) {}
 

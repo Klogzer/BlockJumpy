@@ -3,14 +3,10 @@ const int fps = 60;
 // const for modell tick
 const int tickModel = 90;
 // const for gravity
-const double gravity = 10;
-// internal Stage width
-const int StageXDimension = 375;
-// internal Stage height
-const int StageYDimension = 900;
+const double gravity = 0.01;
 // standard jump
-const double stdJump = 25;
+const double stdJump = 0.025;
 // horizontal accelaration speed
-const int horizontalAccelarationFactor = 5;
+const double horizontalAccelarationFactor = 5;
 // ...
-const double scrollThreshold = 500;
+const double scrollThreshold = 0.5;

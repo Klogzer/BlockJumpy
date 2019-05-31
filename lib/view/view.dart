@@ -1,6 +1,5 @@
 import 'dart:html';
 
-import 'package:jumpdx9001deluxe/constants.dart';
 import 'package:jumpdx9001deluxe/model/game.dart';
 import 'package:jumpdx9001deluxe/model/game_element.dart';
 
@@ -82,7 +81,7 @@ class View {
   void drawGameStage() {
     // removes all Element from map
     domMap.clear();
-    mainContainer.style.width = StageXDimension.toString() + "px";
+    mainContainer.style.width = 500.toString() + "px";
     // emptys stage div
     stage.innerHtml = "";
     menu.style.display = "none";
