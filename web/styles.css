@@ -14,6 +14,7 @@ html, body {
     height: 100%;
     border: solid black 1px;
     background-color: white;
+    max-width: 1000px;
 }
 
 #gameContainer {
@@ -64,11 +65,18 @@ html, body {
 }
 
 #overlay {
+    position: fixed;
+    width: 100%;
+    height:100%;
     display: none;
 }
 
 #stage {
     background: blue;
+    height: 100%;
+    width: 100%;
+    display: none;
+
 }
 
 .player {

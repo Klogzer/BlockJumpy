@@ -4,5 +4,8 @@ import 'package:jumpdx9001deluxe/model/game.dart';
 import 'package:jumpdx9001deluxe/view/view.dart';
 
 void main() {
-  Controller(View(),Game());
+
+  Game game = Game();
+  View view = View(game);
+  Controller(view,game);
 }

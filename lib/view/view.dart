@@ -1,9 +1,15 @@
 import 'dart:html';
 
-import 'package:jumpdx9001deluxe/model/game.dart';
 import 'package:jumpdx9001deluxe/model/game_element.dart';
 
 class View {
+  /// Viewport size
+  int screenHeight = window.innerHeight;
+  int screenWidth = window.innerWidth;
+
+
+  var game;
+  View(this.game);
   // MockGameOver
   bool end = false;
 
@@ -19,8 +25,6 @@ class View {
   // querySelector for start
   final start = querySelector("#start");
 
-  // querySelector for gameContainer
-  final gameContainer = querySelector("#gameContainer");
 
   // querySelector for resumeBtn
   final resumeBtn = querySelector("#resum");
@@ -43,55 +47,65 @@ class View {
   // querySelector for jsonButton
   final levelFromTextarea = querySelector("#levelFromTextarea");
 
+  // querySelector for overlay
+  final overlay = querySelector("#overlay");
+
   /// inserts GameElement into DOM
   /// keeps track of it
   /// updates it
-  void update(Game game) {
+  void update() {
     //if gameover
     if (end) {
-      gameContainer.style.display = "none";
+      stage.style.display = "none";
       menu.style.display = "block";
     }
 
     score.text = game.level.player.getScoreAsText;
 
-    Element viewElement;
+    Element vElement;
     for (GameElement e in game.entities) {
       // creates en element if it is not in the map yet
       if (!domMap.containsKey(e.id)) {
-        viewElement = Element.div();
-        viewElement.classes = e.types;
-        stage.insertAdjacentElement("afterBegin", viewElement);
-        domMap.putIfAbsent(e.id, () => viewElement);
+        vElement = Element.div();
+        vElement.classes = e.types;
+        vElement.style.position = "absolute";
+        stage.insertAdjacentElement("afterBegin", vElement);
+        domMap.putIfAbsent(e.id, () => vElement);
       }
       // get the element in the map
       else {
-        viewElement = domMap[e.id];
+        vElement = domMap[e.id];
       }
       // todo implement hidden display:none if not in stage
       // updates DOM according to the model
-      viewElement.style.left = e.xPosition.round().toString() + "px";
-      viewElement.style.bottom = e.yPosition.round().toString() + "px";
-      viewElement.style.width = e.xSize.round().toString() + "px";
-      viewElement.style.height = e.ySize.round().toString() + "px";
-      viewElement.style.position = "absolute";
+      updateElement(vElement,e);
     }
   }
 
   void drawGameStage() {
-    // removes all Element from map
+    // removes all Elements from map
     domMap.clear();
-    mainContainer.style.width = 500.toString() + "px";
+    //mainContainer.style.width = StageXDimension.toString() + "px";
     // emptys stage div
     stage.innerHtml = "";
     menu.style.display = "none";
-    gameContainer.style.display = "block";
+    stage.style.display = "block";
+    overlay.style.display = "block";
   }
 
   drawPauseMenu() {
-    mainContainer.style.width = "100%";
+    //mainContainer.style.width = "100%";
     menu.style.display = "block";
-    gameContainer.style.display = "none";
+    stage.style.display = "none";
     start.text = "Resume";
+    overlay.style.display = "none";
   }
+
+  updateElement(Element vElement ,GameElement e){
+  vElement.style.left = (0.1*100).toString() + "%";
+  vElement.style.bottom = (0.1*100).toString() + "%";
+  vElement.style.width = (0.1*100).toString() + "%";
+  vElement.style.height = (0.1*100).toString() + "%";
+  }
+
 }
