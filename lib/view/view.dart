@@ -1,4 +1,5 @@
 import 'dart:html';
+import 'dart:math';
 
 import 'package:jumpdx9001deluxe/model/game.dart';
 import 'package:jumpdx9001deluxe/model/game_element.dart';
@@ -106,8 +107,9 @@ class View {
 
 
     /// camera 0-1 tagged to the player run height
-    cameraPosition = game.level.player.hight;
-    double cameraTopBorder = cameraPosition + cameraRatio / 2;
+
+    cameraPosition= max(cameraPosition , game.level.player.hight - cameraRatio / 2);
+    double cameraTopBorder = cameraPosition + cameraRatio;
     double cameraBottomBorder = cameraPosition - cameraRatio / 2;
     f1.text = cameraPosition.toString();
     f2.text = cameraTopBorder.toString();
@@ -133,7 +135,9 @@ class View {
       updateElement(vElement, e);
       }
       else{
-        //vElement.style.display ="none";
+        // isnt in the viewport doesnt need to be displayed
+        vElement.remove();
+        domMap.remove(e.id);
       }
 
     }
@@ -165,5 +169,8 @@ class View {
     vElement.style.bottom = ((e.yPosition -cameraPosition) * 100 /cameraRatio ).toString() + "%";
     vElement.style.width = (e.xSize * 100).toString() + "%";
     vElement.style.height = (e.ySize * 100 /cameraRatio).toString() + "%";
+  }
+  moveCamera(){
+
   }
 }
