@@ -2,10 +2,9 @@
 import 'package:jumpdx9001deluxe/model/level.dart';
 
 class Game {
-  Level level;
-  List<int> highscore;
-  int state;
-  int levelID;
+  Level _level;
+  int _highscore = 0;
+  int _levelID;
 
   Game() {
     levelID = 1;
@@ -30,4 +29,24 @@ class Game {
 
   // entrypoint for view
   get entities => level.entities;
+
+  int get levelID => _levelID;
+
+  set levelID(int value) {
+    _levelID = value;
+  }
+
+  int get highscore => _highscore;
+
+  set highscore(int value) {
+    _highscore = value;
+  }
+
+  Level get level => _level;
+
+  set level(Level value) {
+    _level = value;
+  }
+
+
 }
