@@ -44,8 +44,10 @@ class Level {
     entities.add(player);
     json['normalPlatform'].forEach((json) => entities.add(NormalPlatform.fromJson(nextID++,json)));
     json['boostPlatform'].forEach((json) =>  entities.add(BoostPlatform.fromJson(nextID++,json)));
-    json['boostPlatform'].forEach((json) =>  entities.add(DeadlyPlatform.fromJson(nextID++,json)));
-    json['boostPlatform'].forEach((json) =>  entities.add(ProtectionPlatform.fromJson(nextID++,json)));
+    json['deadlyPlatform'].forEach((json) =>
+        entities.add(DeadlyPlatform.fromJson(nextID++, json)));
+    json['protectionPlatform'].forEach((json) =>
+        entities.add(ProtectionPlatform.fromJson(nextID++, json)));
   }
 
   Player get player => _player;

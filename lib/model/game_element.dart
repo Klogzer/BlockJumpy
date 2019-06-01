@@ -5,7 +5,7 @@ import 'package:jumpdx9001deluxe/model/mixin/size_object.dart';
 abstract class GameElement with PositionObject, SizeObject {
 
   final int _id;
-  final List<String> _types;
+  List<String> _types;
 
   Hitbox _hitbox = new Hitbox(true, 0, 0, 0, 0);
 

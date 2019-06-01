@@ -74,7 +74,7 @@ html, body {
 }
 
 #stage {
-    background: blue;
+    background: lightslategrey;
     height: 100%;
     width: 100%;
     display: none;
@@ -103,7 +103,7 @@ html, body {
 
 .normalPlatform {
     background-size: 100%;
-    background: yellow;
+    background: green;
 
 }
 
@@ -124,5 +124,10 @@ html, body {
 }
 #debug{
     display: none;
+}
+
+.dead {
+    background: red;
+!important;
 }
   
