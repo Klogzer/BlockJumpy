@@ -27,6 +27,13 @@ class View {
   // querySelector for Stage
   final stage = querySelector("#stage");
 
+  // querySelector for level
+  final level = querySelector("#level");
+  // querySelector for score
+  final score = querySelector("#score");
+  // querySelector for highscore
+  final highscore = querySelector("#highscore");
+
   // querySelector for menu
   final menu = querySelector("#menu");
 
@@ -42,8 +49,7 @@ class View {
   // querySelector for textArea
   final textArea = querySelector("#textArea") as TextAreaElement;
 
-  // querySelector for Stage
-  final score = querySelector("#score");
+
 
   // querySelector for jsonButton
   final levelOne = querySelector("#level1");
@@ -63,6 +69,9 @@ class View {
   ///
   void update() {
     score.text = game.level.player.score.toString();
+    level.text = game.levelID.toString();
+    highscore.text = game.highscore.toString();
+
     camera.lockGameElement(game.level.player);
     camera.update(game.entities);
   }
