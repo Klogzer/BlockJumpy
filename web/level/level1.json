@@ -86,7 +86,7 @@
       0.8,
       0.7059,
       0.1,
-      0.02
+      0.002
     ],
     [
       0.6,
@@ -118,5 +118,12 @@
       0.1,
       0.002
     ]
+  ],
+  "boostPlatform": [
+  ],
+  "deadlyPlatform": [
+  ],
+  "protectionPlatform": [
+
   ]
 }

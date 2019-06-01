@@ -1,5 +1,8 @@
 import 'package:jumpdx9001deluxe/model/game_element.dart';
+import 'package:jumpdx9001deluxe/model/platforms/boost_platform.dart';
+import 'package:jumpdx9001deluxe/model/platforms/deadly_platform.dart';
 import 'package:jumpdx9001deluxe/model/platforms/normal_platform.dart';
+import 'package:jumpdx9001deluxe/model/platforms/protection_platform.dart';
 import 'package:jumpdx9001deluxe/model/player.dart';
 
 // static width
@@ -42,6 +45,15 @@ class Level {
     entities.add(player);
     json['normalPlatform'].forEach((element) =>
         entities.add(NormalPlatform(
+            nextID++, element[0], element[1], element[2], element[3])));
+    json['boostPlatform'].forEach((element) =>
+        entities.add(BoostPlatform(
+            nextID++, element[0], element[1], element[2], element[3])));
+    json['deadlyPlatform'].forEach((element) =>
+        entities.add(DeadlyPlatform(
+            nextID++, element[0], element[1], element[2], element[3])));
+    json['protectionPlatform'].forEach((element) =>
+        entities.add(ProtectionPlatform(
             nextID++, element[0], element[1], element[2], element[3])));
 
     print(entities.toString());

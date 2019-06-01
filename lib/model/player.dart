@@ -67,7 +67,6 @@ class Player extends GameElement with DynamicObject {
     this.acceleration.x = dx * horizontalAccelarationFactor;
   }
 
-
   int get platforms => _platforms;
 
   set platforms(int value) {
