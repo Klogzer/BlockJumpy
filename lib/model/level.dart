@@ -7,7 +7,6 @@ import 'package:jumpdx9001deluxe/model/player.dart';
 
 // static width
 class Level {
-
   Player _player;
   int _nextID = 0;
   List<GameElement> _entities = List();
@@ -39,24 +38,15 @@ class Level {
         nextID++,
         json['player']["xPos"],
         json['player']["yPos"],
-        json['player']["xwidth"],
-        json['player']["relativHeight"],
+        json['player']["xDim"],
+        json['player']["yDim"],
         json['player']["lifes"]);
     entities.add(player);
-    json['normalPlatform'].forEach((element) =>
-        entities.add(NormalPlatform(
-            nextID++, element[0], element[1], element[2], element[3])));
-    json['boostPlatform'].forEach((element) =>
-        entities.add(BoostPlatform(
-            nextID++, element[0], element[1], element[2], element[3])));
-    json['deadlyPlatform'].forEach((element) =>
-        entities.add(DeadlyPlatform(
-            nextID++, element[0], element[1], element[2], element[3])));
-    json['protectionPlatform'].forEach((element) =>
-        entities.add(ProtectionPlatform(
-            nextID++, element[0], element[1], element[2], element[3])));
-
-    print(entities.toString());
+    json['normalPlatform'].forEach(print);
+    json['normalPlatform'].forEach((json) => entities.add(NormalPlatform.fromJson(nextID++,json)));
+    json['boostPlatform'].forEach((json) =>  entities.add(BoostPlatform.fromJson(nextID++,json)));
+    json['boostPlatform'].forEach((json) =>  entities.add(DeadlyPlatform.fromJson(nextID++,json)));
+    json['boostPlatform'].forEach((json) =>  entities.add(ProtectionPlatform.fromJson(nextID++,json)));
   }
 
   Player get player => _player;
@@ -106,6 +96,4 @@ class Level {
   set targetScore(int value) {
     _targetScore = value;
   }
-
-
 }

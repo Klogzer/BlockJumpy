@@ -144,6 +144,7 @@ class View {
   }
 
   void drawGameStage() {
+    cameraPosition = 0;
     // removes all Elements from map
     domMap.clear();
     //mainContainer.style.width = StageXDimension.toString() + "px";
@@ -169,8 +170,5 @@ class View {
     vElement.style.bottom = ((e.yPosition -cameraPosition) * 100 /cameraRatio ).toString() + "%";
     vElement.style.width = (e.xSize * 100).toString() + "%";
     vElement.style.height = (e.ySize * 100 /cameraRatio).toString() + "%";
-  }
-  moveCamera(){
-
   }
 }

@@ -3,9 +3,9 @@ const int fps = 60;
 // const for modell tick
 const int tickModel = 60;
 // const for gravity
-const double gravity = 0.03;
+const double gravity = 0.02;
 // standard jump
-const double stdJump = 0.06;
+const double stdJump = 0.04;
 // horizontal accelaration speed
 const double horizontalAccelarationFactor = 0.01;
 // ...
