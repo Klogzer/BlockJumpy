@@ -42,7 +42,6 @@ class Level {
         json['player']["yDim"],
         json['player']["lifes"]);
     entities.add(player);
-    json['normalPlatform'].forEach(print);
     json['normalPlatform'].forEach((json) => entities.add(NormalPlatform.fromJson(nextID++,json)));
     json['boostPlatform'].forEach((json) =>  entities.add(BoostPlatform.fromJson(nextID++,json)));
     json['boostPlatform'].forEach((json) =>  entities.add(DeadlyPlatform.fromJson(nextID++,json)));

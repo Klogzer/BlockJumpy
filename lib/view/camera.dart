@@ -4,7 +4,6 @@ import 'dart:math';
 import 'package:jumpdx9001deluxe/model/game_element.dart';
 
 class Camera {
-
   /// Debugg
   ///
   ///
@@ -20,9 +19,8 @@ class Camera {
   // querySelector for overlay
   final f4 = querySelector("#playerpos");
 
-
   double cameraRatio;
-  double cameraYPosition = 0;
+  double yCenter = 0;
 
   // no need for an x Anchoring yet
   // double cameraXPosition;
@@ -38,57 +36,61 @@ class Camera {
     this.cameraRatio = cameraHeight / cameraWidth;
   }
 
-  num get cameraTopBorder => cameraYPosition + cameraRatio;
+  num get cameraTopBorder => yCenter + cameraRatio;
 
-  num get cameraBottomBorder => cameraYPosition - cameraRatio;
+  num get cameraBottomBorder => yCenter - cameraRatio;
 
   /// locks on GameElement
   void lockGameElement(GameElement e) {
-    cameraYPosition = e.yPosition -  cameraRatio;
+    yCenter = e.yPosition - cameraRatio / 2;
   }
 
   /// locks on MaxHeight
   void lockHeight(GameElement e) {
-    cameraYPosition = max(cameraYPosition, e.yPosition - cameraRatio / 2);
+    yCenter = max(yCenter, e.yPosition - cameraRatio / 2);
   }
 
   /// updates seenElements
   void update(List<GameElement> entities) {
-    f1.text = cameraTopBorder.toString();
-    f2.text = cameraYPosition.toString();
-    f3.text = cameraBottomBorder.toString();
-    entities
-        .where((e) =>
-           (e.yPosition < cameraTopBorder && e.yPosition > cameraBottomBorder))
-        .forEach(renderElement);
+    //f1.text = yCenter.toString();
+    //f2.text = cameraTopBorder.toString();
+    //f3.text = cameraBottomBorder.toString();
+    entities.forEach(renderElement);
   }
 
   renderElement(GameElement e) {
-    // creates a div
-    Element div = Element.div();
-    // adds it to the scene if absent
-    if(!scene.containsKey(e.id)){
-      //sets classes
-      div.classes = e.types;
-      scene.putIfAbsent(e.id, () => div);
+    if (e.yPosition / cameraRatio > cameraBottomBorder && e.yPosition / cameraRatio < cameraTopBorder) {
+      // creates a div
+      Element div = Element.div();
+      // adds it to the scene if absent
+      if (!scene.containsKey(e.id)) {
+        print("added" + e.toString());
+        //sets classes
+        div.classes = e.types;
+        scene.putIfAbsent(e.id, () => div);
+      } else {
+        div = scene[e.id];
+      }
+
+      // updates its values
+
+      //div.text = "X:" + e.xPosition.toString() + "Y:" + e.yPosition.toString();
+      // Viewport relativ
+      div.style.left = (e.xPosition * 100).toString() + "%";
+      div.style.bottom =
+          ((e.yPosition - yCenter) * 100 / cameraRatio).toString() + "%";
+      div.style.width = (e.xSize * 100).toString() + "%";
+      div.style.height = (e.ySize * 100 / cameraRatio).toString() + "%";
+
+      // inserts it in dom
+      stage.insertAdjacentElement("afterBegin", div);
     }
-    else{
-      div = scene[e.id];
+    else {
+      if (scene.containsKey(e.id)) {
+        print("removed" + e.toString());
+        scene[e.id].remove();
+        scene.remove(e.id);
+      }
     }
-
-
-    // updates its values
-
-    div.text = "X:" + e.xPosition.toString() + "Y:" + e.yPosition.toString();
-    // Viewport relativ
-    div.style.left = (e.xPosition * 100).toString() + "%";
-    div.style.bottom =
-        ((e.yPosition - cameraYPosition) * 100 / cameraRatio).toString() + "%";
-    div.style.width = (e.xSize * 100).toString() + "%";
-    div.style.height = (e.ySize * 100 / cameraRatio).toString() + "%";
-
-    // inserts it in dom
-    stage.insertAdjacentElement("afterBegin", div);
-
   }
 }

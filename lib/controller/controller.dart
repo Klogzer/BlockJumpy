@@ -72,12 +72,10 @@ class Controller {
       if (end) return;
       switch (ev.keyCode) {
         case KeyCode.LEFT:
-          print("Left");
           game.acceleratePlayer(-1, 0);
           break;
         case KeyCode.RIGHT:
           game.acceleratePlayer(1, 0);
-          print("Right");
           break;
       }
     });
@@ -88,12 +86,10 @@ class Controller {
       if (end) return;
       switch (ev.keyCode) {
         case KeyCode.LEFT:
-          print("Left");
           game.acceleratePlayer(0, 0);
           break;
         case KeyCode.RIGHT:
           game.acceleratePlayer(0, 0);
-          print("Right");
           break;
       }
     });

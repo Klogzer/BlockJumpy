@@ -62,7 +62,7 @@ class View {
   /// updates it
   ///
   void update() {
-    camera.lockHeight(game.level.player);
+    camera.lockGameElement(game.level.player);
     camera.update(game.entities);
   }
 
