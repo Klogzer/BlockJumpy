@@ -18,7 +18,7 @@ class View {
   Map<int, Element> domMap = Map();
 
   View(this.game) {
-    this.camera = Camera(screenHeight,screenWidth);
+    this.camera = Camera(screenHeight,min(screenWidth,1000));
   }
 
   // MockGameOver
