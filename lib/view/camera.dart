@@ -68,15 +68,15 @@ class Camera {
       // adds it to the scene if absent
       if (!scene.containsKey(e.id)) {
         print("added" + e.toString());
-        //sets classes
-        div.classes = e.types;
+
         scene.putIfAbsent(e.id, () => div);
       } else {
         div = scene[e.id];
       }
 
+      //sets classes
+      div.classes = e.types;
       // updates its values
-
       //div.text = "X:" + e.xPosition.toString() + "Y:" + e.yPosition.toString();
       // Viewport relativ
       div.style.left = (e.xPosition * 100).toString() + "%";
