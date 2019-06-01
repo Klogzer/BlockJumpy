@@ -1,12 +1,20 @@
 import 'package:jumpdx9001deluxe/model/game_element.dart';
-import 'package:jumpdx9001deluxe/model/normal_platform.dart';
+import 'package:jumpdx9001deluxe/model/platforms/normal_platform.dart';
 import 'package:jumpdx9001deluxe/model/player.dart';
 
 // static width
 class Level {
+
   Player _player;
   int _nextID = 0;
   List<GameElement> _entities = List();
+
+  double _hight;
+
+  int _targetScore = 0;
+  int _targetJumps = 0;
+  int _targetHight = 0;
+  int _targetPlatforms = 0;
 
   Level();
 
@@ -18,13 +26,25 @@ class Level {
   readLevel(String s) {}
 
   Level.fromJson(json) {
+    targetScore = json['winCondition'][0];
+    targetJumps = json['winCondition'][1];
+    targetHight = json['winCondition'][2];
+    targetPlatforms = json['winCondition'][3];
+    hight = json['levelMeta'][0];
     player = Player(
-        this,nextID++, int.parse(json['player'].first), int.parse(json['player'].last),50,50);
+        this,
+        nextID++,
+        json['player'][0],
+        json['player'][1],
+        json['player'][2],
+        json['player'][3],
+        json['player'][4]);
     entities.add(player);
-    json['normalPlatform'].forEach((sublist) => entities.add(
-        NormalPlatform(nextID++, int.parse(sublist.first), int.parse(sublist.last),50,20)));
+    json['normalPlatform'].forEach((element) =>
+        entities.add(NormalPlatform(
+            nextID++, element[0], element[1], element[2], element[3])));
+
     print(entities.toString());
-    // mehr Sachen hinzufügen
   }
 
   Player get player => _player;
@@ -43,6 +63,36 @@ class Level {
 
   set nextID(int value) {
     _nextID = value;
+  }
+
+  double get hight => _hight;
+
+  set hight(double value) {
+    _hight = value;
+  }
+
+  int get targetPlatforms => _targetPlatforms;
+
+  set targetPlatforms(int value) {
+    _targetPlatforms = value;
+  }
+
+  int get targetHight => _targetHight;
+
+  set targetHight(int value) {
+    _targetHight = value;
+  }
+
+  int get targetJumps => _targetJumps;
+
+  set targetJumps(int value) {
+    _targetJumps = value;
+  }
+
+  int get targetScore => _targetScore;
+
+  set targetScore(int value) {
+    _targetScore = value;
   }
 
 

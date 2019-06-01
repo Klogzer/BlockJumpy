@@ -2,24 +2,38 @@ import 'package:jumpdx9001deluxe/constants.dart';
 import 'package:jumpdx9001deluxe/model/game_element.dart';
 import 'package:jumpdx9001deluxe/model/level.dart';
 import 'package:jumpdx9001deluxe/model/mixin/dynamic_object.dart';
+import 'package:jumpdx9001deluxe/model/platform.dart';
 import 'package:jumpdx9001deluxe/model/vector.dart';
 
 class Player extends GameElement with DynamicObject {
+
   Level _level;
+
   int _score = 0;
   int _jumps = 0;
-  int _hight = 0;
   int _platforms = 0;
 
-  Player(this._level, id, xPosition, yPosition, xSize, ySize)
+  int _health;
+  double _protection = 0;
+
+  Player(this._level, id, xPosition, yPosition, xSize, ySize, health)
       : super(id, ["player"], yPosition, yPosition, xSize, ySize);
 
-  String get getScoreAsText => _score.toString();
+  String get getScoreAsText => score.toString();
 
-  void jump(double draft, double force) {
-    _score++;
-    print(_score);
-    newDynamicEvent(new Vector(draft, force));
+  void jump(double draft, Platform element) {
+    jumps++;
+    score += scoreJump;
+    protection += element.protection;
+    if (protection == 0) {
+      health -= element.damage;
+    }
+    if (!element.visited) {
+      element.visited = true;
+      platforms++;
+      score += scorePlatform;
+    }
+    newDynamicEvent(new Vector(draft, element.jumpFactor));
   }
 
   @override
@@ -41,8 +55,11 @@ class Player extends GameElement with DynamicObject {
       hitbox.overlap(element.hitbox)
           ? element.types.any((element) => element.contains("player"))
           ? null
-          : jump(0, stdJump)
+          : jump(0, element)
           : null);
+    }
+    if (protection > 0) {
+      protection -= 1 / tickModel;
     }
   }
 
@@ -61,4 +78,44 @@ class Player extends GameElement with DynamicObject {
     }
     this.xPosition = xPosition;
   }
+
+  int get platforms => _platforms;
+
+  set platforms(int value) {
+    _platforms = value;
+  }
+
+  double get hight => yPosition;
+
+  int get jumps => _jumps;
+
+  set jumps(int value) {
+    _jumps = value;
+  }
+
+  int get score => _score;
+
+  set score(int value) {
+    _score = value;
+  }
+
+  Level get level => _level;
+
+  set level(Level value) {
+    _level = value;
+  }
+
+  int get health => _health;
+
+  set health(int value) {
+    _health = value;
+  }
+
+  double get protection => _protection;
+
+  set protection(double value) {
+    _protection = value;
+  }
+
+
 }

@@ -13,4 +13,10 @@ mixin DynamicObject {
   set acceleration(Vector acceleration) {
     _acceleration = acceleration;
   }
+
+  void reset() {
+    this._acceleration.y = 0;
+    this._acceleration.x = 0;
+  }
+
 }

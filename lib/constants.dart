@@ -10,3 +10,7 @@ const double stdJump = 0.025;
 const double horizontalAccelarationFactor = 5;
 // ...
 const double scrollThreshold = 0.5;
+//points per unvisited platform
+const int scorePlatform = 5;
+//points per jump
+const int scoreJump = -1;
