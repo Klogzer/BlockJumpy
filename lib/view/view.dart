@@ -92,9 +92,6 @@ class View {
     double cameraBottomBorder = cameraPosition - screenHeight / 2;
     Element vElement;
     for (GameElement e in game.entities) {
-      print("'''''''''");
-      print(domMap);
-      print("'''''''''");
       // check for viewport/camera
       // determins if the object is in the viewport
       //if(e.yPosition >= cameraBottomBorder && e.yPosition <= cameraTopBorder)  {
