@@ -13,7 +13,7 @@ class Player extends GameElement with DynamicObject {
   int _jumps = 0;
   int _platforms = 0;
 
-  int _health;
+  int _health = 1;
   double _protection = 0;
 
   Player(this._level, id, xPosition, yPosition, xSize, ySize, health)
@@ -22,17 +22,24 @@ class Player extends GameElement with DynamicObject {
   String get getScoreAsText => score.toString();
 
   void jump(double draft, Platform element) {
+
     jumps++;
-    score += scoreJump;
+    score += (scoreJump);
+    print("jumping1");
     protection += element.protection;
-    if (protection == 0) {
-      health -= element.damage;
+    print("jumping2");
+    if (protection <= 0) {
+      print("jumping3");
+      health += (element.damage);
+      print("jumping4");
     }
+    print("jumping5");
     if (!element.visited) {
       element.visited = true;
       platforms++;
       score += scorePlatform;
     }
+    print("jumping");
     newDynamicEvent(new Vector(draft, element.jumpFactor));
   }
 
@@ -51,12 +58,14 @@ class Player extends GameElement with DynamicObject {
 
     //Collision detection
     if (this.acceleration.y <= gravity) {
+      print("falling");
       _level.entities.forEach((element) =>
       hitbox.overlap(element.hitbox)
           ? element.types.any((element) => element.contains("player"))
           ? null
           : jump(0, element)
-          : null);
+          : null
+      );
     }
     if (protection > 0) {
       protection -= 1 / tickModel;
