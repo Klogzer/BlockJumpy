@@ -8,10 +8,13 @@ class View {
   /// Viewport size
   int screenHeight = window.innerHeight;
   int screenWidth = window.innerWidth;
-
+  double cameraRatio;
+  double cameraPosition = 0;
   Game game;
 
-  View(this.game);
+  View(this.game){
+    cameraRatio = screenHeight / screenWidth;
+  }
 
   // MockGameOver
   bool end = false;
@@ -49,6 +52,22 @@ class View {
   // querySelector for overlay
   final overlay = querySelector("#overlay");
 
+
+
+  /// Debugg
+  ///
+  ///
+  // querySelector for overlay
+  final f1 = querySelector("#cposition");
+  // querySelector for overlay
+  final f2 = querySelector("#ctopBorder");
+  // querySelector for overlay
+  final f3 = querySelector("#cbottomBorder");
+  // querySelector for overlay
+  final f4 = querySelector("#playerpos");
+
+
+  ///
   /// inserts GameElement into DOM
   /// keeps track of it
   /// updates it
@@ -83,31 +102,39 @@ class View {
   }
    */
   void update() {
-    double modelRatio = 34;
-    double cameraRatio = screenHeight / screenWidth;
+
+
 
     /// camera 0-1 tagged to the player run height
-    double cameraPosition = game.level.player.hight;
-    double cameraTopBorder = cameraPosition + screenHeight / 2;
-    double cameraBottomBorder = cameraPosition - screenHeight / 2;
+    cameraPosition = game.level.player.hight;
+    double cameraTopBorder = cameraPosition + cameraRatio / 2;
+    double cameraBottomBorder = cameraPosition - cameraRatio / 2;
+    f1.text = cameraPosition.toString();
+    f2.text = cameraTopBorder.toString();
+    f3.text = cameraBottomBorder.toString();
+
     Element vElement;
     for (GameElement e in game.entities) {
-      // check for viewport/camera
-      // determins if the object is in the viewport
-      //if(e.yPosition >= cameraBottomBorder && e.yPosition <= cameraTopBorder)  {
       if (!domMap.containsKey(e.id)) {
         vElement = Element.div();
         vElement.classes = e.types;
         vElement.style.position = "absolute";
+
         stage.insertAdjacentElement("afterBegin", vElement);
         domMap.putIfAbsent(e.id, () => vElement);
       } else {
         vElement = domMap[e.id];
       }
+      // check for viewport/camera
+      // determins if the object is in the viewport
+      if(e.yPosition >= cameraBottomBorder && e.yPosition <= cameraTopBorder)  {
+        vElement.style.display = "block";
       //print("X:" + e.xPosition.toString() + "Y:" + e.yPosition.toString());
       updateElement(vElement, e);
-
-      //}
+      }
+      else{
+        //vElement.style.display ="none";
+      }
 
     }
   }
@@ -132,11 +159,11 @@ class View {
   }
 
   updateElement(Element vElement, GameElement e) {
-    double modelratio = game.level.hight;
+    vElement.text =  "X:"+ e.xPosition.toString() + "Y:" +e.yPosition.toString();
     // Viewport relativ
     vElement.style.left = (e.xPosition * 100).toString() + "%";
-    vElement.style.bottom = (e.yPosition * modelratio * 100).toString() + "%";
+    vElement.style.bottom = ((e.yPosition -cameraPosition) * 100 /cameraRatio ).toString() + "%";
     vElement.style.width = (e.xSize * 100).toString() + "%";
-    vElement.style.height = (e.ySize * modelratio * 100).toString() + "%";
+    vElement.style.height = (e.ySize * 100 /cameraRatio).toString() + "%";
   }
 }

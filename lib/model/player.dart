@@ -47,6 +47,7 @@ class Player extends GameElement with DynamicObject {
     this.xPosition += this.acceleration.x;
     this.yPosition += this.acceleration.y - gravity;
 
+
     //update Hitbox
     hitbox.xPosition = this.xPosition;
     hitbox.yPosition = this.yPosition;
