@@ -105,15 +105,13 @@ class View {
   void update() {
 
 
-
+    print("-- Start Update --");
     /// camera 0-1 tagged to the player run height
 
     cameraPosition= max(cameraPosition , game.level.player.hight - cameraRatio / 2);
     double cameraTopBorder = cameraPosition + cameraRatio;
-    double cameraBottomBorder = cameraPosition - cameraRatio / 2;
     f1.text = cameraPosition.toString();
     f2.text = cameraTopBorder.toString();
-    f3.text = cameraBottomBorder.toString();
 
     Element vElement;
     for (GameElement e in game.entities) {
@@ -129,18 +127,21 @@ class View {
       }
       // check for viewport/camera
       // determins if the object is in the viewport
-      if(e.yPosition >= cameraBottomBorder && e.yPosition <= cameraTopBorder)  {
+      if(e.yPosition < cameraTopBorder  && e.yPosition > cameraPosition )  {
         vElement.style.display = "block";
       //print("X:" + e.xPosition.toString() + "Y:" + e.yPosition.toString());
       updateElement(vElement, e);
+        print(e.yPosition);
       }
       else{
+        //print(e.yPosition);
         // isnt in the viewport doesnt need to be displayed
         vElement.remove();
         domMap.remove(e.id);
       }
 
     }
+    print("-- Stop Update --");
   }
 
   void drawGameStage() {
@@ -167,7 +168,7 @@ class View {
     vElement.text =  "X:"+ e.xPosition.toString() + "Y:" +e.yPosition.toString();
     // Viewport relativ
     vElement.style.left = (e.xPosition * 100).toString() + "%";
-    vElement.style.bottom = ((e.yPosition -cameraPosition) * 100 /cameraRatio ).toString() + "%";
+    vElement.style.bottom = ((e.yPosition - cameraPosition) * 100 /cameraRatio ).toString() + "%";
     vElement.style.width = (e.xSize * 100).toString() + "%";
     vElement.style.height = (e.ySize * 100 /cameraRatio).toString() + "%";
   }
