@@ -38,18 +38,18 @@ class Camera {
     this.cameraRatio = cameraHeight / cameraWidth;
   }
 
-  num get cameraTopBorder => cameraYPosition + cameraRatio / 2;
+  num get cameraTopBorder => cameraYPosition + cameraRatio;
 
-  num get cameraBottomBorder => cameraYPosition - cameraRatio / 2;
+  num get cameraBottomBorder => cameraYPosition - cameraRatio;
 
   /// locks on GameElement
   void lockGameElement(GameElement e) {
-    cameraYPosition = e.yPosition;
+    cameraYPosition = e.yPosition -  cameraRatio;
   }
 
   /// locks on MaxHeight
   void lockHeight(GameElement e) {
-    cameraYPosition = max(cameraYPosition, e.yPosition);
+    cameraYPosition = max(cameraYPosition, e.yPosition - cameraRatio / 2);
   }
 
   /// updates seenElements

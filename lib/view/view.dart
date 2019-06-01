@@ -10,8 +10,6 @@ class View {
   /// Viewport size
   int screenHeight = window.innerHeight;
   int screenWidth = window.innerWidth;
-  double cameraRatio;
-  double cameraPosition = 0;
   Game game;
   Camera camera;
 
@@ -69,10 +67,6 @@ class View {
   }
 
   void drawGameStage() {
-    cameraPosition = 0;
-    // removes all Elements from map
-    domMap.clear();
-    //mainContainer.style.width = StageXDimension.toString() + "px";
     // emptys stage div
     stage.innerHtml = "";
     menu.style.display = "none";
