@@ -43,7 +43,7 @@ class Controller {
       startGame();
     });
 
-    view.menuBtn.onClick.listen((_) {
+    view.overlay.onClick.listen((_) {
       pauseGame();
       view.drawPauseMenu();
     });

@@ -67,17 +67,6 @@ class Player extends GameElement with DynamicObject {
     this.acceleration.x = dx * horizontalAccelarationFactor;
   }
 
-  @override
-  set xPosition(double xPosition) {
-    while (xPosition > 1) {
-      xPosition -= 1;
-    }
-
-    if (xPosition < 0) {
-      xPosition += 1;
-    }
-    this.xPosition = xPosition;
-  }
 
   int get platforms => _platforms;
 

@@ -1,15 +1,18 @@
 import 'dart:html';
 
+import 'package:jumpdx9001deluxe/model/game.dart';
 import 'package:jumpdx9001deluxe/model/game_element.dart';
+import 'package:jumpdx9001deluxe/model/level.dart';
 
 class View {
   /// Viewport size
   int screenHeight = window.innerHeight;
   int screenWidth = window.innerWidth;
 
+  Game game;
 
-  var game;
   View(this.game);
+
   // MockGameOver
   bool end = false;
 
@@ -25,7 +28,6 @@ class View {
   // querySelector for start
   final start = querySelector("#start");
 
-
   // querySelector for resumeBtn
   final resumeBtn = querySelector("#resum");
 
@@ -37,9 +39,6 @@ class View {
 
   // querySelector for Stage
   final score = querySelector("#score");
-
-  // querySelector for menuButton
-  final menuBtn = querySelector("#menu-btn");
 
   // querySelector for jsonButton
   final levelOne = querySelector("#level1");
@@ -53,6 +52,8 @@ class View {
   /// inserts GameElement into DOM
   /// keeps track of it
   /// updates it
+  ///
+  /*
   void update() {
     //if gameover
     if (end) {
@@ -60,13 +61,12 @@ class View {
       menu.style.display = "block";
     }
 
-    score.text = game.level.player.getScoreAsText;
+    //score.text = game.level.player.getScoreAsText;
 
-    Element vElement;
+    Element vElement = Element.div();
     for (GameElement e in game.entities) {
       // creates en element if it is not in the map yet
       if (!domMap.containsKey(e.id)) {
-        vElement = Element.div();
         vElement.classes = e.types;
         vElement.style.position = "absolute";
         stage.insertAdjacentElement("afterBegin", vElement);
@@ -78,7 +78,40 @@ class View {
       }
       // todo implement hidden display:none if not in stage
       // updates DOM according to the model
-      updateElement(vElement,e);
+      updateElement(vElement, e);
+    }
+  }
+   */
+  void update() {
+    double modelRatio = 34;
+    double cameraRatio = screenHeight / screenWidth;
+
+    /// camera 0-1 tagged to the player run height
+    double cameraPosition = game.level.player.hight;
+    double cameraTopBorder = cameraPosition + screenHeight / 2;
+    double cameraBottomBorder = cameraPosition - screenHeight / 2;
+    Element vElement;
+    for (GameElement e in game.entities) {
+      print("'''''''''");
+      print(domMap);
+      print("'''''''''");
+      // check for viewport/camera
+      // determins if the object is in the viewport
+      //if(e.yPosition >= cameraBottomBorder && e.yPosition <= cameraTopBorder)  {
+      if (!domMap.containsKey(e.id)) {
+        vElement = Element.div();
+        vElement.classes = e.types;
+        vElement.style.position = "absolute";
+        stage.insertAdjacentElement("afterBegin", vElement);
+        domMap.putIfAbsent(e.id, () => vElement);
+      } else {
+        vElement = domMap[e.id];
+      }
+      //print("X:" + e.xPosition.toString() + "Y:" + e.yPosition.toString());
+      updateElement(vElement, e);
+
+      //}
+
     }
   }
 
@@ -101,11 +134,12 @@ class View {
     overlay.style.display = "none";
   }
 
-  updateElement(Element vElement ,GameElement e){
-  vElement.style.left = (0.1*100).toString() + "%";
-  vElement.style.bottom = (0.1*100).toString() + "%";
-  vElement.style.width = (0.1*100).toString() + "%";
-  vElement.style.height = (0.1*100).toString() + "%";
+  updateElement(Element vElement, GameElement e) {
+    double modelratio = game.level.hight;
+    // Viewport relativ
+    vElement.style.left = (e.xPosition * 100).toString() + "%";
+    vElement.style.bottom = (e.yPosition * modelratio * 100).toString() + "%";
+    vElement.style.width = (e.xSize * 100).toString() + "%";
+    vElement.style.height = (e.ySize * modelratio * 100).toString() + "%";
   }
-
 }
