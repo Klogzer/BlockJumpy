@@ -28,6 +28,7 @@ class Level {
   readLevel(String s) {}
 
   Level.fromJson(json) {
+
     targetScore = json['winCondition'][0];
     targetJumps = json['winCondition'][1];
     targetHight = json['winCondition'][2];
@@ -48,6 +49,15 @@ class Level {
         entities.add(DeadlyPlatform.fromJson(nextID++, json)));
     json['protectionPlatform'].forEach((json) =>
         entities.add(ProtectionPlatform.fromJson(nextID++, json)));
+  }
+
+  Map<String, int> getWinCondition() {
+    return {
+      "score": targetScore,
+      "jumps": targetJumps,
+      "hight": targetHight,
+      "platforms": targetPlatforms,
+    };
   }
 
   Player get player => _player;

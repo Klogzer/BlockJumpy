@@ -6,7 +6,6 @@ import 'package:jumpdx9001deluxe/model/platform.dart';
 import 'package:jumpdx9001deluxe/model/vector.dart';
 
 class Player extends GameElement with DynamicObject {
-
   Level _level;
 
   int _score = 0;
@@ -38,7 +37,6 @@ class Player extends GameElement with DynamicObject {
 
   @override
   void update() {
-
     //Calculate vertical-vector
     this.acceleration.y *= 0.985;
 
@@ -60,8 +58,7 @@ class Player extends GameElement with DynamicObject {
           ? element.types.any((element) => element.contains("player"))
           ? null
           : jump(0, element)
-          : null
-      );
+          : null);
     }
     if (protection > 0.0) {
       protection -= 1.0 / tickModel;
@@ -73,6 +70,16 @@ class Player extends GameElement with DynamicObject {
 
   void accelerate(double dx, double dy) {
     this.acceleration.x = dx * horizontalAccelarationFactor;
+  }
+
+  Map<String, int> getStatus() {
+    return {
+      "score": score,
+      "jumps": jumps,
+      "hight": yPosition as int,
+      "platforms": platforms,
+      "alive": health
+    };
   }
 
   int get platforms => _platforms;
@@ -112,6 +119,4 @@ class Player extends GameElement with DynamicObject {
   set protection(double value) {
     _protection = value;
   }
-
-
 }
