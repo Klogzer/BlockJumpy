@@ -4,6 +4,7 @@ import 'dart:math';
 import 'package:jumpdx9001deluxe/model/game.dart';
 import 'package:jumpdx9001deluxe/model/game_element.dart';
 import 'package:jumpdx9001deluxe/model/level.dart';
+import 'package:jumpdx9001deluxe/view/camera.dart';
 
 class View {
   /// Viewport size
@@ -12,16 +13,18 @@ class View {
   double cameraRatio;
   double cameraPosition = 0;
   Game game;
+  Camera camera;
 
-  View(this.game){
-    cameraRatio = screenHeight / screenWidth;
+
+  // Map with all Elements displayed in #stage
+  Map<int, Element> domMap = Map();
+
+  View(this.game) {
+    this.camera = Camera(screenHeight,screenWidth);
   }
 
   // MockGameOver
   bool end = false;
-
-  // Map to handle its Elements
-  Map<int, Element> domMap = Map();
 
   // querySelector for Stage
   final stage = querySelector("#stage");
@@ -55,93 +58,14 @@ class View {
 
 
 
-  /// Debugg
-  ///
-  ///
-  // querySelector for overlay
-  final f1 = querySelector("#cposition");
-  // querySelector for overlay
-  final f2 = querySelector("#ctopBorder");
-  // querySelector for overlay
-  final f3 = querySelector("#cbottomBorder");
-  // querySelector for overlay
-  final f4 = querySelector("#playerpos");
-
-
-  ///
-  /// inserts GameElement into DOM
-  /// keeps track of it
+  /// DOM manipulation
+  /// add Elements according to Level
+  /// inserts Element into (#stage) if not already there
   /// updates it
   ///
-  /*
   void update() {
-    //if gameover
-    if (end) {
-      stage.style.display = "none";
-      menu.style.display = "block";
-    }
-
-    //score.text = game.level.player.getScoreAsText;
-
-    Element vElement = Element.div();
-    for (GameElement e in game.entities) {
-      // creates en element if it is not in the map yet
-      if (!domMap.containsKey(e.id)) {
-        vElement.classes = e.types;
-        vElement.style.position = "absolute";
-        stage.insertAdjacentElement("afterBegin", vElement);
-        domMap.putIfAbsent(e.id, () => vElement);
-      }
-      // get the element in the map
-      else {
-        vElement = domMap[e.id];
-      }
-      // todo implement hidden display:none if not in stage
-      // updates DOM according to the model
-      updateElement(vElement, e);
-    }
-  }
-   */
-  void update() {
-
-
-    print("-- Start Update --");
-    /// camera 0-1 tagged to the player run height
-
-    cameraPosition= max(cameraPosition , game.level.player.hight - cameraRatio / 2);
-    double cameraTopBorder = cameraPosition + cameraRatio;
-    f1.text = cameraPosition.toString();
-    f2.text = cameraTopBorder.toString();
-
-    Element vElement;
-    for (GameElement e in game.entities) {
-      if (!domMap.containsKey(e.id)) {
-        vElement = Element.div();
-        vElement.classes = e.types;
-        vElement.style.position = "absolute";
-
-        stage.insertAdjacentElement("afterBegin", vElement);
-        domMap.putIfAbsent(e.id, () => vElement);
-      } else {
-        vElement = domMap[e.id];
-      }
-      // check for viewport/camera
-      // determins if the object is in the viewport
-      if(e.yPosition < cameraTopBorder  && e.yPosition > cameraPosition )  {
-        vElement.style.display = "block";
-      //print("X:" + e.xPosition.toString() + "Y:" + e.yPosition.toString());
-      updateElement(vElement, e);
-        print(e.yPosition);
-      }
-      else{
-        //print(e.yPosition);
-        // isnt in the viewport doesnt need to be displayed
-        vElement.remove();
-        domMap.remove(e.id);
-      }
-
-    }
-    print("-- Stop Update --");
+    camera.lockHeight(game.level.player);
+    camera.update(game.entities);
   }
 
   void drawGameStage() {
@@ -162,14 +86,5 @@ class View {
     stage.style.display = "none";
     start.text = "Resume";
     overlay.style.display = "none";
-  }
-
-  updateElement(Element vElement, GameElement e) {
-    vElement.text =  "X:"+ e.xPosition.toString() + "Y:" +e.yPosition.toString();
-    // Viewport relativ
-    vElement.style.left = (e.xPosition * 100).toString() + "%";
-    vElement.style.bottom = ((e.yPosition - cameraPosition) * 100 /cameraRatio ).toString() + "%";
-    vElement.style.width = (e.xSize * 100).toString() + "%";
-    vElement.style.height = (e.ySize * 100 /cameraRatio).toString() + "%";
   }
 }
