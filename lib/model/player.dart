@@ -25,13 +25,9 @@ class Player extends GameElement with DynamicObject {
 
     jumps++;
     score += (scoreJump);
-    print("jumping1");
     protection += element.protection;
-    print("jumping2");
     if (protection <= 0) {
-      print("jumping3");
       health += (element.damage);
-      print("jumping4");
     }
     print("jumping5");
     if (!element.visited) {
@@ -39,7 +35,6 @@ class Player extends GameElement with DynamicObject {
       platforms++;
       score += scorePlatform;
     }
-    print("jumping");
     newDynamicEvent(new Vector(draft, element.jumpFactor));
   }
 
@@ -49,7 +44,7 @@ class Player extends GameElement with DynamicObject {
     this.acceleration.y *= 0.985;
 
     //Calculate Position
-    this.xPosition += this.acceleration.y;
+    this.xPosition += this.acceleration.x;
     this.yPosition += this.acceleration.y - gravity;
 
     //update Hitbox
@@ -58,7 +53,6 @@ class Player extends GameElement with DynamicObject {
 
     //Collision detection
     if (this.acceleration.y <= gravity) {
-      print("falling");
       _level.entities.forEach((element) =>
       hitbox.overlap(element.hitbox)
           ? element.types.any((element) => element.contains("player"))
