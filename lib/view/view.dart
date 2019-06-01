@@ -2,8 +2,6 @@ import 'dart:html';
 import 'dart:math';
 
 import 'package:jumpdx9001deluxe/model/game.dart';
-import 'package:jumpdx9001deluxe/model/game_element.dart';
-import 'package:jumpdx9001deluxe/model/level.dart';
 import 'package:jumpdx9001deluxe/view/camera.dart';
 
 class View {
