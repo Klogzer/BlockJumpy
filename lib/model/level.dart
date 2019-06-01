@@ -37,11 +37,11 @@ class Level {
     player = Player(
         this,
         nextID++,
-        json['player'][0],
-        json['player'][1],
-        json['player'][2],
-        json['player'][3],
-        json['player'][4]);
+        json['player']["xPos"],
+        json['player']["yPos"],
+        json['player']["xwidth"],
+        json['player']["relativHeight"],
+        json['player']["lifes"]);
     entities.add(player);
     json['normalPlatform'].forEach((element) =>
         entities.add(NormalPlatform(

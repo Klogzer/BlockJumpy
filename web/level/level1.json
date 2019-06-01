@@ -8,13 +8,13 @@
   "levelMeta": [
     2
   ],
-  "player": [
-    0.0,
-    0.01,
-    0.1,
-    0.1,
-    1.0
-  ],
+  "player": {
+    "xPos":0.0,
+    "yPos":0.2,
+    "xwidth":0.1,
+    "relativHeight":0.1,
+    "lifes":1.0
+  },
   "normalPlatform": [
     [
       0.0,

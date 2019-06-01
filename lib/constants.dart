@@ -5,7 +5,7 @@ const int tickModel = 60;
 // const for gravity
 const double gravity = 0.01;
 // standard jump
-const double stdJump = 0.02;
+const double stdJump = 0.01;
 // horizontal accelaration speed
 const double horizontalAccelarationFactor = 0.01;
 // ...
