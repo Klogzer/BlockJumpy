@@ -16,6 +16,7 @@ class View {
   Map<int, Element> domMap = Map();
 
   View(this.game) {
+    window.screen.orientation.lock("landsscape-primary");
     this.camera = Camera(screenHeight,min(screenWidth,1000));
   }
 

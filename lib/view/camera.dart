@@ -26,6 +26,9 @@ class Camera {
   // double cameraXPosition;
   int cameraHeight;
   int cameraWidth;
+  // cullingstate
+  bool culling = false;
+
   Map<int, Element> scene = Map();
 
   // querySelector for Stage
@@ -59,7 +62,7 @@ class Camera {
   }
 
   renderElement(GameElement e) {
-    if (e.yPosition / cameraRatio > cameraBottomBorder && e.yPosition / cameraRatio < cameraTopBorder) {
+    if ((e.yPosition / cameraRatio > cameraBottomBorder && e.yPosition / cameraRatio < cameraTopBorder) || !culling) {
       // creates a div
       Element div = Element.div();
       // adds it to the scene if absent
