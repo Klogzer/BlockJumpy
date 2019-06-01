@@ -121,4 +121,7 @@ html, body {
 .deadlyPlatform {
     background: red;
 }
+#debug{
+    display: none;
+}
   

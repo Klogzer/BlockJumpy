@@ -62,6 +62,7 @@ class View {
   /// updates it
   ///
   void update() {
+    score.text = game.level.player.score.toString();
     camera.lockGameElement(game.level.player);
     camera.update(game.entities);
   }
