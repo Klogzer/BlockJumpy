@@ -43,7 +43,7 @@ class Controller {
       startGame();
     });
 
-    view.overlay.onClick.listen((_) {
+    view.overlay.onClick.listen((_) async {
       pauseGame();
       view.drawPauseMenu();
     });
@@ -133,14 +133,14 @@ class Controller {
     _viewTimer = Timer.periodic(
         duration,
         (Timer t) => {
-          view.update(),
+              view.update(),
               // ending condition
               //(game.getElements().first.xPosition >= 100) ? t.cancel() : null,
             });
   }
 
   /// starts game
-  void startGame() {
+  startGame() {
     //hides menu and shows gamestage
     view.drawGameStage();
     // updates the model
@@ -157,9 +157,9 @@ class Controller {
     _modelTimer = Timer.periodic(
         duration,
         (Timer t) => {
-              game.update(),
-              // ending condition
-              //(game.getElements().first.xPosition >= 100) ? t.cancel() : null,
+              (game.level.player.getStatus()['alive'] as double >= 1.0)
+                  ? game.update()
+                  : _modelTimer.cancel()
             });
   }
 

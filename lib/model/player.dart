@@ -76,7 +76,7 @@ class Player extends GameElement with DynamicObject {
     return {
       "score": score,
       "jumps": jumps,
-      "hight": yPosition as int,
+      "hight": yPosition.toInt(),
       "platforms": platforms,
       "alive": health
     };

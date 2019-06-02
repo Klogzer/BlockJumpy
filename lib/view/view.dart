@@ -16,7 +16,6 @@ class View {
   Map<int, Element> domMap = Map();
 
   View(this.game) {
-    window.screen.orientation.lock("landsscape-primary");
     this.camera = Camera(screenHeight,min(screenWidth,1000));
   }
 
@@ -26,6 +25,9 @@ class View {
   // querySelector for Stage
   final stage = querySelector("#stage");
 
+  // querySelector for Stage
+  final menues = querySelector("#menues");
+
   // querySelector for level
   final level = querySelector("#level");
   // querySelector for score
@@ -34,7 +36,7 @@ class View {
   final highscore = querySelector("#highscore");
 
   // querySelector for menu
-  final menu = querySelector("#menu");
+  final menu = querySelector("#menut");
 
   // querySelector for start
   final start = querySelector("#start");
@@ -90,4 +92,8 @@ class View {
     start.text = "Resume";
     overlay.style.display = "none";
   }
+
+
+
+
 }
