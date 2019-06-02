@@ -7,17 +7,6 @@ class Camera {
   /// Debugg
   ///
   ///
-  // querySelector for overlay
-  final f1 = querySelector("#cposition");
-
-  // querySelector for overlay
-  final f2 = querySelector("#ctopBorder");
-
-  // querySelector for overlay
-  final f3 = querySelector("#cbottomBorder");
-
-  // querySelector for overlay
-  final f4 = querySelector("#playerpos");
 
   double cameraRatio;
   double yCenter = 0;
@@ -55,9 +44,6 @@ class Camera {
 
   /// updates seenElements
   void update(List<GameElement> entities) {
-    //f1.text = yCenter.toString();
-    //f2.text = cameraTopBorder.toString();
-    //f3.text = cameraBottomBorder.toString();
     entities.forEach(renderElement);
   }
 

@@ -66,6 +66,8 @@ class View {
   // querySelector for jsonButton
   final target = querySelector("#target");
 
+  // querySelector for jsonButton
+  final reason = querySelector("#reason");
   /// Menu End
 
   /// Levelmenu
@@ -141,7 +143,7 @@ class View {
   }
 
   void drawPauseMenu() {
-    updateObjectiveTable();
+    updateObjectiveTable("Paused");
     resumeBtn.style.display = "block";
     levels.style.display = "none";
     menu.style.display = "block";
@@ -150,8 +152,9 @@ class View {
     overlay.style.display = "none";
   }
 
-  void updateObjectiveTable() {
+  void updateObjectiveTable(String s) {
     objectives.innerHtml = "";
+    reason.text = s;
     Map<String, List<int>> map = Map();
     game.level.getWinCondition().forEach((k,v)=> map.putIfAbsent(k, ()=> [v,game.level.player.getStatus()[k]]));
     // erstelle für alles TabellenEinträge
@@ -162,5 +165,14 @@ class View {
             "</td><td>" +
             list[1].toString() +
             "</td></tr>"));
+  }
+  drawEndScreen() {
+    updateObjectiveTable("You Died");
+    resumeBtn.style.display = "none";
+    levels.style.display = "none";
+    menu.style.display = "block";
+    target.style.display = "block";
+    stage.style.display = "none";
+    overlay.style.display = "none";
   }
 }

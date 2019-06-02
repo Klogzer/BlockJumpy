@@ -162,9 +162,10 @@ class Controller {
     _modelTimer = Timer.periodic(
         duration,
         (Timer t) => {
-              (game.level.player.getStatus()['alive'] as double >= 1.0)
+              (game.level.player.getStatus()['Alive'] as double >= 1.0)
                   ? game.update()
-                  : _modelTimer.cancel()
+                  : {_modelTimer.cancel(),view.drawEndScreen()
+              }
             });
   }
 

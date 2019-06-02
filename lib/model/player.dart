@@ -90,11 +90,11 @@ class Player extends GameElement with DynamicObject {
 
   Map<String, int> getStatus() {
     return {
-      "score": score,
-      "jumps": jumps,
-      "height": yPosition.toInt(),
-      "platforms": platforms,
-      "alive": health
+      "Score": score,
+      "Jumps": jumps,
+      "Height": yPosition.toInt(),
+      "Platforms": platforms,
+      "Alive": health
     };
   }
 

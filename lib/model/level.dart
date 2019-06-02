@@ -53,10 +53,10 @@ class Level {
 
   Map<String, int> getWinCondition() {
     return {
-      "score": targetScore,
-      "jumps": targetJumps,
-      "height": targetheight,
-      "platforms": targetPlatforms,
+      "Score": targetScore,
+      "Jumps": targetJumps,
+      "Height": targetheight,
+      "Platforms": targetPlatforms,
     };
   }
 
