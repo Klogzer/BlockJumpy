@@ -63,6 +63,9 @@ class View {
   // querySelector for jsonButton
   final levelFromTextarea = querySelector("#levelFromTextarea");
 
+  // querySelector for jsonButton
+  final target = querySelector("#target");
+
   /// Menu End
 
   /// Levelmenu
@@ -85,8 +88,12 @@ class View {
 
   // querySelector for level
   final levelFive = querySelector("#levelFive");
+
   // querySelector for level
   final back = querySelector("#back");
+
+  // querySelector for level
+  final objectives = querySelector("#objectives");
 
   /// Levelmenu end
 
@@ -108,13 +115,12 @@ class View {
     // emptys stage div
     stage.innerHtml = "";
     menu.style.display = "none";
-    levels.style.display="none";
+    levels.style.display = "none";
     stage.style.display = "block";
     overlay.style.display = "block";
   }
 
- void drawMainMenu() {
-    //mainContainer.style.width = "100%";
+  void drawMainMenu() {
     resumeBtn.style.display = "block";
     levels.style.display = "none";
     menu.style.display = "block";
@@ -124,12 +130,37 @@ class View {
 
   void drawLevelMenu() {
     levels.style.display = "block";
-    menu.style.display ="none";
+    menu.style.display = "none";
     stage.style.display = "none";
     overlay.style.display = "none";
   }
-  void returnToMenu(){
+
+  void returnToMenu() {
     levels.style.display = "none";
     menu.style.display = "block";
+  }
+
+  void drawPauseMenu() {
+    updateObjectiveTable();
+    resumeBtn.style.display = "block";
+    levels.style.display = "none";
+    menu.style.display = "block";
+    target.style.display = "block";
+    stage.style.display = "none";
+    overlay.style.display = "none";
+  }
+
+  void updateObjectiveTable() {
+    objectives.innerHtml = "";
+    Map<String, List<int>> map = Map();
+    game.level.getWinCondition().forEach((k,v)=> map.putIfAbsent(k, ()=> [v,game.level.player.getStatus()[k]]));
+    // erstelle für alles TabellenEinträge
+    map.forEach((label, list) => objectives.insertAdjacentHtml(
+        "beforeEnd",
+        "<tr><td>$label</td><td>" +
+            list[0].toString() +
+            "</td><td>" +
+            list[1].toString() +
+            "</td></tr>"));
   }
 }

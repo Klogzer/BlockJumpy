@@ -46,7 +46,7 @@ class Controller {
 
     view.overlay.onClick.listen((_) async {
       pauseGame();
-      view.drawMainMenu();
+      view.drawPauseMenu();
     });
 
     view.back.onClick.listen((_) async {
