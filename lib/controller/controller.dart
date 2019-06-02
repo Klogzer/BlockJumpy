@@ -33,6 +33,7 @@ class Controller {
       Map data = json.decode(view.textArea.value);
       // update level from json
       game.level = Level.fromJson(data);
+      view.drawGameStage();
       //start game
       startGame();
     });
