@@ -44,35 +44,48 @@ class Controller {
       startGame();
     });
 
-    view.overlay.onClick.listen((_) async {
+    view.overlay.onClick.listen((_) {
       pauseGame();
       view.drawPauseMenu();
     });
 
-    view.back.onClick.listen((_) async {
+    view.back.onClick.listen((_) {
       view.returnToMenu();
     });
 
     ///actionlistener for levelbuttons
     view.levelOne.onClick.listen((_) async {
-     await startLevel("level1");
+      await startLevel("level1");
     });
     view.levelTwo.onClick.listen((_) async {
-     await startLevel("level2");
+      await startLevel("level2");
     });
     view.levelThree.onClick.listen((_) async {
-     await startLevel("level3");
+      await startLevel("level3");
     });
     view.levelFour.onClick.listen((_) async {
-     await startLevel("level1");
-    });
-    view.levelFive.onClick.listen((_) async {
-     await startLevel("level1");
+      await startLevel("level1");
     });
 
-    /// level 1
-    view.levelSel.onClick.listen((_) async {
+    /// Menu
+    view.levelSel.onClick.listen((_) {
       view.drawLevelMenu();
+    });
+
+    view.creditsBtn.onClick.listen((_) {
+      view.drawCredits();
+    });
+
+    view.credits.onClick.listen((_) {
+      view.drawMainMenu();
+    });
+
+    view.howto.onClick.listen((_) {
+      view.drawMainMenu();
+    });
+
+    view.howtoBtn.onClick.listen((_) {
+      view.drawHowToScreen();
     });
 
     ///
@@ -122,7 +135,7 @@ class Controller {
         // DEADZONE
         final int DEADZONE = 2;
         // tilt for max acceleration
-        int range = 30;
+        int range = 20;
 
         // dx is 0 if (2 > gamma > -2)
         // dx is +-30 if (30 < gamma < -30)
@@ -135,6 +148,7 @@ class Controller {
             : 0;
 
         // normalizing dx (1 >= dx >= -1)
+        print(dx);
         game.acceleratePlayer(dx / range, 0);
       }
     });
@@ -164,8 +178,7 @@ class Controller {
         (Timer t) => {
               (game.level.player.getStatus()['Alive'] as double >= 1.0)
                   ? game.update()
-                  : {_modelTimer.cancel(),view.drawEndScreen()
-              }
+                  : {_modelTimer.cancel(), view.drawEndScreen()}
             });
   }
 
@@ -185,8 +198,7 @@ class Controller {
   }
 
   startLevel(String str) async {
-    await HttpRequest.getString("level/"+ str +".json").then((myjson) {
-
+    await HttpRequest.getString("level/" + str + ".json").then((myjson) {
       Map data = json.decode(myjson);
       // update level from json
       game.level = Level.fromJson(data);

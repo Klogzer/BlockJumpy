@@ -60,14 +60,30 @@ class View {
   // querySelector for textArea
   final textArea = querySelector("#textArea") as TextAreaElement;
 
-  // querySelector for jsonButton
+  // querySelector for levelFromTextarea
   final levelFromTextarea = querySelector("#levelFromTextarea");
 
-  // querySelector for jsonButton
+  // querySelector for target
   final target = querySelector("#target");
 
   // querySelector for jsonButton
   final reason = querySelector("#reason");
+
+  // querySelector for howtoBtn
+  final howtoBtn = querySelector("#howtoBtn");
+
+  // querySelector for howto
+  final howto = querySelector("#howTo");
+
+  // querySelector for creditsBtn
+  final creditsBtn = querySelector("#creditsBtn");
+
+  // querySelector for credits
+  final credits = querySelector("#credits");
+
+  // querySelector for objectives
+  final objectives = querySelector("#objectives");
+
   /// Menu End
 
   /// Levelmenu
@@ -93,9 +109,6 @@ class View {
 
   // querySelector for level
   final back = querySelector("#back");
-
-  // querySelector for level
-  final objectives = querySelector("#objectives");
 
   /// Levelmenu end
 
@@ -156,7 +169,8 @@ class View {
     objectives.innerHtml = "";
     reason.text = s;
     Map<String, List<int>> map = Map();
-    game.level.getWinCondition().forEach((k,v)=> map.putIfAbsent(k, ()=> [v,game.level.player.getStatus()[k]]));
+    game.level.getWinCondition().forEach((k, v) =>
+        map.putIfAbsent(k, () => [v, game.level.player.getStatus()[k]]));
     // erstelle für alles TabellenEinträge
     map.forEach((label, list) => objectives.insertAdjacentHtml(
         "beforeEnd",
@@ -166,6 +180,7 @@ class View {
             list[1].toString() +
             "</td></tr>"));
   }
+
   drawEndScreen() {
     updateObjectiveTable("You Died");
     resumeBtn.style.display = "none";
@@ -174,5 +189,14 @@ class View {
     target.style.display = "block";
     stage.style.display = "none";
     overlay.style.display = "none";
+  }
+
+  drawHowToScreen() {
+    howto.style.display ="block";
+  }
+
+
+  drawCredits() {
+    credits.style.display="block";
   }
 }
