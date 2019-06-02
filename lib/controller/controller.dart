@@ -37,27 +37,42 @@ class Controller {
       startGame();
     });
 
-    ///start button
-    view.start.onClick.listen((_) {
+    ///resume button
+    view.resumeBtn.onClick.listen((_) {
+      view.drawGameStage();
       // start game with default level
       startGame();
     });
 
     view.overlay.onClick.listen((_) async {
       pauseGame();
-      view.drawPauseMenu();
+      view.drawMainMenu();
+    });
+
+    view.back.onClick.listen((_) async {
+      view.returnToMenu();
+    });
+
+    ///actionlistener for levelbuttons
+    view.levelOne.onClick.listen((_) async {
+     await startLevel("level1");
+    });
+    view.levelTwo.onClick.listen((_) async {
+     await startLevel("level2");
+    });
+    view.levelThree.onClick.listen((_) async {
+     await startLevel("level3");
+    });
+    view.levelFour.onClick.listen((_) async {
+     await startLevel("level1");
+    });
+    view.levelFive.onClick.listen((_) async {
+     await startLevel("level1");
     });
 
     /// level 1
-    view.levelOne.onClick.listen((_) async {
-      // load json file
-      await HttpRequest.getString('level/level1.json').then((myjson) {
-        Map data = json.decode(myjson);
-        // update level from json
-        game.level = Level.fromJson(data);
-        // startGame with the updated level
-        startGame();
-      });
+    view.levelSel.onClick.listen((_) async {
+      view.drawLevelMenu();
     });
 
     ///
@@ -139,16 +154,6 @@ class Controller {
             });
   }
 
-  /// starts game
-  startGame() {
-    //hides menu and shows gamestage
-    view.drawGameStage();
-    // updates the model
-    startModel();
-    // updates DOM
-    startView();
-  }
-
   /// die Anzahl an ticks des modells
   /// 144hz heist für das modell eine Höchsgeschwindigkeit von 144pixeln pro sekunde
   startModel() {
@@ -170,9 +175,23 @@ class Controller {
     _viewTimer.cancel();
   }
 
-  /// called when resuming, necessity unknown
-  resumeGame() {
+  /// starts game
+  startGame() {
+    // updates the model
     startModel();
+    // updates DOM
     startView();
+  }
+
+  startLevel(String str) async {
+    await HttpRequest.getString("level/"+ str +".json").then((myjson) {
+
+      Map data = json.decode(myjson);
+      // update level from json
+      game.level = Level.fromJson(data);
+      // startGame with the updated level
+      view.drawGameStage();
+      startGame();
+    });
   }
 }

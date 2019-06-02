@@ -11,57 +11,84 @@ class View {
   Game game;
   Camera camera;
 
-
   // Map with all Elements displayed in #stage
   Map<int, Element> domMap = Map();
 
   View(this.game) {
-    this.camera = Camera(screenHeight,min(screenWidth,1000));
+    this.camera = Camera(screenHeight, min(screenWidth, 1000));
   }
 
   // MockGameOver
   bool end = false;
 
-  // querySelector for Stage
-  final stage = querySelector("#stage");
-
-  // querySelector for Stage
-  final menues = querySelector("#menues");
-
-  // querySelector for level
-  final level = querySelector("#level");
-  // querySelector for score
-  final score = querySelector("#score");
-  // querySelector for highscore
-  final highscore = querySelector("#highscore");
-
-  // querySelector for menu
-  final menu = querySelector("#menut");
-
-  // querySelector for start
-  final start = querySelector("#start");
-
-  // querySelector for resumeBtn
-  final resumeBtn = querySelector("#resum");
-
   // querySelector for gameContainer
   final mainContainer = querySelector("#mainContainer");
 
-  // querySelector for textArea
-  final textArea = querySelector("#textArea") as TextAreaElement;
+  // querySelector for Stage
+  final stage = querySelector("#stage");
 
+  /// overlay ///
+  ///
+  ///
+  // querySelector for level
+  final level = querySelector("#level");
 
+  // querySelector for score
+  final score = querySelector("#score");
 
-  // querySelector for jsonButton
-  final levelOne = querySelector("#level1");
-
-  // querySelector for jsonButton
-  final levelFromTextarea = querySelector("#levelFromTextarea");
+  // querySelector for highscore
+  final highscore = querySelector("#highscore");
 
   // querySelector for overlay
   final overlay = querySelector("#overlay");
 
+  /// Overlay end
 
+  /// Menu
+  ///
+  ///
+  ///
+  // querySelector for menu
+  final menu = querySelector("#menu");
+
+  //querySelector for resumeBtn
+  final resumeBtn = querySelector("#resume");
+
+  // querySelector for levelSelector 1
+  final levelSel = querySelector("#levelSel");
+
+  // querySelector for textArea
+  final textArea = querySelector("#textArea") as TextAreaElement;
+
+  // querySelector for jsonButton
+  final levelFromTextarea = querySelector("#levelFromTextarea");
+
+  /// Menu End
+
+  /// Levelmenu
+  ///
+  ///
+  // querySelecotr for levels
+  final levels = querySelector("#levels");
+
+  // querySelector for level
+  final levelOne = querySelector("#levelOne");
+
+  // querySelector for level
+  final levelTwo = querySelector("#levelTwo");
+
+  // querySelector for level
+  final levelThree = querySelector("#levelThree");
+
+  // querySelector for level
+  final levelFour = querySelector("#levelFour");
+
+  // querySelector for level
+  final levelFive = querySelector("#levelFive");
+  // querySelector for level
+  final back = querySelector("#back");
+
+  /// Levelmenu end
 
   /// DOM manipulation
   /// add Elements according to Level
@@ -81,19 +108,28 @@ class View {
     // emptys stage div
     stage.innerHtml = "";
     menu.style.display = "none";
+    levels.style.display="none";
     stage.style.display = "block";
     overlay.style.display = "block";
   }
 
-  drawPauseMenu() {
+ void drawMainMenu() {
     //mainContainer.style.width = "100%";
+    resumeBtn.style.display = "block";
+    levels.style.display = "none";
     menu.style.display = "block";
     stage.style.display = "none";
-    start.text = "Resume";
     overlay.style.display = "none";
   }
 
-
-
-
+  void drawLevelMenu() {
+    levels.style.display = "block";
+    menu.style.display ="none";
+    stage.style.display = "none";
+    overlay.style.display = "none";
+  }
+  void returnToMenu(){
+    levels.style.display = "none";
+    menu.style.display = "block";
+  }
 }
