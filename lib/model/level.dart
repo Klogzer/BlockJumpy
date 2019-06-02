@@ -11,11 +11,11 @@ class Level {
   int _nextID = 0;
   List<GameElement> _entities = List();
 
-  double _hight;
+  double _height;
 
   int _targetScore = 0;
   int _targetJumps = 0;
-  int _targetHight = 0;
+  int _targetheight = 0;
   int _targetPlatforms = 0;
 
   Level();
@@ -31,9 +31,9 @@ class Level {
 
     targetScore = json['winCondition'][0];
     targetJumps = json['winCondition'][1];
-    targetHight = json['winCondition'][2];
+    targetheight = json['winCondition'][2];
     targetPlatforms = json['winCondition'][3];
-    hight = json['levelMeta'][0];
+    height = json['levelMeta'][0];
     player = Player(
         this,
         nextID++,
@@ -55,7 +55,7 @@ class Level {
     return {
       "score": targetScore,
       "jumps": targetJumps,
-      "hight": targetHight,
+      "height": targetheight,
       "platforms": targetPlatforms,
     };
   }
@@ -78,10 +78,10 @@ class Level {
     _nextID = value;
   }
 
-  double get hight => _hight;
+  double get height => _height;
 
-  set hight(double value) {
-    _hight = value;
+  set height(double value) {
+    _height = value;
   }
 
   int get targetPlatforms => _targetPlatforms;
@@ -90,10 +90,10 @@ class Level {
     _targetPlatforms = value;
   }
 
-  int get targetHight => _targetHight;
+  int get targetheight => _targetheight;
 
-  set targetHight(int value) {
-    _targetHight = value;
+  set targetheight(int value) {
+    _targetheight = value;
   }
 
   int get targetJumps => _targetJumps;

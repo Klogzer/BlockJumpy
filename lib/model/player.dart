@@ -11,7 +11,6 @@ class Player extends GameElement with DynamicObject {
   int _score = 0;
   int _jumps = 0;
   int _platforms = 0;
-
   int _health = 1;
   double _protection = 0;
 
@@ -21,12 +20,15 @@ class Player extends GameElement with DynamicObject {
   String get getScoreAsText => score.toString();
 
   void jump(double draft, Platform element) {
+
     jumps++;
     score += (scoreJump);
+
     protection += element.protection;
     if (protection <= 0) {
       health += (element.damage);
     }
+
     if (!element.visited) {
       element.visited = true;
       platforms++;
@@ -60,10 +62,24 @@ class Player extends GameElement with DynamicObject {
           : jump(0, element)
           : null);
     }
+
     if (protection > 0.0) {
+
       protection -= 1.0 / tickModel;
+
+      if (!types.contains("protected")) {
+        types.add("protected");
+        print("player aquired protection");
+      }
+    } else {
+      if (types.contains("protected")) {
+        print("player lost protection");
+        types.remove("protected");
+      }
     }
+
     if (health <= 0 && !types.contains("dead")) {
+      print("player died");
       types.add("dead");
     }
   }
@@ -76,7 +92,7 @@ class Player extends GameElement with DynamicObject {
     return {
       "score": score,
       "jumps": jumps,
-      "hight": yPosition.toInt(),
+      "height": yPosition.toInt(),
       "platforms": platforms,
       "alive": health
     };
@@ -88,7 +104,7 @@ class Player extends GameElement with DynamicObject {
     _platforms = value;
   }
 
-  double get hight => yPosition;
+  double get height => yPosition;
 
   int get jumps => _jumps;
 
@@ -119,4 +135,6 @@ class Player extends GameElement with DynamicObject {
   set protection(double value) {
     _protection = value;
   }
+
 }
+

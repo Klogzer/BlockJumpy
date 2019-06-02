@@ -1,5 +1,4 @@
 import 'package:jumpdx9001deluxe/constants.dart';
-import 'package:jumpdx9001deluxe/model/game_element.dart';
 import 'package:jumpdx9001deluxe/model/platform.dart';
 
 class ProtectionPlatform extends Platform {

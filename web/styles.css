@@ -130,4 +130,7 @@ html, body {
     background: red;
 !important;
 }
-  
+
+.protected {
+    background: aqua;
+}
