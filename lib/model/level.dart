@@ -117,7 +117,7 @@ class Level {
         player.jumps >= targetJumps &&
         player.platforms >= targetPlatforms) {
       won = true;
-      print(won);
+      //print(won);
     }
   }
 }

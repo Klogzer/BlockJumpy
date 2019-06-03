@@ -69,17 +69,17 @@ class Player extends GameElement with DynamicObject {
 
       if (!types.contains("protected")) {
         types.add("protected");
-        print("player aquired protection");
+        //print("player aquired protection");
       }
     } else {
       if (types.contains("protected")) {
-        print("player lost protection");
+        //print("player lost protection");
         types.remove("protected");
       }
     }
 
     if (health <= 0 && !types.contains("dead")) {
-      print("player died");
+      //print("player died");
       types.add("dead");
     }
   }

@@ -159,7 +159,7 @@ class Controller {
             : 0;
 
         // normalizing dx (1 >= dx >= -1)
-        print(dx);
+        //print(dx);
         game.acceleratePlayer(dx / range, 0);
       }
     });

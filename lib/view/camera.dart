@@ -53,7 +53,7 @@ class Camera {
       Element div = Element.div();
       // adds it to the scene if absent
       if (!scene.containsKey(e.id)) {
-        print("added" + e.toString());
+        //print("added" + e.toString());
 
         scene.putIfAbsent(e.id, () => div);
       } else {
@@ -77,7 +77,7 @@ class Camera {
     }
     else {
       if (scene.containsKey(e.id)) {
-        print("removed" + e.toString());
+        //print("removed" + e.toString());
         scene[e.id].remove();
         scene.remove(e.id);
       }
