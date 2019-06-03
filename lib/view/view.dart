@@ -136,11 +136,12 @@ class View {
   }
 
   void drawMainMenu() {
-    resumeBtn.style.display = "block";
     levels.style.display = "none";
     menu.style.display = "block";
     stage.style.display = "none";
     overlay.style.display = "none";
+    howto.style.display = "none";
+    credits.style.display = "none";
   }
 
   void drawLevelMenu() {
@@ -150,10 +151,6 @@ class View {
     overlay.style.display = "none";
   }
 
-  void returnToMenu() {
-    levels.style.display = "none";
-    menu.style.display = "block";
-  }
 
   void drawPauseMenu() {
     updateObjectiveTable("Paused");
@@ -200,12 +197,13 @@ class View {
   }
 
   drawHowToScreen() {
-    howto.style.display ="block";
+    howto.style.display = "block";
+    menu.style.display = "none";
   }
 
-
   drawCredits() {
-    credits.style.display="block";
+    credits.style.display = "block";
+    menu.style.display = "none";
   }
 
   void drawStartMenu() {

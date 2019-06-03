@@ -51,7 +51,7 @@ class Controller {
     });
 
     view.back.onClick.listen((_) {
-      view.returnToMenu();
+      view.drawMainMenu();
     });
 
     ///actionlistener for levelbuttons
