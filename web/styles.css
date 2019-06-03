@@ -22,8 +22,10 @@ html, body {
 }
 
 .menu {
+    height:100%;
     width: 100%;
     text-align: center;
+    background-color: grey;
 }
 
 .menu > div {
