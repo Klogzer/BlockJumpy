@@ -113,10 +113,9 @@ class Level {
 
   void update() {
     if (player.score >= targetScore &&
-        player.xPosition >= targetheight &&
+        player.yPosition >= targetheight &&
         player.jumps >= targetJumps &&
         player.platforms >= targetPlatforms) {
-
       won = true;
       print(won);
     }
