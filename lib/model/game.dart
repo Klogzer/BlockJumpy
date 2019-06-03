@@ -6,7 +6,6 @@ class Game {
   int _secondaryScore = 0;
   int _levelID;
 
-
   Game() {
     levelID = 1;
 
@@ -22,13 +21,8 @@ class Game {
     if (_secondaryScore + level.player.score > highscore) {
       highscore = _secondaryScore + level.player.score;
     }
-    if (level.player.score >= level.targetScore &&
-        level.player.xPosition >= level.targetheight &&
-        level.player.jumps >= level.targetJumps &&
-        level.player.platforms >= level.targetPlatforms) {
-      level.won = true;
-      nextLevel();
-    }
+    level.update();
+    if(level.won) nextLevel();
   }
 
   void nextLevel() {
@@ -37,13 +31,12 @@ class Game {
     level.won = true;
   }
 
-
-  // entrypoint for actionlistener
+// entrypoint for actionlistener
   void acceleratePlayer(double dx, double dy) {
     level.player.accelerate(dx, dy);
   }
 
-  // entrypoint for view
+// entrypoint for view
   get entities => level.entities;
 
   int get levelID => _levelID;
@@ -69,6 +62,4 @@ class Game {
   set secondaryScore(int value) {
     _secondaryScore = value;
   }
-
-
 }
