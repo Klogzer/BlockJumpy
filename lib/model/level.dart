@@ -116,7 +116,6 @@ class Level {
         player.yPosition >= targetheight &&
         player.jumps >= targetJumps &&
         player.platforms >= targetPlatforms) {
-
       won = true;
       print(won);
     }
