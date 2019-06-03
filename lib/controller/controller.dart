@@ -104,10 +104,10 @@ class Controller {
       if (end) return;
       switch (ev.keyCode) {
         case KeyCode.LEFT:
-          game.acceleratePlayer(-1, 0);
+          game.acceleratePlayer(-0.5, 0);
           break;
         case KeyCode.RIGHT:
-          game.acceleratePlayer(1, 0);
+          game.acceleratePlayer(0.5, 0);
           break;
       }
     });
