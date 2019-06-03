@@ -14,8 +14,8 @@ class Player extends GameElement with DynamicObject {
   int _health = 1;
   double _protection = 0;
 
-  Player(this._level, id, xPosition, yPosition, xSize, ySize, this._health)
-      : super(id, ["player"], xPosition, yPosition, xSize, ySize);
+  Player(this._level, id, xPosition, yPosition, this._health)
+      : super(id, ["player"], xPosition, yPosition, playerX, playerY);
 
   String get getScoreAsText => score.toString();
 

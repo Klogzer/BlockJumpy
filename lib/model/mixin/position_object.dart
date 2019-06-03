@@ -1,3 +1,5 @@
+import 'package:jumpdx9001deluxe/constants.dart';
+
 mixin PositionObject {
 
   double _xPosition;
@@ -6,12 +8,12 @@ mixin PositionObject {
   double get xPosition => _xPosition;
 
   set xPosition(double xPosition) {
-    while (xPosition > 1) {
-      xPosition -= 1;
+    while (xPosition > 1.0 - playerX) {
+      xPosition -= 1 - playerX;
     }
 
     if (xPosition < 0) {
-      xPosition += 1;
+      xPosition += 1 - playerX;
     }
     _xPosition = xPosition;
   }

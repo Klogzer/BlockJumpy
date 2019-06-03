@@ -41,8 +41,6 @@ class Level {
         nextID++,
         json['player']["xPos"],
         json['player']["yPos"],
-        json['player']["xDim"],
-        json['player']["yDim"],
         json['player']["lifes"]);
     entities.add(player);
     json['normalPlatform'].forEach((json) => entities.add(NormalPlatform.fromJson(nextID++,json)));

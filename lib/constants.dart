@@ -14,3 +14,6 @@ const double scrollThreshold = 0.5;
 const int scorePlatform = 5;
 //points per jump
 const int scoreJump = -1;
+//player dimensions
+const double playerX = 0.1;
+const double playerY = 0.1;

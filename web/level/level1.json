@@ -11,8 +11,6 @@
   "player": {
     "xPos": 0.0,
     "yPos": 1.0,
-    "xDim": 0.1,
-    "yDim": 0.1,
     "lifes": 1
   },
   "normalPlatform": [
