@@ -137,9 +137,9 @@ class Controller {
         // movement from orientation event
         var gamma = ev.gamma;
         // DEADZONE
-        final int DEADZONE = 1;
+        final int DEADZONE = 2;
         // tilt for max acceleration
-        int range = 20;
+        int range = 30;
 
         // dx is 0 if (2 > gamma > -2)
         // dx is +-30 if (30 < gamma < -30)
