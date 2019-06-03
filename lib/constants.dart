@@ -7,7 +7,7 @@ const double gravity = 0.02;
 // standard jump
 const double stdJump = 0.05;
 // horizontal accelaration speed
-const double horizontalAccelarationFactor = 0.04;
+const double horizontalAccelarationFactor = 0.03;
 // ...
 const double scrollThreshold = 0.5;
 //points per unvisited platform
