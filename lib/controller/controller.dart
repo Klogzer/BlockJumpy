@@ -56,19 +56,19 @@ class Controller {
 
     ///actionlistener for levelbuttons
     view.levelOne.onClick.listen((_) async {
-      await startLevel("level1");
+      await startLevel(1);
     });
     view.levelTwo.onClick.listen((_) async {
-      await startLevel("level2");
+      await startLevel(2);
     });
     view.levelThree.onClick.listen((_) async {
-      await startLevel("level3");
+      await startLevel(3);
     });
     view.levelFour.onClick.listen((_) async {
-      await startLevel("level4");
+      await startLevel(4);
     });
     view.levelFour.onClick.listen((_) async {
-      await startLevel("level5");
+      await startLevel(5);
     });
 
     /// Menu
@@ -203,11 +203,13 @@ class Controller {
     startView();
   }
 
-  startLevel(String str) async {
-    await HttpRequest.getString("level/" + str + ".json").then((myjson) {
+  startLevel(int lvl) async {
+    await HttpRequest.getString("level/level" + lvl.toString() + ".json").then((
+        myjson) {
       Map data = json.decode(myjson);
       // update level from json
       game.level = Level.fromJson(data);
+      game.secondaryScore = 0;
       // startGame with the updated level
       view.drawGameStage();
       view.drawStartMenu();

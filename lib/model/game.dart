@@ -32,7 +32,7 @@ class Game {
   }
 
   void nextLevel() {
-    _secondaryScore = highscore;
+    _secondaryScore += level.player.score;
     levelID++;
     level.won = true;
   }
@@ -63,5 +63,12 @@ class Game {
   set level(Level value) {
     _level = value;
   }
+
+  int get secondaryScore => _secondaryScore;
+
+  set secondaryScore(int value) {
+    _secondaryScore = value;
+  }
+
 
 }
