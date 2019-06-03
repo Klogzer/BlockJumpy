@@ -65,6 +65,7 @@ class Camera {
       // updates its values
       //div.text = "X:" + e.xPosition.toString() + "Y:" + e.yPosition.toString();
       // Viewport relativ
+      div.text = e.toString();
       div.style.left = (e.xPosition * 100).toString() + "%";
       div.style.bottom =
           ((e.yPosition - yCenter) * 100 / cameraRatio).toString() + "%";

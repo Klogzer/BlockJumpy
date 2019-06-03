@@ -151,7 +151,6 @@ class View {
     overlay.style.display = "none";
   }
 
-
   void drawPauseMenu() {
     updateObjectiveTable("Paused");
     resumeBtn.style.display = "block";
@@ -166,11 +165,15 @@ class View {
     objectives.innerHtml = "";
     reason.text = s;
     Map<String, List<int>> map = Map();
-    game.level.getWinCondition().forEach((k, v) =>
-        map.putIfAbsent(k, () => [v, game.level.player.getStatus()[k]]));
+    game.level.getWinCondition().forEach((k, v) => {
+          v != 0
+              ? map.putIfAbsent(k, () => [v, game.level.player.getStatus()[k]])
+              : null,
+        });
 
     // erstelle für alles TabellenEinträge
-    objectives.insertAdjacentHtml("afterBegin",
+    objectives.insertAdjacentHtml(
+        "afterBegin",
         "<tr>" +
             "<td>Category </td>" +
             "<td> Target </td>" +

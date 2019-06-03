@@ -32,5 +32,9 @@ abstract class GameElement with PositionObject, SizeObject {
   set hitbox(Hitbox hitbox) {
     _hitbox = hitbox;
   }
+  @override
+  String toString() {
+    return "$id X:$xPosition y:$yPosition";
+  }
 
 }

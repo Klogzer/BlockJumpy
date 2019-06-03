@@ -109,6 +109,12 @@ class Controller {
         case KeyCode.RIGHT:
           game.acceleratePlayer(0.5, 0);
           break;
+        case KeyCode.N:
+          pauseGame();
+          break;
+        case KeyCode.M:
+          startGame();
+          break;
       }
     });
 
@@ -123,6 +129,7 @@ class Controller {
         case KeyCode.RIGHT:
           game.acceleratePlayer(0, 0);
           break;
+
       }
     });
 
@@ -182,8 +189,8 @@ class Controller {
         (Timer t) => {
               (game.level.player.getStatus()['Alive'] as double >= 1.0)
                   ? (game.level.won)
-                  ? {_modelTimer.cancel(), startNextLevel()}
-                  : game.update()
+                      ? {_modelTimer.cancel(), startNextLevel()}
+                      : game.update()
                   : {_modelTimer.cancel(), view.drawEndScreen()}
             });
   }
@@ -204,8 +211,8 @@ class Controller {
   }
 
   startLevel(int lvl) async {
-    await HttpRequest.getString("level/level" + lvl.toString() + ".json").then((
-        myjson) {
+    await HttpRequest.getString("level/level" + lvl.toString() + ".json")
+        .then((myjson) {
       Map data = json.decode(myjson);
       // update level from json
       game.level = Level.fromJson(data);
@@ -218,7 +225,8 @@ class Controller {
 
   startNextLevel() async {
     await HttpRequest.getString(
-        "level/level" + game.levelID.toString() + ".json").then((myjson) {
+            "level/level" + game.levelID.toString() + ".json")
+        .then((myjson) {
       Map data = json.decode(myjson);
       // update level from json
       game.level = Level.fromJson(data);
@@ -227,5 +235,4 @@ class Controller {
       view.drawStartMenu();
     });
   }
-
 }

@@ -1,6 +1,6 @@
 {
   "winCondition": [
-    100,
+    40,
     0,
     0,
     0
@@ -17,12 +17,6 @@
     {
       "xPos": 0.0,
       "yPos": 0.0,
-      "xDim": 1,
-      "yDim": 0.1
-    },
-    {
-      "xPos": 0.8,
-      "yPos": 1.0,
       "xDim": 0.01,
       "yDim": 0.1
     },
@@ -41,12 +35,6 @@
     {
       "xPos": 0.5,
       "yPos": 0.1176,
-      "xDim": 0.1,
-      "yDim": 0.01
-    },
-    {
-      "xPos": 0.25,
-      "yPos": 1.1764,
       "xDim": 0.1,
       "yDim": 0.01
     },
@@ -87,12 +75,6 @@
       "yDim": 0.01
     },
     {
-      "xPos": 0.1,
-      "yPos": 0.5294,
-      "xDim": 0.1,
-      "yDim": 0.01
-    },
-    {
       "xPos": 0.2,
       "yPos": 0.5882,
       "xDim": 0.1,
@@ -123,12 +105,6 @@
       "yDim": 0.01
     },
     {
-      "xPos": 0.85,
-      "yPos": 0.8824,
-      "xDim": 0.1,
-      "yDim": 0.01
-    },
-    {
       "xPos": 0.4,
       "yPos": 0.9412,
       "xDim": 0.1,
@@ -141,7 +117,34 @@
       "yDim": 0.01
     }
   ],
-  "boostPlatform": [],
-  "deadlyPlatform": [],
-  "protectionPlatform": []
+  "boostPlatform": [
+    {
+      "xPos": 0.8,
+      "yPos": 1.0,
+      "xDim": 0.01,
+      "yDim": 0.1
+    },
+    {
+      "xPos": 0.1,
+      "yPos": 0.5294,
+      "xDim": 0.1,
+      "yDim": 0.01
+    }
+  ],
+  "deadlyPlatform": [
+    {
+      "xPos": 0.85,
+      "yPos": 0.8824,
+      "xDim": 0.1,
+      "yDim": 0.01
+    }
+  ],
+  "protectionPlatform": [
+    {
+      "xPos": 0.25,
+      "yPos": 1.1764,
+      "xDim": 0.1,
+      "yDim": 0.01
+    }
+  ]
 }

@@ -159,6 +159,6 @@ html, body {
     background: aqua;
 }
 
-#howTo {
+#howTo,#credits {
     overflow: auto;
 }
