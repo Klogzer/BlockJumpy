@@ -135,6 +135,11 @@ class Player extends GameElement with DynamicObject {
   set protection(double value) {
     _protection = value;
   }
+  @override
+  String toString() {
+    // TODO: implement toString
+    return (protection>0)?protection.toInt().toString():super.toString();
+  }
 
 }
 
