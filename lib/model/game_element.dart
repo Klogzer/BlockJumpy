@@ -34,7 +34,8 @@ abstract class GameElement with PositionObject, SizeObject {
   }
   @override
   String toString() {
-    return "$id X:$xPosition y:$yPosition";
+    return "";
+    //return "$id X:$xPosition y:$yPosition";
   }
 
 }
