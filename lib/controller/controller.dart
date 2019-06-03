@@ -65,7 +65,10 @@ class Controller {
       await startLevel("level3");
     });
     view.levelFour.onClick.listen((_) async {
-      await startLevel("level1");
+      await startLevel("level4");
+    });
+    view.levelFour.onClick.listen((_) async {
+      await startLevel("level5");
     });
 
     /// Menu
@@ -170,7 +173,7 @@ class Controller {
   }
 
   /// die Anzahl an ticks des modells
-  /// 144hz heist für das modell eine Höchsgeschwindigkeit von 144pixeln pro sekunde
+  /// 144hz heist für das modell eine Höchsgeschwindigkeit von 144 Ticks pro Sekunde.
   startModel() {
     int tick = (1000 / tickModel).floor();
     Duration duration = Duration(milliseconds: tick);
@@ -178,7 +181,9 @@ class Controller {
         duration,
         (Timer t) => {
               (game.level.player.getStatus()['Alive'] as double >= 1.0)
-                  ? game.update()
+                  ? (game.level.won)
+                  ? {_modelTimer.cancel(), startNextLevel()}
+                  : game.update()
                   : {_modelTimer.cancel(), view.drawEndScreen()}
             });
   }
@@ -205,7 +210,20 @@ class Controller {
       game.level = Level.fromJson(data);
       // startGame with the updated level
       view.drawGameStage();
-      startGame();
+      view.drawStartMenu();
     });
   }
+
+  startNextLevel() async {
+    await HttpRequest.getString(
+        "level/level" + game.levelID.toString() + ".json").then((myjson) {
+      Map data = json.decode(myjson);
+      // update level from json
+      game.level = Level.fromJson(data);
+      // startGame with the updated level
+      view.drawGameStage();
+      view.drawStartMenu();
+    });
+  }
+
 }

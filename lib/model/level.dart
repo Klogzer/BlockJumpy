@@ -18,6 +18,8 @@ class Level {
   int _targetheight = 0;
   int _targetPlatforms = 0;
 
+  bool _won = false;
+
   Level();
 
   // moves each entity according to its velocity and gravity
@@ -107,4 +109,11 @@ class Level {
   set targetScore(int value) {
     _targetScore = value;
   }
+
+  bool get won => _won;
+
+  set won(bool value) {
+    _won = value;
+  }
+
 }

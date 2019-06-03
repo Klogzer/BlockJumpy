@@ -171,7 +171,14 @@ class View {
     Map<String, List<int>> map = Map();
     game.level.getWinCondition().forEach((k, v) =>
         map.putIfAbsent(k, () => [v, game.level.player.getStatus()[k]]));
+
     // erstelle für alles TabellenEinträge
+    objectives.insertAdjacentHtml("afterBegin",
+        "<tr>" +
+            "<td>Category </td>" +
+            "<td> Target </td>" +
+            "<td> Current</td>" +
+            "</tr>");
     map.forEach((label, list) => objectives.insertAdjacentHtml(
         "beforeEnd",
         "<tr><td>$label</td><td>" +
@@ -182,7 +189,8 @@ class View {
   }
 
   drawEndScreen() {
-    updateObjectiveTable("You Died");
+    updateObjectiveTable(
+        "Well, this isn't DARK SOULS, but you died anyways...");
     resumeBtn.style.display = "none";
     levels.style.display = "none";
     menu.style.display = "block";
@@ -198,5 +206,16 @@ class View {
 
   drawCredits() {
     credits.style.display="block";
+  }
+
+  void drawStartMenu() {
+    updateObjectiveTable(
+        "New Level, please click Resume to begin... if you dare!");
+    resumeBtn.style.display = "block";
+    levels.style.display = "none";
+    menu.style.display = "block";
+    target.style.display = "block";
+    stage.style.display = "none";
+    overlay.style.display = "none";
   }
 }
