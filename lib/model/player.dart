@@ -5,7 +5,7 @@ import 'package:jumpdx9001deluxe/model/mixin/dynamic_object.dart';
 import 'package:jumpdx9001deluxe/model/platform.dart';
 import 'package:jumpdx9001deluxe/model/vector.dart';
 
-class Player extends GameElement with DynamicObject {
+class Player extends GameElement  {
   Level _level;
 
   int _score = 0;
