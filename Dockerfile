@@ -1,12 +1,12 @@
 FROM google/dart:2.2 AS builder
 ENV PATH="${PATH}:/root/.pub-cache/bin"
+
 WORKDIR /root/build-here
 RUN pub global activate webdev
 COPY pubspec.yaml /root/build-here/
 RUN pub get
 COPY . /root/build-here/
-RUN pub get && \
-    webdev build --output web:build
+RUN pub get && webdev build --output web:build
 
 FROM nginx
 EXPOSE 80

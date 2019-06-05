@@ -104,7 +104,7 @@ html, body {
 
 #stage > Div {
     position: absolute;
-
+    text-align: center;
 }
 
 .player {
@@ -163,3 +163,8 @@ html, body {
     overflow: auto;
 }
 
+.gameSign{
+    background: beige;
+    border-bottom-width: 1px;
+    border-style: groove;
+}
