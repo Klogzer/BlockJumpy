@@ -42,8 +42,9 @@ html, body {
 }
 
 .menu > div:hover {
+    background-color: #555555;
     color: greenyellow;
-    font-variant: all-small-caps
+    font-variant: diagonal-fractions;
 }
 
 .menu > div > textarea {
@@ -54,7 +55,8 @@ html, body {
 
 #target {
     color: lightgray;
-    font-variant: all-small-caps
+    font-variant: all-small-caps;
+    background-color: dimgray;
 }
 
 
@@ -115,8 +117,22 @@ html, body {
     background: azure;
     background-size: 100% 100%;
     box-shadow: 2px 4px 10px rgba(0, 0, 0, .3);
-    background-image: url("img/player.svg");
+}
 
+.up_left {
+    background-image: url("img/player_ul.svg");
+}
+
+.up_right {
+    background-image: url("img/player_ur.svg");
+}
+
+.down_left {
+    background-image: url("img/player_dl.svg");
+}
+
+.down_right {
+    background-image: url("img/player_dr.svg");
 }
 
 
