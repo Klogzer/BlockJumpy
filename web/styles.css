@@ -115,7 +115,8 @@ html, body {
     background: azure;
     background-size: 100% 100%;
     box-shadow: 2px 4px 10px rgba(0, 0, 0, .3);
-    background-image: url(“img/player.svg“);
+    background-image: url("img/player.svg");
+
 }
 
 
