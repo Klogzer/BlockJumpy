@@ -20,7 +20,6 @@ class Player extends GameElement with DynamicObject {
   String get getScoreAsText => score.toString();
 
   void jump(double draft, Platform element) {
-
     jumps++;
     score += (scoreJump);
 
@@ -49,6 +48,43 @@ class Player extends GameElement with DynamicObject {
     this.xPosition += this.acceleration.x;
     this.yPosition += this.acceleration.y - gravity;
 
+    //update texture
+    if (acceleration.y - gravity > 0) {
+      if (acceleration.x >= 0) {
+        types.remove("up_left");
+        types.remove("up_right");
+        types.remove("down_left");
+        types.remove("down_right");
+        types.add("up_right");
+        print("up -> left");
+      }
+      if (acceleration.x < 0) {
+        types.remove("up_left");
+        types.remove("up_right");
+        types.remove("down_left");
+        types.remove("down_right");
+        types.add("up_left");
+        print("up -> right");
+      }
+    }
+    if (acceleration.y - gravity < 0) {
+      if (acceleration.x > 0) {
+        types.remove("up_left");
+        types.remove("up_right");
+        types.remove("down_left");
+        types.remove("down_right");
+        types.add("down_right");
+        print("down -> right");
+      }
+      if (acceleration.x <= 0) {
+        types.remove("up_left");
+        types.remove("up_right");
+        types.remove("down_left");
+        types.remove("down_right");
+        types.add("down_left");
+        print("down -> left");
+      }
+    }
     //update Hitbox
     hitbox.xPosition = this.xPosition;
     hitbox.yPosition = this.yPosition;
@@ -64,7 +100,6 @@ class Player extends GameElement with DynamicObject {
     }
 
     if (protection > 0.0) {
-
       protection -= 1.0 / tickModel;
 
       if (!types.contains("protected")) {
@@ -76,11 +111,6 @@ class Player extends GameElement with DynamicObject {
         //print("player lost protection");
         types.remove("protected");
       }
-    }
-
-    if (health <= 0 && !types.contains("dead")) {
-      //print("player died");
-      types.add("dead");
     }
   }
 
@@ -135,9 +165,10 @@ class Player extends GameElement with DynamicObject {
   set protection(double value) {
     _protection = value;
   }
+
   @override
   String toString() {
-    return (protection>0)?protection.toInt().toString():super.toString();
+    return (protection > 0) ? protection.toInt().toString() : super.toString();
   }
 
 }
