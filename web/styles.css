@@ -114,9 +114,9 @@ html, body {
     position: absolute;
     width: 50px;
     height: 50px;
-    background: azure;
+    background: red;
     background-size: 100% 100%;
-    box-shadow: 2px 4px 10px rgba(0, 0, 0, .3);
+    box-shadow: 4px 6px 5px rgba(0, 0, 0, .5);
 }
 
 .up_left {

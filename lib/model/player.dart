@@ -68,7 +68,7 @@ class Player extends GameElement with DynamicObject {
       }
     }
     if (acceleration.y - gravity < 0) {
-      if (acceleration.x > 0) {
+      if (acceleration.x >= 0) {
         types.remove("up_left");
         types.remove("up_right");
         types.remove("down_left");
@@ -76,7 +76,7 @@ class Player extends GameElement with DynamicObject {
         types.add("down_right");
         print("down -> right");
       }
-      if (acceleration.x <= 0) {
+      if (acceleration.x < 0) {
         types.remove("up_left");
         types.remove("up_right");
         types.remove("down_left");
