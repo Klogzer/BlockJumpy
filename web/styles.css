@@ -57,6 +57,7 @@ html, body {
     color: lightgray;
     font-variant: all-small-caps;
     background-color: dimgray;
+    font-size: 1rem;
 }
 
 
@@ -94,7 +95,7 @@ html, body {
 }
 
 #stage {
-    background: linear-gradient(183deg, lightgray, darkgray);
+    background: linear-gradient(183deg, lightgray, #555555);
     height: 100%;
     width: 100%;
     display: none;
@@ -169,13 +170,8 @@ html, body {
     display: none;
 }
 
-.dead {
-    background: red;
-!important;
-}
-
 .protected {
-    background-color: aqua;
+    background-color: blue;
 }
 
 #howTo,#credits {

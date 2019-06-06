@@ -56,7 +56,7 @@ class Player extends GameElement with DynamicObject {
         types.remove("down_left");
         types.remove("down_right");
         types.add("up_right");
-        print("up -> left");
+        //print("up -> left");
       }
       if (acceleration.x < 0) {
         types.remove("up_left");
@@ -64,7 +64,7 @@ class Player extends GameElement with DynamicObject {
         types.remove("down_left");
         types.remove("down_right");
         types.add("up_left");
-        print("up -> right");
+        //print("up -> right");
       }
     }
     if (acceleration.y - gravity < 0) {
@@ -74,7 +74,7 @@ class Player extends GameElement with DynamicObject {
         types.remove("down_left");
         types.remove("down_right");
         types.add("down_right");
-        print("down -> right");
+        //print("down -> right");
       }
       if (acceleration.x < 0) {
         types.remove("up_left");
@@ -82,7 +82,7 @@ class Player extends GameElement with DynamicObject {
         types.remove("down_left");
         types.remove("down_right");
         types.add("down_left");
-        print("down -> left");
+        //print("down -> left");
       }
     }
     //update Hitbox

@@ -1,7 +1,7 @@
 // const for view Refreshrate
-const int fps = 30;
+const int fps = 40;
 // const for modell tick
-const int tickModel = 30;
+const int tickModel = 40;
 // const for gravity
 const double gravity = 0.04;
 // standard jump
