@@ -14,7 +14,8 @@ class DeadlyPlatform extends Platform {
       -1,
             stdJump);
 
-  DeadlyPlatform.fromJson(int id, Map<String, dynamic>json) : super(
+  DeadlyPlatform.fromJson(int id, Map<String, dynamic> json)
+      : super(
       id,
       ["platform", "deadlyPlatform"],
       json["xPos"],
@@ -24,7 +25,4 @@ class DeadlyPlatform extends Platform {
       -1,
       0,
       stdJump);
-
-
-
 }

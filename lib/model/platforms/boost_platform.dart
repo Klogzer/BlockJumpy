@@ -6,7 +6,8 @@ class BoostPlatform extends Platform {
       : super(id, ["platform", "boostPlatform"], xPos, yPos, xDim, yDim, 0, 0,
             stdJump * 2);
 
-  BoostPlatform.fromJson(int id, Map<String, dynamic>json) : super(
+  BoostPlatform.fromJson(int id, Map<String, dynamic> json)
+      : super(
       id,
       ["platform", "boostPlatform"],
       json["xPos"],
@@ -16,5 +17,4 @@ class BoostPlatform extends Platform {
       0,
       0,
       (stdJump * 1.2));
-
 }

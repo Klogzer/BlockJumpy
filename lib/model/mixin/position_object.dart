@@ -3,7 +3,7 @@ import 'package:jumpdx9001deluxe/constants.dart';
 mixin PositionObject {
 
   double _xPosition;
-  double _yPosition;
+  double yPosition;
 
   double get xPosition => _xPosition;
 
@@ -18,9 +18,4 @@ mixin PositionObject {
     _xPosition = xPosition;
   }
 
-  double get yPosition => _yPosition;
-
-  set yPosition(double yPosition) {
-    _yPosition = yPosition;
-  }
 }

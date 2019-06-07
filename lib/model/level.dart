@@ -7,18 +7,16 @@ import 'package:jumpdx9001deluxe/model/player.dart';
 
 // static width
 class Level {
-  Player _player;
-  int _nextID = 0;
-  List<GameElement> _entities = List();
 
-  double _height;
-
-  int _targetScore = 0;
-  int _targetJumps = 0;
-  int _targetheight = 0;
-  int _targetPlatforms = 0;
-
-  bool _won = false;
+  Player player;
+  int nextID = 0;
+  List<GameElement> entities = List();
+  double height;
+  int targetScore = 0;
+  int targetJumps = 0;
+  int targetheight = 0;
+  int targetPlatforms = 0;
+  bool won = false;
 
   Level();
 
@@ -55,60 +53,6 @@ class Level {
       "Height": targetheight,
       "Platforms": targetPlatforms,
     };
-  }
-
-  Player get player => _player;
-
-  set player(Player value) {
-    _player = value;
-  }
-
-  List<GameElement> get entities => _entities;
-
-  set entities(List<GameElement> value) {
-    _entities = value;
-  }
-
-  int get nextID => _nextID;
-
-  set nextID(int value) {
-    _nextID = value;
-  }
-
-  double get height => _height;
-
-  set height(double value) {
-    _height = value;
-  }
-
-  int get targetPlatforms => _targetPlatforms;
-
-  set targetPlatforms(int value) {
-    _targetPlatforms = value;
-  }
-
-  int get targetheight => _targetheight;
-
-  set targetheight(int value) {
-    _targetheight = value;
-  }
-
-  int get targetJumps => _targetJumps;
-
-  set targetJumps(int value) {
-    _targetJumps = value;
-  }
-
-  int get targetScore => _targetScore;
-
-  set targetScore(int value) {
-    _targetScore = value;
-  }
-
-  bool get won => _won;
-
-  set won(bool value) {
-    _won = value;
   }
 
   void update() {

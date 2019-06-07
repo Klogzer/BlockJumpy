@@ -1,10 +1,10 @@
 import 'package:jumpdx9001deluxe/model/level.dart';
 
 class Game {
-  Level _level;
-  int _highscore = 0;
-  int _secondaryScore = 0;
-  int _levelID;
+  Level level;
+  int highscore = 0;
+  int secondaryScore = 0;
+  int levelID;
 
   Game() {
     levelID = 1;
@@ -18,15 +18,15 @@ class Game {
   update() {
     // inclusive player
     level.updateEntities();
-    if (_secondaryScore + level.player.score > highscore) {
-      highscore = _secondaryScore + level.player.score;
+    if (secondaryScore + level.player.score > highscore) {
+      highscore = secondaryScore + level.player.score;
     }
     level.update();
     if(level.won) nextLevel();
   }
 
   void nextLevel() {
-    _secondaryScore += level.player.score;
+    secondaryScore += level.player.score;
     levelID++;
     level.won = true;
   }
@@ -38,28 +38,4 @@ class Game {
 
 // entrypoint for view
   get entities => level.entities;
-
-  int get levelID => _levelID;
-
-  set levelID(int value) {
-    _levelID = value;
-  }
-
-  int get highscore => _highscore;
-
-  set highscore(int value) {
-    _highscore = value;
-  }
-
-  Level get level => _level;
-
-  set level(Level value) {
-    _level = value;
-  }
-
-  int get secondaryScore => _secondaryScore;
-
-  set secondaryScore(int value) {
-    _secondaryScore = value;
-  }
 }

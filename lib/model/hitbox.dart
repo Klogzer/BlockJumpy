@@ -2,9 +2,9 @@ import 'package:jumpdx9001deluxe/model/mixin/position_object.dart';
 import 'package:jumpdx9001deluxe/model/mixin/size_object.dart';
 
 class Hitbox with PositionObject, SizeObject {
-  bool _active;
+  bool active;
 
-  Hitbox(this._active, xPos, yPos, xDim, yDim) {
+  Hitbox(this.active, xPos, yPos, xDim, yDim) {
     xPosition = xPos;
     yPosition = yPos;
     xSize = xDim;
@@ -19,14 +19,12 @@ class Hitbox with PositionObject, SizeObject {
         this.yPosition + this.ySize > element.yPosition);
   }
 
-  bool get active => _active;
-
   void activate() {
-    _active = true;
+    active = true;
   }
 
   void deactivate() {
-    _active = false;
+    active = false;
   }
 
   @override
