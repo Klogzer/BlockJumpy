@@ -6,7 +6,7 @@
 
 html, body {
 
-    background-image: radial-gradient(circle, grey, #444444);
+    background-image: radial-gradient(circle, #009900, #000000);
     height: 100%;
     width: 100%;
     margin: 0;
@@ -24,10 +24,9 @@ html, body {
     transform: translate(-50%, -50%);
     width: 100%;
     height: 100%;
-    border: solid black 1px;
-    background-color: Darkgray;
+    border: solid #00ff00 1px;
+    background-color: #000000;
     max-width: 1000px;
-    box-shadow: 0px 0px 25px rgba(0, 0, 0, .1);
 
 }
 
@@ -39,23 +38,29 @@ html, body {
     height:100%;
     width: 100%;
     text-align: center;
-    background-color: grey;
+    background-color: #000000;
 }
 
 .menu > div {
+    margin: 10px;
     padding: 5px 20px 5px 20px;
     font-style: normal;
     font-size: 2rem;
     text-decoration: none;
-    color: white;
-    background: DimGrey;
-    border: 3px solid lightgrey;
+    color: #00ff00;
+    background: #000000;
+    border: 1px dashed #00ff00;
+
 }
 
 .menu > div:hover {
-    background-color: #555555;
-    color: greenyellow;
+    background-color: #00ff00;
+    color: #000000;
     font-variant: diagonal-fractions;
+    animation: glow-over 0.3s linear;
+    box-shadow: 0px 0px 15px rgba(0, 255, 0, 255);
+
+
 }
 
 .menu > div > textarea {
@@ -65,20 +70,10 @@ html, body {
 }
 
 #target {
-    color: lightgray;
+    color: #00ff00;
     font-variant: all-small-caps;
-    background-color: dimgray;
+    background-color: #000000;
     font-size: 1rem;
-}
-
-
-#info-box {
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    background-color: grey;
-    box-shadow: 0px 1px 10px rgba(0, 0, 0, .6);
-
 }
 
 .info-itm {
@@ -90,10 +85,7 @@ html, body {
     margin-right: 0px;
     width: 50px;
     height: 50px;
-    
-    background-image: url("img/pause.png");
     background-size: 100%;
-
 }
 
 
@@ -106,7 +98,7 @@ html, body {
 }
 
 #stage {
-    background: lightgray;
+    background: #000000;
     height: 100%;
     width: 100%;
     display: none;
@@ -126,25 +118,22 @@ html, body {
     position: absolute;
     width: 50px;
     height: 50px;
-    background: red;
     background-size: 100% 100%;
-    box-shadow: 4px 6px 5px rgba(0, 0, 0, .5);
+    box-shadow: 0px 0px 25px rgba(0, 255, 0, 255);
+    background: #00ff00;
+
 }
 
 .up_left {
-    background-color: aqua;
 }
 
 .up_right {
-    background-color: black;
 }
 
 .down_left {
-    background-color: yellow;
 }
 
 .down_right {
-    background-color: green;
 }
 
 
@@ -182,15 +171,27 @@ html, body {
 }
 
 .protected {
-    background-color: blue;
+    box-shadow: 0px 0px 25px rgba(0, 0, 255, 255);
+    background: #0000ff;
 }
 
 #howTo,#credits {
     overflow: auto;
+    color: #00ff00;
 }
 
-.gameSign{
-    background: beige;
-    border-bottom-width: 1px;
-    border-style: groove;
+@-webkit-keyframes glow-over {
+    from {
+        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0);
+        background-color: #000000;
+        color: #00ff00;
+
+    }
+
+    to {
+        box-shadow: 0px 0px 15px rgba(0, 255, 0, 255);
+        background-color: #00ff00;
+        color: #000000;
+
+    }
 }
