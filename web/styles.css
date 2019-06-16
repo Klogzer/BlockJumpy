@@ -1,9 +1,20 @@
+@media screen and (orientation: landscape) {
+    #warning{
+        display: block;
+    }
+}
+
 html, body {
+
     background-image: radial-gradient(circle, grey, #444444);
     height: 100%;
     width: 100%;
     margin: 0;
     font-family: 'Roboto Mono', monospace;
+}
+
+#warning{
+    display: none;
 }
 
 #mainContainer {
@@ -126,17 +137,14 @@ html, body {
 
 .up_right {
     background-color: black;
-
 }
 
 .down_left {
     background-color: yellow;
-
 }
 
 .down_right {
     background-color: green;
-
 }
 
 
