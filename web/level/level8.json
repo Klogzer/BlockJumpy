@@ -1,0 +1,40 @@
+{
+  "winCondition": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "levelMeta": [
+    1
+  ],
+  "player": {
+    "xPos": 0.5,
+    "yPos": 0.6,
+    "lifes": 1
+  },
+  "normalPlatform": [
+    {
+      "xPos": 0.0,
+      "yPos": 0.0,
+      "xDim": 1.0,
+      "yDim": 0.01,
+      "text": ""
+    }
+  ],
+  "boostPlatform": [
+  ],
+  "deadlyPlatform": [
+  ],
+  "protectionPlatform": [
+  ],
+  "infoBox": [
+    {
+      "xPos": 0.2,
+      "yPos": 0.4,
+      "xDim": 0.6,
+      "yDim": 0.1,
+      "text": "HalloWelt"
+    }
+  ]
+}

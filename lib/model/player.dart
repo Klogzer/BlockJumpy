@@ -1,26 +1,24 @@
 import 'package:jumpdx9001deluxe/constants.dart';
 import 'package:jumpdx9001deluxe/model/game_element.dart';
 import 'package:jumpdx9001deluxe/model/level.dart';
-import 'package:jumpdx9001deluxe/model/mixin/dynamic_object.dart';
 import 'package:jumpdx9001deluxe/model/platform.dart';
 import 'package:jumpdx9001deluxe/model/vector.dart';
 
-class Player extends GameElement  {
+class Player extends GameElement {
   Level _level;
 
-  int _score = 0;
-  int _jumps = 0;
-  int _platforms = 0;
-  int _health = 1;
-  double _protection = 0;
+  int score = 0;
+  int jumps = 0;
+  int platforms = 0;
+  int health = 1;
+  double protection = 0;
 
-  Player(this._level, id, xPosition, yPosition, this._health)
+  Player(this._level, id, xPosition, yPosition, this.health)
       : super(id, ["player"], xPosition, yPosition, playerX, playerY);
 
   String get getScoreAsText => score.toString();
 
   void jump(double draft, Platform element) {
-
     jumps++;
     score += (scoreJump);
 
@@ -42,13 +40,50 @@ class Player extends GameElement  {
     //Calculate vertical-vector
     this.acceleration.y *= 0.985;
 
-    if (acceleration.y <= stdJump * 0.05 && acceleration.y != 0.0) {
+    if (acceleration.y <= stdJump * 0.1 && acceleration.y != 0.0) {
       health = 0;
     }
     //Calculate Position
     this.xPosition += this.acceleration.x;
     this.yPosition += this.acceleration.y - gravity;
 
+    //update texture
+    if (acceleration.y - gravity > 0) {
+      if (acceleration.x >= 0) {
+        types.remove("up_left");
+        types.remove("up_right");
+        types.remove("down_left");
+        types.remove("down_right");
+        types.add("up_right");
+        //print("up -> left");
+      }
+      if (acceleration.x < 0) {
+        types.remove("up_left");
+        types.remove("up_right");
+        types.remove("down_left");
+        types.remove("down_right");
+        types.add("up_left");
+        //print("up -> right");
+      }
+    }
+    if (acceleration.y - gravity < 0) {
+      if (acceleration.x >= 0) {
+        types.remove("up_left");
+        types.remove("up_right");
+        types.remove("down_left");
+        types.remove("down_right");
+        types.add("down_right");
+        //print("down -> right");
+      }
+      if (acceleration.x < 0) {
+        types.remove("up_left");
+        types.remove("up_right");
+        types.remove("down_left");
+        types.remove("down_right");
+        types.add("down_left");
+        //print("down -> left");
+      }
+    }
     //update Hitbox
     hitbox.xPosition = this.xPosition;
     hitbox.yPosition = this.yPosition;
@@ -64,7 +99,6 @@ class Player extends GameElement  {
     }
 
     if (protection > 0.0) {
-
       protection -= 1.0 / tickModel;
 
       if (!types.contains("protected")) {
@@ -76,11 +110,6 @@ class Player extends GameElement  {
         //print("player lost protection");
         types.remove("protected");
       }
-    }
-
-    if (health <= 0 && !types.contains("dead")) {
-      //print("player died");
-      types.add("dead");
     }
   }
 
@@ -98,48 +127,8 @@ class Player extends GameElement  {
     };
   }
 
-  int get platforms => _platforms;
-
-  set platforms(int value) {
-    _platforms = value;
-  }
-
-  double get height => yPosition;
-
-  int get jumps => _jumps;
-
-  set jumps(int value) {
-    _jumps = value;
-  }
-
-  int get score => _score;
-
-  set score(int value) {
-    _score = value;
-  }
-
-  Level get level => _level;
-
-  set level(Level value) {
-    _level = value;
-  }
-
-  int get health => _health;
-
-  set health(int value) {
-    _health = value;
-  }
-
-  double get protection => _protection;
-
-  set protection(double value) {
-    _protection = value;
-  }
   @override
   String toString() {
-    // TODO: implement toString
-    return (protection>0)?protection.toInt().toString():super.toString();
+    return (protection > 0) ? protection.toInt().toString() : super.toString();
   }
-
 }
-
