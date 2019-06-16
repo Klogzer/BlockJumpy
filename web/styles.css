@@ -8,8 +8,7 @@
         display: none;
     }
 }
-
-@media screen  and (orientation: portrait) {
+@media screen  and (orientation: portrait){
     #warning {
         display: none;
     }
@@ -18,8 +17,7 @@
         display: block;
     }
 }
-
-@media (min-width: 1025px) {
+@media (min-width: 1025px){
     #warning {
         display: none;
     }
@@ -118,7 +116,6 @@ html, body {
     margin-right: 0px;
     width: 50px;
     height: 50px;
-    background-image: url("img/pause.png");
     background-size: 100%;
 }
 

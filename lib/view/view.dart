@@ -41,6 +41,8 @@ class View {
 
   // querySelector for overlay
   final overlay = querySelector("#overlay");
+  // querySelector for warning
+  final warning = querySelector("#warning");
 
   /// Overlay end
 
