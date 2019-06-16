@@ -7,7 +7,7 @@ class Camera {
   /// Debugg
   ///
   ///
-
+  Element main = Element.div();
   double cameraRatio;
   double yCenter = 0;
 
@@ -15,6 +15,7 @@ class Camera {
   // double cameraXPosition;
   int cameraHeight;
   int cameraWidth;
+
   // cullingstate
   bool culling = false;
 
@@ -44,11 +45,22 @@ class Camera {
 
   /// updates seenElements
   void update(List<GameElement> entities) {
+    //var watch = Stopwatch();
+    //watch.start();
+    // Timer start here
+    main.innerHtml = "";
     entities.forEach(renderElement);
+    stage.children = main.children;
+    // Timer end here
+    // gimme the rendertimes
+    //watch.stop();
+    //print(watch.elapsedTicks);
   }
 
   renderElement(GameElement e) {
-    if ((e.yPosition / cameraRatio > cameraBottomBorder && e.yPosition / cameraRatio < cameraTopBorder) || !culling) {
+    if ((e.yPosition / cameraRatio > cameraBottomBorder &&
+            e.yPosition / cameraRatio < cameraTopBorder) ||
+        !culling) {
       // creates a div
       Element div = Element.div();
       // adds it to the scene if absent
@@ -73,9 +85,8 @@ class Camera {
       div.style.height = (e.ySize * 100 / cameraRatio).toString() + "%";
 
       // inserts it in dom
-      stage.insertAdjacentElement("afterBegin", div);
-    }
-    else {
+      main.insertAdjacentElement("afterBegin", div);
+    } else {
       if (scene.containsKey(e.id)) {
         //print("removed" + e.toString());
         scene[e.id].remove();

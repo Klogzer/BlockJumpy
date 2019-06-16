@@ -189,9 +189,9 @@ class Controller {
         (Timer t) => {
               (game.level.player.getStatus()['Alive'] as double >= 1.0)
                   ? (game.level.won)
-                      ? {_modelTimer.cancel(), startNextLevel()}
+                      ? {pauseGame(), startNextLevel()}
                       : game.update()
-                  : {_modelTimer.cancel(), view.drawEndScreen()}
+                  : {pauseGame(), view.drawEndScreen()}
             });
   }
 

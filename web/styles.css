@@ -95,7 +95,7 @@ html, body {
 }
 
 #stage {
-    background: linear-gradient(183deg, lightgray, #555555);
+    background: lightgray;
     height: 100%;
     width: 100%;
     display: none;
@@ -121,19 +121,22 @@ html, body {
 }
 
 .up_left {
-    background-image: url("img/player_ul.svg");
+    background-color: aqua;
 }
 
 .up_right {
-    background-image: url("img/player_ur.svg");
+    background-color: black;
+
 }
 
 .down_left {
-    background-image: url("img/player_dl.svg");
+    background-color: yellow;
+
 }
 
 .down_right {
-    background-image: url("img/player_dr.svg");
+    background-color: green;
+
 }
 
 
