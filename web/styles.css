@@ -1,7 +1,31 @@
 @media screen and (orientation: landscape) {
-    #warning{
+    #warning {
+        text-align: center;
         display: block;
     }
+
+    #mainContainer {
+        display: none;
+    }
+}
+@media screen  and (orientation: portrait){
+    #warning {
+        display: none;
+    }
+
+    #mainContainer {
+        display: block;
+    }
+}
+@media (min-width: 1025px){
+    #warning {
+        display: none;
+    }
+
+    #mainContainer {
+        display: block;
+    }
+
 }
 
 html, body {
@@ -13,9 +37,6 @@ html, body {
     font-family: 'Roboto Mono', monospace;
 }
 
-#warning{
-    display: none;
-}
 
 #mainContainer {
     position: fixed;
@@ -35,7 +56,7 @@ html, body {
 }
 
 .menu {
-    height:100%;
+    height: 100%;
     width: 100%;
     text-align: center;
     background-color: #000000;
@@ -85,6 +106,8 @@ html, body {
     margin-right: 0px;
     width: 50px;
     height: 50px;
+
+    background-image: url("img/pause.png");
     background-size: 100%;
 }
 
@@ -94,7 +117,7 @@ html, body {
     width: 100%;
     height: 100%;
     display: none;
-    z-index:1000;
+    z-index: 1000;
 }
 
 #stage {
@@ -104,9 +127,10 @@ html, body {
     display: none;
 
 }
+
 #objectives {
     text-align: center;
-    margin:  auto;
+    margin: auto;
 }
 
 #stage > Div {
@@ -119,7 +143,7 @@ html, body {
     width: 50px;
     height: 50px;
     background-size: 100% 100%;
-    box-shadow: 0px 0px 25px rgba(0, 255, 0, 255);
+    box-shadow: 0px 0px 15px rgba(0, 255, 0, 255);
     background: #00ff00;
 
 }
@@ -166,7 +190,8 @@ html, body {
 .deadlyPlatform {
     background: red;
 }
-#debug{
+
+#debug {
     display: none;
 }
 
@@ -175,7 +200,7 @@ html, body {
     background: #0000ff;
 }
 
-#howTo,#credits {
+#howTo, #credits {
     overflow: auto;
     color: #00ff00;
 }
