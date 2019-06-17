@@ -61,6 +61,7 @@ class Camera {
       div.classes = e.types;
       // Viewport relativ
       div.text = e.toString();
+      div.style.color = "white";
       div.style.left = (e.xPosition * 100).toString() + "%";
       div.style.bottom =
           ((e.yPosition - yCenter) * 100 / cameraRatio).toString() + "%";

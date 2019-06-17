@@ -1,40 +1,85 @@
 {
   "winCondition": [
+    45,
     0,
-    0,
-    0,
+    7,
     0
   ],
   "levelMeta": [
-    1
+    10
   ],
   "player": {
-    "xPos": 0.5,
-    "yPos": 0.6,
+    "xPos": 0.0,
+    "yPos": 1.0,
     "lifes": 1
   },
   "normalPlatform": [
     {
-      "xPos": 0.0,
-      "yPos": 0.0,
-      "xDim": 1.0,
-      "yDim": 0.01,
-      "text": ""
+      "xPos": 0.25,
+      "yPos": 6.5,
+      "xDim": 0.1,
+      "yDim": 0.01
+    },
+    {
+      "xPos": 0.25,
+      "yPos": 6.5,
+      "xDim": 0.1,
+      "yDim": 0.01
+    },
+    {
+      "xPos": 0.25,
+      "yPos": 6.5,
+      "xDim": 0.1,
+      "yDim": 0.01
+    },
+    {
+      "xPos": 0.25,
+      "yPos": 6.5,
+      "xDim": 0.1,
+      "yDim": 0.01
+    },
+    {
+      "xPos": 0.25,
+      "yPos": 6.5,
+      "xDim": 0.1,
+      "yDim": 0.01
     }
   ],
   "boostPlatform": [
   ],
   "deadlyPlatform": [
+
   ],
   "protectionPlatform": [
-  ],
-  "infoBox": [
     {
-      "xPos": 0.2,
-      "yPos": 0.4,
-      "xDim": 0.6,
-      "yDim": 0.1,
-      "text": "HalloWelt"
+      "xPos": 0.25,
+      "yPos": 6.5,
+      "xDim": 0.1,
+      "yDim": 0.01
+    },
+    {
+      "xPos": 0.25,
+      "yPos": 6.5,
+      "xDim": 0.1,
+      "yDim": 0.01
+    },
+    {
+      "xPos": 0.25,
+      "yPos": 6.5,
+      "xDim": 0.1,
+      "yDim": 0.01
+    },
+    {
+      "xPos": 0.25,
+      "yPos": 6.5,
+      "xDim": 0.1,
+      "yDim": 0.01
+    },
+    {
+      "xPos": 0.25,
+      "yPos": 6.5,
+      "xDim": 0.1,
+      "yDim": 0.01
     }
   ]
 }

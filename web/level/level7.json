@@ -1,0 +1,150 @@
+{
+  "winCondition": [
+    45,
+    0,
+    7,
+    0
+  ],
+  "levelMeta": [
+    10
+  ],
+  "player": {
+    "xPos": 0.0,
+    "yPos": 1.0,
+    "lifes": 1
+  },
+  "normalPlatform": [
+    {
+      "xPos": 0.0,
+      "yPos": 0.0,
+      "xDim": 1,
+      "yDim": 0.01
+    },
+    {
+      "xPos": 0.3,
+      "yPos": 1.6,
+      "xDim": 0.05,
+      "yDim": 0.01
+    },
+    {
+      "xPos": 0.15,
+      "yPos": 2.3,
+      "xDim": 0.05,
+      "yDim": 0.01
+    },
+    {
+      "xPos": 0.7,
+      "yPos": 3,
+      "xDim": 0.05,
+      "yDim": 0.01
+    },
+    {
+      "xPos": 0.6,
+      "yPos": 3.7,
+      "xDim": 0.05,
+      "yDim": 0.01
+    },
+    {
+      "xPos": 0.1,
+      "yPos": 4.2,
+      "xDim": 0.05,
+      "yDim": 0.01
+    },
+    {
+      "xPos": 0.0,
+      "yPos": 4.6,
+      "xDim": 0.05,
+      "yDim": 0.01
+    },
+    {
+      "xPos": 0.1,
+      "yPos": 5.1,
+      "xDim": 0.05,
+      "yDim": 0.01
+    },
+    {
+      "xPos": 0.9,
+      "yPos": 5.6,
+      "xDim": 0.05,
+      "yDim": 0.01
+    },
+    {
+      "xPos": 0.4,
+      "yPos": 5.7,
+      "xDim": 0.05,
+      "yDim": 0.01
+    }
+  ],
+  "boostPlatform": [
+    {
+      "xPos": 0.8,
+      "yPos": 0.4,
+      "xDim": 0.1,
+      "yDim": 0.01
+    }
+  ],
+  "deadlyPlatform": [
+    {
+      "xPos": 0,
+      "yPos": 1.58,
+      "xDim": 1,
+      "yDim": 0.01
+    },
+    {
+      "xPos": 0,
+      "yPos": 2.28,
+      "xDim": 1,
+      "yDim": 0.01
+    },
+    {
+      "xPos": 0,
+      "yPos": 2.98,
+      "xDim": 1,
+      "yDim": 0.01
+    },
+    {
+      "xPos": 0,
+      "yPos": 3.68,
+      "xDim": 1,
+      "yDim": 0.01
+    },
+    {
+      "xPos": 0,
+      "yPos": 4.18,
+      "xDim": 1,
+      "yDim": 0.01
+    },
+    {
+      "xPos": 0,
+      "yPos": 4.58,
+      "xDim": 1,
+      "yDim": 0.01
+    },
+    {
+      "xPos": 0,
+      "yPos": 5.08,
+      "xDim": 1,
+      "yDim": 0.01
+    },
+    {
+      "xPos": 0,
+      "yPos": 5.58,
+      "xDim": 1,
+      "yDim": 0.01
+    },
+    {
+      "xPos": 0,
+      "yPos": 5.68,
+      "xDim": 1,
+      "yDim": 0.01
+    }
+  ],
+  "protectionPlatform": [
+    {
+      "xPos": 0.25,
+      "yPos": 6.5,
+      "xDim": 0.1,
+      "yDim": 0.01
+    }
+  ]
+}

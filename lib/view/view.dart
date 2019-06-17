@@ -104,6 +104,21 @@ class View {
   final levelFive = querySelector("#levelFive");
 
   // querySelector for level
+  final levelSix = querySelector("#levelSix");
+
+  // querySelector for level
+  final levelSeven = querySelector("#levelSeven");
+
+  // querySelector for level
+  final levelEight = querySelector("#levelEight");
+
+  // querySelector for level
+  final levelNine = querySelector("#levelNine");
+
+  // querySelector for level
+  final levelTen = querySelector("#levelTen");
+
+  // querySelector for level
   final back = querySelector("#back");
 
   /// Levelmenu end
@@ -209,7 +224,8 @@ class View {
   // modifies the DOM to display the HowToScreen
   // load from html since the content is static
   drawHowToScreen() async {
-    howto.setInnerHtml(await HttpRequest.getString("howto.html"), treeSanitizer: NodeTreeSanitizer.trusted);
+    howto.setInnerHtml(await HttpRequest.getString("howto.html"),
+        treeSanitizer: NodeTreeSanitizer.trusted);
     howto.style.display = "block";
     menu.style.display = "none";
   }
@@ -217,7 +233,8 @@ class View {
   // modifies the DOM to display the Credits
   // load from html since the content is static
   drawCredits() async {
-    credits.setInnerHtml(await HttpRequest.getString("credits.html"), treeSanitizer: NodeTreeSanitizer.trusted);
+    credits.setInnerHtml(await HttpRequest.getString("credits.html"),
+        treeSanitizer: NodeTreeSanitizer.trusted);
     credits.style.display = "block";
     menu.style.display = "none";
   }

@@ -98,6 +98,21 @@ class Controller {
     view.levelFive.onClick.listen((_) async {
       await startLevel(5);
     });
+    view.levelSix.onClick.listen((_) async {
+      await startLevel(6);
+    });
+    view.levelSeven.onClick.listen((_) async {
+      await startLevel(7);
+    });
+    view.levelEight.onClick.listen((_) async {
+      await startLevel(8);
+    });
+    view.levelNine.onClick.listen((_) async {
+      await startLevel(9);
+    });
+    view.levelTen.onClick.listen((_) async {
+      await startLevel(10);
+    });
 
     ///
     ///

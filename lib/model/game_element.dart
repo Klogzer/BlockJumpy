@@ -27,7 +27,6 @@ abstract class GameElement with PositionObject, SizeObject, DynamicObject {
 
   @override
   String toString() {
-    return "";
-    //return "$id X:$xPosition y:$yPosition";
+    return "$id X:$xPosition y:$yPosition";
   }
 }
