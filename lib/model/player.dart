@@ -49,39 +49,31 @@ class Player extends GameElement {
 
     //update texture
     if (acceleration.y - gravity > 0) {
-      if (acceleration.x >= 0) {
-        types.remove("up_left");
-        types.remove("up_right");
-        types.remove("down_left");
-        types.remove("down_right");
+      if (acceleration.x > 0) {
+        clearDirection();
         types.add("up_right");
-        //print("up -> left");
       }
       if (acceleration.x < 0) {
-        types.remove("up_left");
-        types.remove("up_right");
-        types.remove("down_left");
-        types.remove("down_right");
+        clearDirection();
         types.add("up_left");
-        //print("up -> right");
+      }
+      if (acceleration.x == 0) {
+        clearDirection();
+        types.add("up_center");
       }
     }
     if (acceleration.y - gravity < 0) {
-      if (acceleration.x >= 0) {
-        types.remove("up_left");
-        types.remove("up_right");
-        types.remove("down_left");
-        types.remove("down_right");
+      if (acceleration.x > 0) {
+        clearDirection();
         types.add("down_right");
-        //print("down -> right");
       }
       if (acceleration.x < 0) {
-        types.remove("up_left");
-        types.remove("up_right");
-        types.remove("down_left");
-        types.remove("down_right");
+        clearDirection();
         types.add("down_left");
-        //print("down -> left");
+      }
+      if (acceleration.x == 0) {
+        clearDirection();
+        types.add("down_center");
       }
     }
     //update Hitbox
@@ -113,6 +105,15 @@ class Player extends GameElement {
     }
   }
 
+  void clearDirection() {
+    types.remove("up_right");
+    types.remove("up_left");
+    types.remove("up_center");
+    types.remove("down_right");
+    types.remove("down_left");
+    types.remove("down_center");
+  }
+
   void accelerate(double dx, double dy) {
     this.acceleration.x = dx * horizontalAccelarationFactor;
   }
@@ -131,4 +132,6 @@ class Player extends GameElement {
   String toString() {
     return (protection > 0) ? protection.toInt().toString() : super.toString();
   }
+
+
 }

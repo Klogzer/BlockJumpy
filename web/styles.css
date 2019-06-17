@@ -148,26 +148,31 @@ html, body {
 
 .player {
     position: absolute;
-    width: 50px;
-    height: 50px;
-    background-size: 100% 100%;
     box-shadow: 0px 0px 15px rgba(0, 255, 0, 255);
-    background: #00ff00;
-
+    background-size: 100%;
+    background-color: #00ff00;
 }
 
 .up_left {
+    background-image: url("https://image.spreadshirtmedia.com/image-server/v1/designs/12320289,width=178,height=178.png");
 }
-
 .up_right {
+    background-image: url("https://image.spreadshirtmedia.com/image-server/v1/designs/12320289,width=178,height=178.png");
 }
 
+.up_center {
+    background-image: url("https://image.spreadshirtmedia.com/image-server/v1/designs/12320289,width=178,height=178.png");
+}
 .down_left {
+    background-image: url("https://image.spreadshirtmedia.com/image-server/v1/designs/12320289,width=178,height=178.png");
 }
-
 .down_right {
+    background-image: url("https://image.spreadshirtmedia.com/image-server/v1/designs/12320289,width=178,height=178.png");
 }
 
+.down_center {
+    background-image: url("https://image.spreadshirtmedia.com/image-server/v1/designs/12320289,width=178,height=178.png");
+}
 
 .platform {
     position: absolute;
