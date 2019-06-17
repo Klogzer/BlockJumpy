@@ -65,7 +65,6 @@ class Controller {
     view.howto.onClick.listen((_) {
       view.drawMainMenu();
     });
-
     /// eventhandler to draw level selection
     view.levelSel.onClick.listen((_) {
       view.drawLevelMenu();

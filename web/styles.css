@@ -8,7 +8,8 @@
         display: none;
     }
 }
-@media screen  and (orientation: portrait){
+
+@media screen  and (orientation: portrait) {
     #warning {
         display: none;
     }
@@ -17,7 +18,8 @@
         display: block;
     }
 }
-@media (min-width: 1025px){
+
+@media (min-width: 1025px) {
     #warning {
         display: none;
     }
@@ -74,6 +76,7 @@ html, body {
 
 }
 
+
 .menu > div:hover {
     background-color: #00ff00;
     color: #000000;
@@ -90,10 +93,20 @@ html, body {
     resize: none;
 }
 
+#quicktutorial {
+    text-align: center;
+    color: #00ff00;
+    display: block;
+    animation: none;
+    box-shadow: none;
+    background-color: black;
+}
+
 #target {
+    text-align: center;
     color: #00ff00;
     background-color: #000000;
-    font-size: 1rem;
+    font-size: 1.5rem;
     animation: none;
     box-shadow: none;
 
@@ -156,6 +169,7 @@ html, body {
 .up_left {
     background-image: url("https://image.spreadshirtmedia.com/image-server/v1/designs/12320289,width=178,height=178.png");
 }
+
 .up_right {
     background-image: url("https://image.spreadshirtmedia.com/image-server/v1/designs/12320289,width=178,height=178.png");
 }
@@ -163,9 +177,11 @@ html, body {
 .up_center {
     background-image: url("https://image.spreadshirtmedia.com/image-server/v1/designs/12320289,width=178,height=178.png");
 }
+
 .down_left {
     background-image: url("https://image.spreadshirtmedia.com/image-server/v1/designs/12320289,width=178,height=178.png");
 }
+
 .down_right {
     background-image: url("https://image.spreadshirtmedia.com/image-server/v1/designs/12320289,width=178,height=178.png");
 }
@@ -179,12 +195,14 @@ html, body {
 }
 
 .normalPlatform {
+    height: 10px;
     background: white;
     box-shadow: 0px 0px 15px white;
 
 }
 
 .boostPlatform {
+    height: 10px;
     background: yellow;
     box-shadow: 0px 0px 15px yellow;
 }
@@ -195,16 +213,19 @@ html, body {
 }
 
 .oneTimePlatform {
+    height: 10px;
     background: brown;
     box-shadow: 0px 0px 15px brown;
 }
 
 .protectionPlatform {
+    height: 10px;
     background: blue;
     box-shadow: 0px 0px 15px blue;
 }
 
 .deadlyPlatform {
+    height: 10px;
     background: red;
     box-shadow: 0px 0px 15px red;
 }

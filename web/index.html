@@ -27,16 +27,50 @@
             <div class="info-itm" id="highscore">999999</div>
         </div>
     </div>
+
     <div id="menu" class="menu">
+        <div id="target" style="display: none">
+            <h1>Objectives</h1>
+            <p id="reason"></p>
+            <table id="objectives"></table>
+        </div>
         <div id="resume" style="display:none">Resume</div>
         <div id="levelSel">Choose Level</div>
         <div id="loader" style="display: none">
             <div id="levelFromTextarea">load from Textarea</div>
             <div><textarea id="textArea" name="json"></textarea></div>
         </div>
-        <div id="target" style="display: none">
-            <p id="reason"></p>
-            <table id="objectives"></table>
+        <div id="quicktutorial" >
+            <table style="width:100%">
+                <tr>
+                    <th>Plattform</th>
+                    <th>Effect</th>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="normalPlatform"></div>
+                    </td>
+                    <td>You just jump.</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="deadlyPlatform"></div>
+                    </td>
+                    <td>If you fall into it, you die.</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="protectionPlatform"></div>
+                    </td>
+                    <td>Protects you, you can jump on red</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="boostPlatform"></div>
+                    </td>
+                    <td>You will jump higher</td>
+                </tr>
+            </table>
         </div>
         <div id="howtoBtn">Help</div>
         <div id="creditsBtn">Credits</div>
@@ -47,7 +81,7 @@
         <div id="levelThree">LVL 3</div>
         <div id="levelFour">LVL 4</div>
         <div id="levelFive">LVL 5</div>
-        <div id="back">Back</div>
+        <div id="back">Main Menu</div>
     </div>
     <div id="howTo" class="menu" style="display: none">
         <h1>How to Play...!</h1>
