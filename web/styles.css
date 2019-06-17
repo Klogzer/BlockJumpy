@@ -165,7 +165,6 @@ html, body {
 }
 
 .player {
-    image-rendering: optimizeSpeed;
     position: absolute;
     box-shadow: 0px 0px 15px rgba(0, 255, 0, 255);
     background-size: 100%;
