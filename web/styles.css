@@ -106,10 +106,9 @@ html, body {
     text-align: center;
     color: #00ff00;
     background-color: #000000;
-    font-size: 1.5rem;
+    font-size: 1rem;
     animation: none;
     box-shadow: none;
-
 }
 
 #info-box {
@@ -242,8 +241,9 @@ html, body {
 }
 
 .protected {
+    color: #0000ff;
     box-shadow: 0px 0px 15px rgba(0, 0, 255, 255);
-    background: #0000ff;
+    background-color: #0000ff;
 }
 
 #howTo, #credits {
@@ -252,14 +252,15 @@ html, body {
 }
 
 #warning {
+    line-height: 50px;
+    padding: 100px;
     color: #ff0000;
 }
 
 #warning > img {
-    height: 50%;
-    image-rendering: optimizeSpeed;
+    height: 150px;
     animation-name: spin;
-    animation-duration: 2500ms;
+    animation-duration: 1500ms;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
     animation-direction: reverse;
