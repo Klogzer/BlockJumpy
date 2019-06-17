@@ -7,27 +7,31 @@ import 'package:jumpdx9001deluxe/model/game.dart';
 import 'package:jumpdx9001deluxe/model/level.dart';
 import 'package:jumpdx9001deluxe/view/view.dart';
 
+/// A [Controller] object handles several events
+/// like buttonpresses on the keyboard or deviceorientation on mobile
+///
+/// [View] and [Game] are updated by timers
 class Controller {
-  /// physix and stuff
-  /// View
-  /// model
-  bool end = false;
+  /// Periodic timer updating the view
   Timer _viewTimer;
+
+  /// Periodic timer updating the game/model
   Timer _modelTimer;
 
+  /// reference to game/model
   Game game;
 
-  View view;
+  /// refence to view
+  final View view;
 
-  // Timer etc
+  /// Constructor to create and [Controller] object
+  /// Registers all event handlers
+  /// used to interact with game
+  /// updates view accordingly
   Controller(this.view, this.game) {
-    ///
-    ///
     /// Actionlistener for buttons in menu
     ///
-    ///
-
-    /// Level 2
+    /// loads a level from a hidden textbox
     view.levelFromTextarea.onClick.listen((_) async {
       // load json from textfield
       Map data = json.decode(view.textArea.value);
@@ -45,13 +49,36 @@ class Controller {
       startGame();
     });
 
+    /// pause button
     view.overlay.onClick.listen((_) {
       pauseGame();
       view.drawPauseMenu();
     });
 
+    /// eventhandler to draw mainmenu
     view.back.onClick.listen((_) {
       view.drawMainMenu();
+    });
+    view.credits.onClick.listen((_) {
+      view.drawMainMenu();
+    });
+    view.howto.onClick.listen((_) {
+      view.drawMainMenu();
+    });
+
+    /// eventhandler to draw level selection
+    view.levelSel.onClick.listen((_) {
+      view.drawLevelMenu();
+    });
+
+    /// eventhandler to draw credits
+    view.creditsBtn.onClick.listen((_) {
+      view.drawCredits();
+    });
+
+    /// eventhandler to draw tutorial
+    view.howtoBtn.onClick.listen((_) {
+      view.drawHowToScreen();
     });
 
     ///actionlistener for levelbuttons
@@ -71,27 +98,6 @@ class Controller {
       await startLevel(5);
     });
 
-    /// Menu
-    view.levelSel.onClick.listen((_) {
-      view.drawLevelMenu();
-    });
-
-    view.creditsBtn.onClick.listen((_) {
-      view.drawCredits();
-    });
-
-    view.credits.onClick.listen((_) {
-      view.drawMainMenu();
-    });
-
-    view.howto.onClick.listen((_) {
-      view.drawMainMenu();
-    });
-
-    view.howtoBtn.onClick.listen((_) {
-      view.drawHowToScreen();
-    });
-
     ///
     ///
     /// Deviceslistener
@@ -101,7 +107,6 @@ class Controller {
     /// Keyboard eventlistening
     /// KEYDOWN
     window.onKeyDown.listen((KeyboardEvent ev) {
-      if (end) return;
       switch (ev.keyCode) {
         case KeyCode.LEFT:
           game.acceleratePlayer(-0.5, 0);
@@ -121,7 +126,6 @@ class Controller {
     /// Keyboard eventlistening
     /// KEYUP
     window.onKeyUp.listen((KeyboardEvent ev) {
-      if (end) return;
       switch (ev.keyCode) {
         case KeyCode.LEFT:
           game.acceleratePlayer(0, 0);
@@ -129,7 +133,6 @@ class Controller {
         case KeyCode.RIGHT:
           game.acceleratePlayer(0, 0);
           break;
-
       }
     });
 
@@ -159,14 +162,15 @@ class Controller {
             : 0;
 
         // normalizing dx (1 >= dx >= -1)
-        print(dx);
         game.acceleratePlayer(dx / range, 0);
       }
     });
   }
 
-  /// initialisierung des RenderTimers
-  /// eigentlich kein bedarf die wiederholungrate höher zu haben als das model rechnet
+  /// initializes the update timer for [view]
+  /// updates the view asynchronous to [game]
+  /// the refresh-rate is set in [constants.dart]
+  /// if DOM manipulation falls behind the model doesnt slow down
   startView() {
     int refreshRate = (1000 / fps).floor();
     Duration duration = Duration(milliseconds: refreshRate);
@@ -179,8 +183,9 @@ class Controller {
             });
   }
 
-  /// die Anzahl an ticks des modells
-  /// 144hz heist für das modell eine Höchsgeschwindigkeit von 144 Ticks pro Sekunde.
+  /// initializes the update timer for [game]
+  /// updates [model] according to ticks set in [constants.dart]
+  /// stops itself if the game is over
   startModel() {
     int tick = (1000 / tickModel).floor();
     Duration duration = Duration(milliseconds: tick);
@@ -204,12 +209,15 @@ class Controller {
 
   /// starts game
   startGame() {
-    // updates the model
+    // starts model timer
     startModel();
-    // updates DOM
+    // starts view timer
     startView();
   }
 
+  /// loads a level from json
+  /// starts
+  /// [lvl] parameter is used to load a certain json
   startLevel(int lvl) async {
     await HttpRequest.getString("level/level" + lvl.toString() + ".json")
         .then((myjson) {
@@ -218,11 +226,11 @@ class Controller {
       game.level = Level.fromJson(data);
       game.secondaryScore = 0;
       // startGame with the updated level
-      view.drawGameStage();
       view.drawStartMenu();
     });
   }
 
+  /// load the next level
   startNextLevel() async {
     await HttpRequest.getString(
             "level/level" + game.levelID.toString() + ".json")

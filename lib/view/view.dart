@@ -156,6 +156,7 @@ class View {
   void drawPauseMenu() {
     updateObjectiveTable("Paused");
     resumeBtn.style.display = "block";
+    resumeBtn.text = "Continue";
     levels.style.display = "none";
     menu.style.display = "block";
     target.style.display = "block";
@@ -215,6 +216,7 @@ class View {
     updateObjectiveTable(
         "New Level, please click Resume to begin... if you dare!");
     resumeBtn.style.display = "block";
+    resumeBtn.text = "Start";
     levels.style.display = "none";
     menu.style.display = "block";
     target.style.display = "block";
