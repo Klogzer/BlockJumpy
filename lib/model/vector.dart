@@ -1,6 +1,6 @@
 /// @Author Marius Mauritz
 class Vector {
-  /// Speeds range -1 1
+  // float Value x and y
   double x;
   double y;
 
@@ -12,7 +12,7 @@ class Vector {
     this.x = vector.x;
     this.y = vector.y;
   }
-
+  // zero Constructor
   Vector.zero() {
     this.x = 0;
     this.y = 0;
