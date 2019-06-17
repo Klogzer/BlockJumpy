@@ -27,9 +27,6 @@ class View {
   // querySelector for Stage
   final stage = querySelector("#stage");
 
-  /// overlay ///
-  ///
-  ///
   // querySelector for level
   final level = querySelector("#level");
 
@@ -41,15 +38,13 @@ class View {
 
   // querySelector for overlay
   final overlay = querySelector("#overlay");
+
   // querySelector for warning
   final warning = querySelector("#warning");
 
   /// Overlay end
 
   /// Menu
-  ///
-  ///
-  ///
   // querySelector for menu
   final menu = querySelector("#menu");
 
@@ -128,6 +123,7 @@ class View {
     camera.update(game.entities);
   }
 
+  /// modifies the DOM to Display the Game
   void drawGameStage() {
     // emptys stage div
     stage.innerHtml = "";
@@ -137,6 +133,7 @@ class View {
     overlay.style.display = "block";
   }
 
+  /// modifies the DOM to display the Mainmenu
   void drawMainMenu() {
     levels.style.display = "none";
     menu.style.display = "block";
@@ -146,6 +143,7 @@ class View {
     credits.style.display = "none";
   }
 
+  /// modifies the DOM to display the level Selection
   void drawLevelMenu() {
     levels.style.display = "block";
     menu.style.display = "none";
@@ -153,6 +151,7 @@ class View {
     overlay.style.display = "none";
   }
 
+  /// modifies the Dom to display the Pause Menu
   void drawPauseMenu() {
     updateObjectiveTable("Paused");
     resumeBtn.style.display = "block";
@@ -164,6 +163,7 @@ class View {
     overlay.style.display = "none";
   }
 
+  /// fills the Table displaying the Objectives
   void updateObjectiveTable(String s) {
     objectives.innerHtml = "";
     reason.text = s;
@@ -191,6 +191,7 @@ class View {
             "</td></tr>"));
   }
 
+  /// modifies the DOM to display the GameEndScreen
   drawEndScreen() {
     updateObjectiveTable(
         "Well, this isn't DARK SOULS, but you died anyways...");
@@ -202,19 +203,20 @@ class View {
     overlay.style.display = "none";
   }
 
+  // modifies the DOM to display the HowToScreen
   drawHowToScreen() {
     howto.style.display = "block";
     menu.style.display = "none";
   }
-
+  // modifies the DOM to display the Credits
   drawCredits() {
     credits.style.display = "block";
     menu.style.display = "none";
   }
-
+  // modifies the DOM to display the Start Screen
   void drawStartMenu() {
     updateObjectiveTable(
-        "New Level, please click Resume to begin... if you dare!");
+        "New Level, please click Start to begin... if you dare!");
     resumeBtn.style.display = "block";
     resumeBtn.text = "Start";
     levels.style.display = "none";

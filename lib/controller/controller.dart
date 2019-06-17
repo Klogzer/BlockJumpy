@@ -230,7 +230,7 @@ class Controller {
     });
   }
 
-  /// load the next level
+  /// loads and starts the next level
   startNextLevel() async {
     await HttpRequest.getString(
             "level/level" + game.levelID.toString() + ".json")
