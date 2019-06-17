@@ -56,8 +56,7 @@ class Camera {
   }
 
   renderElement(GameElement e) {
-    if ((e.yPosition / cameraRatio > cameraBottomBorder &&
-            e.yPosition / cameraRatio < cameraTopBorder)) {
+    if ((e.yPosition > cameraBottomBorder && e.yPosition < cameraTopBorder)) {
       // creates a div
       Element div;
       // adds it to the scene if absent
@@ -83,12 +82,6 @@ class Camera {
 
       // inserts it in dom
       main.insertAdjacentElement("afterBegin", div);
-    } else {
-      if (scene.containsKey(e.id)) {
-        //print("removed" + e.toString());
-        scene[e.id].remove();
-        scene.remove(e.id);
-      }
     }
   }
 }
