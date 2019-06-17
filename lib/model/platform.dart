@@ -9,4 +9,8 @@ abstract class Platform extends GameElement {
   Platform(int id, List<String> types, xPos, yPos, xDim, yDim, this.damage,
       this.protection, this.jumpFactor)
       : super(id, types, xPos, yPos, xDim, yDim);
+
+  void onVisit() {
+    visited = true;
+  }
 }

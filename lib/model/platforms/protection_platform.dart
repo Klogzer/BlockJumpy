@@ -3,8 +3,16 @@ import 'package:jumpdx9001deluxe/model/platform.dart';
 
 class ProtectionPlatform extends Platform {
   ProtectionPlatform(id, xPos, yPos, xDim, yDim)
-      : super(id, ["platform", "protectionPlatform"], xPos, yPos, xDim, yDim, 0,
-            3, stdJump);
+      : super(
+      id,
+      ["platform", "protectionPlatform"],
+      xPos,
+      yPos,
+      xDim,
+      yDim,
+      0,
+      3,
+      stdJump);
 
   ProtectionPlatform.fromJson(int id, Map<String, dynamic> json)
       : super(
@@ -17,4 +25,11 @@ class ProtectionPlatform extends Platform {
       0,
       3,
       stdJump);
+
+  @override
+  void onVisit() {
+    visited = true;
+    types.remove("protectionPlatform");
+    types.add("protectionPlatformUsed");
+  }
 }

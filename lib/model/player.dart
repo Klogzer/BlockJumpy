@@ -22,15 +22,14 @@ class Player extends GameElement {
     jumps++;
     score += (scoreJump);
 
-    protection += element.protection;
-    if (protection <= 0) {
-      health += (element.damage);
-    }
-
     if (!element.visited) {
-      element.visited = true;
+      element.onVisit();
       platforms++;
       score += scorePlatform;
+      protection += element.protection;
+      if (protection <= 0) {
+        health += (element.damage);
+      }
     }
     newDynamicEvent(new Vector(draft, element.jumpFactor));
   }
