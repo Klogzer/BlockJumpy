@@ -18,9 +18,6 @@ class View {
     this.camera = Camera(screenHeight, min(screenWidth, 1000));
   }
 
-  // MockGameOver
-  bool end = false;
-
   // querySelector for gameContainer
   final mainContainer = querySelector("#mainContainer");
 

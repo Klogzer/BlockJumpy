@@ -225,6 +225,7 @@ class Controller {
       game.level = Level.fromJson(data);
       game.secondaryScore = 0;
       // startGame with the updated level
+      view.camera.reset();
       view.drawStartMenu();
     });
   }

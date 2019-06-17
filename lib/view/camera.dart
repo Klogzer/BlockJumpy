@@ -27,6 +27,7 @@ class Camera {
     this.cameraRatio = cameraHeight / cameraWidth;
   }
 
+  reset() => scene.clear();
   num get cameraTopBorder => yCenter + cameraRatio;
 
   num get cameraBottomBorder => yCenter - cameraRatio;
@@ -47,7 +48,7 @@ class Camera {
     //watch.start();
     // Timer start here
     main.children.forEach((e) => e.remove());
-    entities.forEach(renderElement);
+    entities.forEach(_renderElement);
     stage.children = main.children;
     // Timer end here
     // gimme the rendertimes
@@ -55,8 +56,8 @@ class Camera {
     //print(watch.elapsedTicks);
   }
 
-  renderElement(GameElement e) {
-    if ((e.yPosition > cameraBottomBorder && e.yPosition < cameraTopBorder)) {
+  _renderElement(GameElement e) {
+    if ((e.yPosition > cameraBottomBorder && e.yPosition < cameraTopBorder || e.ySize + e.yPosition >cameraBottomBorder  )) {
       // creates a div
       Element div;
       // adds it to the scene if absent
