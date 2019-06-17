@@ -8,7 +8,7 @@ class Camera {
 
   // the root for the update
   Element main = Element.div();
-
+  Map<int,Element> map = Map();
   double cameraRatio;
   double yCenter = 0;
 
@@ -41,7 +41,6 @@ class Camera {
 
   /// updates seenElements
   void update(List<GameElement> entities) {
-    main.children.forEach((e) => e.remove());
     main.children = [];
     entities.forEach(_renderElement);
     stage.children = main.children;
@@ -49,8 +48,15 @@ class Camera {
 
   _renderElement(GameElement e) {
     if (e.yPosition > cameraBottomBorder && e.yPosition < cameraTopBorder || e.ySize + e.yPosition >cameraBottomBorder  ) {
-      // creates a div
-      Element div = Element.div();
+      Element div;
+      if(map.containsKey(e.id)){
+        div = map[e.id];
+      }
+      else{
+        div = Element.div();
+        map.putIfAbsent(e.id,()=> div);
+      }
+
       //sets classes
       div.classes = e.types;
       // Viewport relativ
@@ -62,6 +68,11 @@ class Camera {
       div.style.height = (e.ySize * 100 / cameraRatio).toString() + "%";
       // inserts it in dom
       main.insertAdjacentElement("afterBegin", div);
+    }
+    else{
+      if(map.containsKey(e.id)){
+        map[e.id].remove();
+      }
     }
   }
 }
