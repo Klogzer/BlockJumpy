@@ -27,9 +27,9 @@ class Player extends GameElement {
       platforms++;
       score += scorePlatform;
       protection += element.protection;
-      if (protection <= 0) {
-        health += (element.damage);
-      }
+    }
+    if (protection <= 0) {
+      health += (element.damage);
     }
     newDynamicEvent(new Vector(draft, element.jumpFactor));
   }
@@ -39,7 +39,7 @@ class Player extends GameElement {
     //Calculate vertical-vector
     this.acceleration.y *= 0.985;
 
-    if (acceleration.y <= stdJump * 0.1 && acceleration.y != 0.0) {
+    if (acceleration.y <= stdJump * 0.15 && acceleration.y != 0.0) {
       health = 0;
     }
     //Calculate Position
@@ -49,29 +49,29 @@ class Player extends GameElement {
     //update texture
     if (acceleration.y - gravity > 0) {
       if (acceleration.x > 0) {
-        clearDirection();
+        clearTexture();
         types.add("up_right");
       }
       if (acceleration.x < 0) {
-        clearDirection();
+        clearTexture();
         types.add("up_left");
       }
       if (acceleration.x == 0) {
-        clearDirection();
+        clearTexture();
         types.add("up_center");
       }
     }
     if (acceleration.y - gravity < 0) {
       if (acceleration.x > 0) {
-        clearDirection();
+        clearTexture();
         types.add("down_right");
       }
       if (acceleration.x < 0) {
-        clearDirection();
+        clearTexture();
         types.add("down_left");
       }
       if (acceleration.x == 0) {
-        clearDirection();
+        clearTexture();
         types.add("down_center");
       }
     }
@@ -104,7 +104,7 @@ class Player extends GameElement {
     }
   }
 
-  void clearDirection() {
+  void clearTexture() {
     types.remove("up_right");
     types.remove("up_left");
     types.remove("up_center");
