@@ -119,6 +119,11 @@ html, body {
     background-color: black;
     color: #00ff00;
 }
+.no-anim{
+    background-color: black;
+    animation: none;
+    box-shadow: none;
+}
 
 .info-itm {
     text-align: center;

@@ -135,15 +135,15 @@ class View {
 
   /// modifies the DOM to display the Mainmenu
   void drawMainMenu() {
-    target.style.display="none";
+    target.style.display = "none";
     levels.style.display = "none";
     menu.style.display = "block";
     stage.style.display = "none";
     overlay.style.display = "none";
     howto.style.display = "none";
     credits.style.display = "none";
-    howtoBtn.style.display="block";
-    creditsBtn.style.display="block";
+    howtoBtn.style.display = "block";
+    creditsBtn.style.display = "block";
   }
 
   /// modifies the DOM to display the level Selection
@@ -160,8 +160,8 @@ class View {
     resumeBtn.style.display = "block";
     resumeBtn.text = "Continue";
     levels.style.display = "none";
-    creditsBtn.style.display ="none";
-    howtoBtn.style.display ="none";
+    creditsBtn.style.display = "none";
+    howtoBtn.style.display = "none";
     menu.style.display = "block";
     target.style.display = "block";
     stage.style.display = "none";
@@ -209,19 +209,25 @@ class View {
   }
 
   // modifies the DOM to display the HowToScreen
-  drawHowToScreen() {
+  // load from html since the content is static
+  drawHowToScreen() async {
+    howto.setInnerHtml(await HttpRequest.getString("howto.html"), treeSanitizer: NodeTreeSanitizer.trusted);
     howto.style.display = "block";
     menu.style.display = "none";
   }
+
   // modifies the DOM to display the Credits
-  drawCredits() {
+  // load from html since the content is static
+  drawCredits() async {
+    credits.setInnerHtml(await HttpRequest.getString("credits.html"), treeSanitizer: NodeTreeSanitizer.trusted);
     credits.style.display = "block";
     menu.style.display = "none";
   }
+
   // modifies the DOM to display the Start Screen
   void drawStartMenu() {
-    howtoBtn.style.display="none";
-    creditsBtn.style.display="none";
+    howtoBtn.style.display = "none";
+    creditsBtn.style.display = "none";
     updateObjectiveTable(
         "New Level, please click Start to begin... if you dare!");
     resumeBtn.style.display = "block";
