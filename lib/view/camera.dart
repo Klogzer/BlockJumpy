@@ -16,9 +16,6 @@ class Camera {
   int cameraHeight;
   int cameraWidth;
 
-
-  Map<int, Element> scene = Map();
-
   // querySelector for Stage
   final stage = querySelector("#stage");
 
@@ -27,7 +24,6 @@ class Camera {
     this.cameraRatio = cameraHeight / cameraWidth;
   }
 
-  reset() => scene.clear();
   num get cameraTopBorder => yCenter + cameraRatio;
 
   num get cameraBottomBorder => yCenter - cameraRatio;
@@ -44,35 +40,17 @@ class Camera {
 
   /// updates seenElements
   void update(List<GameElement> entities) {
-    //var watch = Stopwatch();
-    //watch.start();
-    // Timer start here
     main.children.forEach((e) => e.remove());
     entities.forEach(_renderElement);
     stage.children = main.children;
-    // Timer end here
-    // gimme the rendertimes
-    //watch.stop();
-    //print(watch.elapsedTicks);
   }
 
   _renderElement(GameElement e) {
-    if ((e.yPosition > cameraBottomBorder && e.yPosition < cameraTopBorder || e.ySize + e.yPosition >cameraBottomBorder  )) {
+    if (e.yPosition > cameraBottomBorder && e.yPosition < cameraTopBorder || e.ySize + e.yPosition >cameraBottomBorder  ) {
       // creates a div
-      Element div;
-      // adds it to the scene if absent
-      if (!scene.containsKey(e.id)) {
-        //print("added" + e.toString());
-        div = Element.div();
-        scene.putIfAbsent(e.id, () => div);
-      } else {
-        div = scene[e.id];
-      }
-
+      Element div = Element.div();
       //sets classes
       div.classes = e.types;
-      // updates its values
-      //div.text = "X:" + e.xPosition.toString() + "Y:" + e.yPosition.toString();
       // Viewport relativ
       div.text = e.toString();
       div.style.left = (e.xPosition * 100).toString() + "%";
@@ -80,7 +58,6 @@ class Camera {
           ((e.yPosition - yCenter) * 100 / cameraRatio).toString() + "%";
       div.style.width = (e.xSize * 100).toString() + "%";
       div.style.height = (e.ySize * 100 / cameraRatio).toString() + "%";
-
       // inserts it in dom
       main.insertAdjacentElement("afterBegin", div);
     }

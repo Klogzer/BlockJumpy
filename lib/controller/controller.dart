@@ -65,6 +65,7 @@ class Controller {
     view.howto.onClick.listen((_) {
       view.drawMainMenu();
     });
+
     /// eventhandler to draw level selection
     view.levelSel.onClick.listen((_) {
       view.drawLevelMenu();
@@ -225,7 +226,6 @@ class Controller {
       game.level = Level.fromJson(data);
       game.secondaryScore = 0;
       // startGame with the updated level
-      view.camera.reset();
       view.drawStartMenu();
     });
   }
