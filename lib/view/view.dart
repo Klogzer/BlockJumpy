@@ -1,3 +1,5 @@
+/// @Author Marius Mauritz
+
 import 'dart:html';
 import 'dart:math';
 
@@ -115,7 +117,6 @@ class View {
     score.text = game.level.player.score.toString();
     level.text = game.levelID.toString();
     highscore.text = game.highscore.toString();
-
     camera.lockGameElement(game.level.player);
     camera.update(game.entities);
   }

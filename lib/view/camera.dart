@@ -1,13 +1,14 @@
+/// @Author Marius Mauritz
 import 'dart:html';
 import 'dart:math';
 
 import 'package:jumpdx9001deluxe/model/game_element.dart';
 
 class Camera {
-  /// Debugg
-  ///
-  ///
+
+  // the root for the update
   Element main = Element.div();
+
   double cameraRatio;
   double yCenter = 0;
 
@@ -23,10 +24,10 @@ class Camera {
   Camera(this.cameraHeight, this.cameraWidth) {
     this.cameraRatio = cameraHeight / cameraWidth;
   }
-
-  num get cameraTopBorder => yCenter + cameraRatio;
-
-  num get cameraBottomBorder => yCenter - cameraRatio;
+  // cameraTopBorder as float
+  double get cameraTopBorder => yCenter + cameraRatio;
+  // cameraBottomBorder as float
+  double get cameraBottomBorder => yCenter - cameraRatio;
 
   /// locks on GameElement
   void lockGameElement(GameElement e) {
@@ -41,6 +42,7 @@ class Camera {
   /// updates seenElements
   void update(List<GameElement> entities) {
     main.children.forEach((e) => e.remove());
+    main.children = [];
     entities.forEach(_renderElement);
     stage.children = main.children;
   }

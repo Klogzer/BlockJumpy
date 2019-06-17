@@ -1,3 +1,4 @@
+/// @Author Marius Mauritz
 import 'dart:async';
 import 'dart:convert';
 import 'dart:html';

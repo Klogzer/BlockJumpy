@@ -1,3 +1,4 @@
+/// @Author Marius Mauritz
 class Vector {
   /// Speeds range -1 1
   double x;
