@@ -1,3 +1,5 @@
+///Author: Milan Stuhlsatz
+
 import 'package:jumpdx9001deluxe/model/mixin/position_object.dart';
 import 'package:jumpdx9001deluxe/model/mixin/size_object.dart';
 

@@ -1,5 +1,6 @@
-import 'package:jumpdx9001deluxe/model/game_element.dart';
+///Author: Milan Stuhlsatz
 
+import 'package:jumpdx9001deluxe/model/game_element.dart';
 
 ///Defines a [Platform] of the [level].
 ///A [Platform] has a [id] for refernce.

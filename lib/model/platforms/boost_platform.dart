@@ -1,3 +1,5 @@
+///Author: Milan Stuhlsatz
+
 import 'package:jumpdx9001deluxe/constants.dart';
 import 'package:jumpdx9001deluxe/model/platform.dart';
 
@@ -20,7 +22,7 @@ class BoostPlatform extends Platform {
   ///[BoostPlatform] gets the types: Platform, boostPlatform and 0 protection and 0 damage. It's jump factor is twice a standard jump
   BoostPlatform(id, xPos, yPos, xDim, yDim)
       : super(id, ["platform", "boostPlatform"], xPos, yPos, xDim, yDim, 0, 0,
-            stdJump * 2);
+      stdJump * 2);
 
   ///Constructor to create a [BoostPlatform] object for a [level], from a json String
   ///Sets the given ID and takes the position and dimension information from the json element.
