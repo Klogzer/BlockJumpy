@@ -32,6 +32,7 @@
 
 html, body {
 
+    background-color: black;
     background-image: radial-gradient(circle, #009900, #000000);
     height: 100%;
     width: 100%;
@@ -94,6 +95,8 @@ html, body {
 }
 
 #quicktutorial {
+    padding: 10px;
+    font-size: 0.75rem;
     text-align: center;
     color: #00ff00;
     display: block;
@@ -106,7 +109,7 @@ html, body {
     text-align: center;
     color: #00ff00;
     background-color: #000000;
-    font-size: 1rem;
+    font-size: 0.75rem;
     animation: none;
     box-shadow: none;
 }
@@ -172,27 +175,27 @@ html, body {
 }
 
 .up_left {
-    background-image: url("/img/player_ul.png");
+    background-image: url("img/player_ul.png");
 }
 
 .up_right {
-    background-image: url("/img/player_ur.png");
+    background-image: url("img/player_ur.png");
 }
 
 .up_center {
-    background-image: url("/img/player_uc.png");
+    background-image: url("img/player_uc.png");
 }
 
 .down_left {
-    background-image: url("/img/player_dl.png");
+    background-image: url("img/player_dl.png");
 }
 
 .down_right {
-    background-image: url("/img/player_dr.png");
+    background-image: url("img/player_dr.png");
 }
 
 .down_center {
-    background-image: url("/img/player_dc.png");
+    background-image: url("img/player_dc.png");
 }
 
 .platform {
