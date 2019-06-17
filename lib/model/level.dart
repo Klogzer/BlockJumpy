@@ -1,3 +1,5 @@
+///Author: Milan Stuhlsatz
+
 import 'package:jumpdx9001deluxe/model/game_element.dart';
 import 'package:jumpdx9001deluxe/model/platforms/boost_platform.dart';
 import 'package:jumpdx9001deluxe/model/platforms/deadly_platform.dart';
@@ -65,13 +67,13 @@ class Level {
         json['player']["yPos"], json['player']["lifes"]);
     entities.add(player);
     json['normalPlatform'].forEach(
-        (json) => entities.add(NormalPlatform.fromJson(nextID++, json)));
+            (json) => entities.add(NormalPlatform.fromJson(nextID++, json)));
     json['boostPlatform'].forEach(
-        (json) => entities.add(BoostPlatform.fromJson(nextID++, json)));
+            (json) => entities.add(BoostPlatform.fromJson(nextID++, json)));
     json['deadlyPlatform'].forEach(
-        (json) => entities.add(DeadlyPlatform.fromJson(nextID++, json)));
+            (json) => entities.add(DeadlyPlatform.fromJson(nextID++, json)));
     json['protectionPlatform'].forEach(
-        (json) => entities.add(ProtectionPlatform.fromJson(nextID++, json)));
+            (json) => entities.add(ProtectionPlatform.fromJson(nextID++, json)));
   }
 
   //provides the target values, that need to be reached to win this level. Used by [View]

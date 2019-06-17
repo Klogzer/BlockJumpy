@@ -1,3 +1,5 @@
+///Author: Milan Stuhlsatz
+
 import 'package:jumpdx9001deluxe/constants.dart';
 import 'package:jumpdx9001deluxe/model/platform.dart';
 
@@ -28,7 +30,7 @@ class DeadlyPlatform extends Platform {
       yDim,
       0,
       -1,
-            stdJump);
+      stdJump);
 
   ///Constructor to create a [DeadlyPlatform] object for a [level], from a json String
   ///Sets the given ID and takes the position and dimension information from the json element.

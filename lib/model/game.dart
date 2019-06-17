@@ -1,3 +1,5 @@
+///Author: Milan Stuhlsatz
+
 import 'package:jumpdx9001deluxe/model/level.dart';
 
 class Game {
