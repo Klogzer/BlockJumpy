@@ -119,7 +119,8 @@ html, body {
     background-color: black;
     color: #00ff00;
 }
-.no-anim{
+
+.no-anim {
     background-color: black;
     animation: none;
     box-shadow: none;
@@ -165,6 +166,7 @@ html, body {
 }
 
 .player {
+    image-rendering: optimizeSpeed;
     position: absolute;
     box-shadow: 0px 0px 15px rgba(0, 255, 0, 255);
     background-size: 100%;
@@ -178,6 +180,7 @@ html, body {
 .up_right {
     background-image: url("/img/player_ur.png");
 }
+
 .up_center {
     background-image: url("/img/player_uc.png");
 }
@@ -189,6 +192,7 @@ html, body {
 .down_right {
     background-image: url("/img/player_dr.png");
 }
+
 .down_center {
     background-image: url("/img/player_dc.png");
 }
@@ -247,19 +251,38 @@ html, body {
     color: #00ff00;
 }
 
+#warning {
+    color: #ff0000;
+}
 
-@-webkit-keyframes glow-over {
+#warning > img {
+    height: 50%;
+    image-rendering: optimizeSpeed;
+    animation-name: spin;
+    animation-duration: 2500ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-direction: reverse;
+}
+
+@keyframes glow-over {
     from {
         box-shadow: 0px 0px 15px rgba(0, 0, 0, 0);
         background-color: #000000;
         color: #00ff00;
-
     }
-
     to {
         box-shadow: 0px 0px 15px rgba(0, 255, 0, 255);
         background-color: #00ff00;
         color: #000000;
+    }
+}
 
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(90deg);
     }
 }
