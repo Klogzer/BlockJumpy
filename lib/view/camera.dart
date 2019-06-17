@@ -48,7 +48,7 @@ class Camera {
     //var watch = Stopwatch();
     //watch.start();
     // Timer start here
-    main.innerHtml = "";
+    main.children.forEach((e) => e.remove());
     entities.forEach(renderElement);
     stage.children = main.children;
     // Timer end here
@@ -62,11 +62,11 @@ class Camera {
             e.yPosition / cameraRatio < cameraTopBorder) ||
         !culling) {
       // creates a div
-      Element div = Element.div();
+      Element div;
       // adds it to the scene if absent
       if (!scene.containsKey(e.id)) {
         //print("added" + e.toString());
-
+        div = Element.div();
         scene.putIfAbsent(e.id, () => div);
       } else {
         div = scene[e.id];
