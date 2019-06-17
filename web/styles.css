@@ -167,27 +167,25 @@ html, body {
 }
 
 .up_left {
-    background-image: url("https://image.spreadshirtmedia.com/image-server/v1/designs/12320289,width=178,height=178.png");
+    background-image: url("/img/player_ul.png");
 }
 
 .up_right {
-    background-image: url("https://image.spreadshirtmedia.com/image-server/v1/designs/12320289,width=178,height=178.png");
+    background-image: url("/img/player_ur.png");
 }
-
 .up_center {
-    background-image: url("https://image.spreadshirtmedia.com/image-server/v1/designs/12320289,width=178,height=178.png");
+    background-image: url("/img/player_uc.png");
 }
 
 .down_left {
-    background-image: url("https://image.spreadshirtmedia.com/image-server/v1/designs/12320289,width=178,height=178.png");
+    background-image: url("/img/player_dl.png");
 }
 
 .down_right {
-    background-image: url("https://image.spreadshirtmedia.com/image-server/v1/designs/12320289,width=178,height=178.png");
+    background-image: url("/img/player_dr.png");
 }
-
 .down_center {
-    background-image: url("https://image.spreadshirtmedia.com/image-server/v1/designs/12320289,width=178,height=178.png");
+    background-image: url("/img/player_dc.png");
 }
 
 .platform {
