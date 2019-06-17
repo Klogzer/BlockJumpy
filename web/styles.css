@@ -172,27 +172,27 @@ html, body {
 }
 
 .up_left {
-    background-image: url("/img/player_ul.png");
+    background-image: url("img/player_ul.png");
 }
 
 .up_right {
-    background-image: url("/img/player_ur.png");
+    background-image: url("img/player_ur.png");
 }
 
 .up_center {
-    background-image: url("/img/player_uc.png");
+    background-image: url("img/player_uc.png");
 }
 
 .down_left {
-    background-image: url("/img/player_dl.png");
+    background-image: url("img/player_dl.png");
 }
 
 .down_right {
-    background-image: url("/img/player_dr.png");
+    background-image: url("img/player_dr.png");
 }
 
 .down_center {
-    background-image: url("/img/player_dc.png");
+    background-image: url("img/player_dc.png");
 }
 
 .platform {
