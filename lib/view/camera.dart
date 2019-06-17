@@ -16,8 +16,6 @@ class Camera {
   int cameraHeight;
   int cameraWidth;
 
-  // cullingstate
-  bool culling = false;
 
   Map<int, Element> scene = Map();
 
@@ -59,8 +57,7 @@ class Camera {
 
   renderElement(GameElement e) {
     if ((e.yPosition / cameraRatio > cameraBottomBorder &&
-            e.yPosition / cameraRatio < cameraTopBorder) ||
-        !culling) {
+            e.yPosition / cameraRatio < cameraTopBorder)) {
       // creates a div
       Element div;
       // adds it to the scene if absent
