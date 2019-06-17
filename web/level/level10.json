@@ -1,0 +1,174 @@
+{
+  "winCondition": [
+    0,
+    0,
+    11,
+    0
+  ],
+  "levelMeta": [
+    10
+  ],
+  "player": {
+    "xPos": 0.0,
+    "yPos": 0.02,
+    "lifes": 1
+  },
+  "normalPlatform": [
+    {
+      "xPos": 0.0,
+      "yPos": 0.0,
+      "xDim": 1.0,
+      "yDim": 0.01
+    },
+    {
+      "xPos": 0.8,
+      "yPos": 0.70,
+      "xDim": 0.1,
+      "yDim": 0.01
+    },
+    {
+      "xPos": 0.4,
+      "yPos": 1.5,
+      "xDim": 0.1,
+      "yDim": 0.01
+    },
+    {
+      "xPos": 0.25,
+      "yPos": 2.0,
+      "xDim": 0.1,
+      "yDim": 0.01
+    },
+    {
+      "xPos": 0.35,
+      "yPos": 2.7,
+      "xDim": 0.1,
+      "yDim": 0.01
+    },
+    {
+      "xPos": 0.0,
+      "yPos": 3.5,
+      "xDim": 0.1,
+      "yDim": 0.01
+    },
+    {
+      "xPos": 0.5,
+      "yPos": 4.0,
+      "xDim": 0.1,
+      "yDim": 0.01
+    },
+    {
+      "xPos": 0.433,
+      "yPos": 4.5,
+      "xDim": 0.1,
+      "yDim": 0.01
+    },
+    {
+      "xPos": 0.4,
+      "yPos": 5.5,
+      "xDim": 0.1,
+      "yDim": 0.01
+    },
+    {
+      "xPos": 0.2,
+      "yPos": 6.0,
+      "xDim": 0.1,
+      "yDim": 0.01
+    },
+    {
+      "xPos": 0.04,
+      "yPos": 7.5,
+      "xDim": 0.15,
+      "yDim": 0.01
+    },
+    {
+      "xPos": 0.6,
+      "yPos": 8.5,
+      "xDim": 0.1,
+      "yDim": 0.01
+    },
+    {
+      "xPos": 0.15,
+      "yPos": 9.0,
+      "xDim": 0.1,
+      "yDim": 0.01
+    },
+    {
+      "xPos": 0.4,
+      "yPos": 9.5,
+      "xDim": 0.1,
+      "yDim": 0.01
+    },
+    {
+      "xPos": 0.25,
+      "yPos": 10.0,
+      "xDim": 0.1,
+      "yDim": 0.01
+    }
+  ],
+  "boostPlatform": [
+    {
+      "xPos": 0.8,
+      "yPos": 3.0,
+      "xDim": 0.1,
+      "yDim": 0.01
+    },
+    {
+      "xPos": 0.1,
+      "yPos": 5.0,
+      "xDim": 0.1,
+      "yDim": 0.01
+    },
+    {
+      "xPos": 0.7,
+      "yPos": 8.0,
+      "xDim": 0.3,
+      "yDim": 0.02
+    },
+    {
+      "xPos": 0.4,
+      "yPos": 10.48,
+      "xDim": 0.2,
+      "yDim": 0.01
+    },
+    {
+      "xPos": 0,
+      "yPos": 11.6,
+      "xDim": 1,
+      "yDim": 0.01
+    }
+  ],
+  "deadlyPlatform": [
+    {
+      "xPos": 0.5,
+      "yPos": 2.8,
+      "xDim": 0.5,
+      "yDim": 0.01
+    },
+    {
+      "xPos": 0.0,
+      "yPos": 7.0,
+      "xDim": 1.0,
+      "yDim": 0.01
+    },
+    {
+      "xPos": 0.0,
+      "yPos": 10.5,
+      "xDim": 0.4,
+      "yDim": 0.01
+    },
+    {
+      "xPos": 0.6,
+      "yPos": 10.5,
+      "xDim": 0.4,
+      "yDim": 0.01
+    }
+  ],
+  "protectionPlatform": [
+    {
+      "xPos": 0.6,
+      "yPos": 6.5,
+      "xDim": 0.1,
+      "yDim": 0.01
+    }
+  ]
+}
