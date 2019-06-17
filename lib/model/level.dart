@@ -5,19 +5,47 @@ import 'package:jumpdx9001deluxe/model/platforms/normal_platform.dart';
 import 'package:jumpdx9001deluxe/model/platforms/protection_platform.dart';
 import 'package:jumpdx9001deluxe/model/player.dart';
 
-// static width
+///Defines a [level] of the [game].
+/// [level] has a [player].
+/// [level] has a [nextID] for creating new enteties.
+/// [level] has a List of [entities] for refernce.
+/// [level] has a [height] over wich is elemnts are placed.
+/// [level] has a [targetScore] the players should reach.
+/// [level] has a [targetJumps] the players should reach.
+/// [level] has a [targetheight] the players should reach.
+/// [level] has a [targetPlatforms] the players should reach.
+/// [level] is either [won] or not.
+
 class Level {
 
+  ///the player
   Player player;
+
+  ///the id for the next entity
   int nextID = 0;
+
+  /// the levels entities
   List<GameElement> entities = List();
+
+  ///the levels internal height
   double height;
+
+  ///the score, the player needs to reach
   int targetScore = 0;
+
+  ///the jumps, the player needs to reach
   int targetJumps = 0;
+
+  ///the height, the player needs to reach
   int targetheight = 0;
+
+  ///the amount of platforms, the player needs to visit.
   int targetPlatforms = 0;
+
+  ///if the level is won
   bool won = false;
 
+  ///a constructor that does nothing, possibly unneeded
   Level();
 
   // moves each entity according to its velocity and gravity
@@ -25,8 +53,8 @@ class Level {
     entities.forEach((element) => element.update());
   }
 
-  readLevel(String s) {}
-
+  ///builds a level based on the json element and fills the entities list with the elements described in the json.
+  ///Parameters like targets and height will be set aswell.
   Level.fromJson(json) {
     targetScore = json['winCondition'][0];
     targetJumps = json['winCondition'][1];
@@ -46,6 +74,7 @@ class Level {
         (json) => entities.add(ProtectionPlatform.fromJson(nextID++, json)));
   }
 
+  //provides the target values, that need to be reached to win this level. Used by [View]
   Map<String, int> getWinCondition() {
     return {
       "Score": targetScore,
@@ -55,13 +84,13 @@ class Level {
     };
   }
 
+  ///Checks if the player won the game by comparing the players status to the target values.
   void update() {
     if (player.score >= targetScore &&
         player.yPosition >= targetheight &&
         player.jumps >= targetJumps &&
         player.platforms >= targetPlatforms) {
       won = true;
-      //print(won);
     }
   }
 }

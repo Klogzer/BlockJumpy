@@ -4,21 +4,51 @@ import 'package:jumpdx9001deluxe/model/level.dart';
 import 'package:jumpdx9001deluxe/model/platform.dart';
 import 'package:jumpdx9001deluxe/model/vector.dart';
 
+///Defines a [Player] of the [level].
+///A [Player] has a [id] for refernce.
+///A [Player] has [types] for its appearance.
+///A [Player] has a [xPosition].
+///A [Player] has a [yPosition].
+///A [Player] has a [xSize].
+///A [Player] has a [ySize].
+///A [Player] has a [Hitbox].
+///A [Player] has a [score].
+///A [Player] has a counter for [jumps].
+///A [Player] visited a certain amount of [platforms].
+///A [Player] has a [health].
+///A [Player] has some seconds of [protection].
+///A [Player] has a [_level].
 class Player extends GameElement {
+
+  ///the level, this player element is part of, for reference.
   Level _level;
 
+  ///the players score.
   int score = 0;
+
+  ///the counter for jumps, the player performed.
   int jumps = 0;
+
+  ///the amount of platforms the player visited.
   int platforms = 0;
+
+  ///the players health.
   int health = 1;
+
+  ///seconds of protection, the player has.
   double protection = 0;
 
+  ///Constructor to create a [Player] object for a [level].
+  ///[Player] is positioned in the given coordinates and the given dimension, with the given ID and health.
   Player(this._level, id, xPosition, yPosition, this.health)
       : super(id, ["player"], xPosition, yPosition, playerX, playerY);
 
-  String get getScoreAsText => score.toString();
-
-  void jump(double draft, Platform element) {
+  ///If the collision detection in [update] concluded, the player should jump, this handles it.
+  ///The [jumps] counter is increased
+  ///The element it collided with will be informed.
+  ///The players score, health and protection will be updated accordingly.
+  ///The movement vector will be renewed.
+  void jump(Platform element) {
     jumps++;
     score += (scoreJump);
 
@@ -31,10 +61,18 @@ class Player extends GameElement {
     if (protection <= 0) {
       health += (element.damage);
     }
-    newDynamicEvent(new Vector(draft, element.jumpFactor));
+    newDynamicEvent(new Vector(0, element.jumpFactor));
   }
 
+
   @override
+
+  ///Performs the necessary updates, if the games model ticks.
+  ///The acceleration will be adjusted and the new position will be calculated.
+  ///If the player moves to fast he dies, so the health may be set to 0.
+  ///Based on the direction of the players movement, it's texture will be choosen, by assigning the  correct values to [types].
+  ///It will check if the player collides with anything.
+  ///Finally, the protection will be decreased.
   void update() {
     //Calculate vertical-vector
     this.acceleration.y *= 0.985;
@@ -85,7 +123,7 @@ class Player extends GameElement {
       hitbox.overlap(element.hitbox)
           ? element.types.any((element) => element.contains("player"))
           ? null
-          : jump(0, element)
+          : jump(element)
           : null);
     }
 
@@ -104,6 +142,7 @@ class Player extends GameElement {
     }
   }
 
+  ///Removes all texture related tags from types.
   void clearTexture() {
     types.remove("up_right");
     types.remove("up_left");
@@ -113,10 +152,12 @@ class Player extends GameElement {
     types.remove("down_center");
   }
 
+  ///assigns the horizonatal movement to player
   void accelerate(double dx, double dy) {
     this.acceleration.x = dx * horizontalAccelarationFactor;
   }
 
+  ///Returns the players Status related values
   Map<String, int> getStatus() {
     return {
       "Score": score,
@@ -126,11 +167,4 @@ class Player extends GameElement {
       "Alive": health
     };
   }
-
-  @override
-  String toString() {
-    return (protection > 0) ? protection.toInt().toString() : super.toString();
-  }
-
-
 }
