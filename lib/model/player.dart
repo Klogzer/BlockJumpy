@@ -79,7 +79,7 @@ class Player extends GameElement {
     //Calculate vertical-vector
     this.acceleration.y *= 0.985;
 
-    if (acceleration.y <= stdJump * 0.12 && acceleration.y != 0.0) {
+    if (acceleration.y <= stdJump * 0.13 && acceleration.y != 0.0) {
       health = 0;
     }
     //Calculate Position

@@ -38,6 +38,7 @@ class Controller {
       Map data = json.decode(view.textArea.value);
       // update level from json
       game.level = Level.fromJson(data);
+      game.levelID = 1;
       view.drawGameStage();
       //start game
       startGame();
@@ -240,6 +241,7 @@ class Controller {
       Map data = json.decode(myjson);
       // update level from json
       game.level = Level.fromJson(data);
+      game.levelID = lvl;
       game.secondaryScore = 0;
       // startGame with the updated level
       view.drawStartMenu();
