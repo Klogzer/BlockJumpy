@@ -60,7 +60,6 @@ class Camera {
       //sets classes
       div.classes = e.types;
       // Viewport relativ
-      div.text = e.toString();
       div.style.color = "white";
       div.style.left = (e.xPosition * 100).toString() + "%";
       div.style.bottom =

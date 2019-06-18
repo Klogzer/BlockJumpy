@@ -36,6 +36,9 @@ class Game {
   void nextLevel() {
     secondaryScore += level.player.score;
     levelID++;
+    if(levelID == 10) {
+      levelID =1;
+    }
     level.won = true;
   }
 

@@ -32,8 +32,4 @@ abstract class GameElement with PositionObject, SizeObject, DynamicObject {
   void update() {
     //nothing to do... just override.
   }
-  @override
-  String toString() {
-    return "$id X:$xPosition y:$yPosition";
-  }
 }

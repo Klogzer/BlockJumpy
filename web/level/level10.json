@@ -27,19 +27,19 @@
       "yDim": 0.01
     },
     {
-      "xPos": 0.4,
+      "xPos": 0.6,
       "yPos": 1.5,
       "xDim": 0.1,
       "yDim": 0.01
     },
     {
-      "xPos": 0.25,
+      "xPos": 0.45,
       "yPos": 2.0,
       "xDim": 0.1,
       "yDim": 0.01
     },
     {
-      "xPos": 0.35,
+      "xPos": 0.75,
       "yPos": 2.7,
       "xDim": 0.1,
       "yDim": 0.01
@@ -51,13 +51,13 @@
       "yDim": 0.01
     },
     {
-      "xPos": 0.5,
+      "xPos": 0.12,
       "yPos": 4.0,
       "xDim": 0.1,
       "yDim": 0.01
     },
     {
-      "xPos": 0.433,
+      "xPos": 0.33,
       "yPos": 4.5,
       "xDim": 0.1,
       "yDim": 0.01
@@ -69,31 +69,37 @@
       "yDim": 0.01
     },
     {
-      "xPos": 0.2,
-      "yPos": 6.0,
+      "xPos": 0.7,
+      "yPos": 6.1,
       "xDim": 0.1,
       "yDim": 0.01
     },
     {
-      "xPos": 0.04,
+      "xPos": 0.27,
+      "yPos": 6.8,
+      "xDim": 0.1,
+      "yDim": 0.1
+    },
+    {
+      "xPos": 0.07,
       "yPos": 7.5,
       "xDim": 0.15,
       "yDim": 0.01
     },
     {
-      "xPos": 0.6,
+      "xPos": 0.4,
       "yPos": 8.5,
       "xDim": 0.1,
       "yDim": 0.01
     },
     {
-      "xPos": 0.15,
+      "xPos": 0.3,
       "yPos": 9.0,
       "xDim": 0.1,
       "yDim": 0.01
     },
     {
-      "xPos": 0.4,
+      "xPos": 0.9,
       "yPos": 9.5,
       "xDim": 0.1,
       "yDim": 0.01
@@ -107,19 +113,19 @@
   ],
   "boostPlatform": [
     {
-      "xPos": 0.8,
+      "xPos": 0.4,
       "yPos": 3.0,
       "xDim": 0.1,
       "yDim": 0.01
     },
     {
-      "xPos": 0.1,
+      "xPos": 0.9,
       "yPos": 5.0,
       "xDim": 0.1,
       "yDim": 0.01
     },
     {
-      "xPos": 0.7,
+      "xPos": 0.4,
       "yPos": 8.0,
       "xDim": 0.3,
       "yDim": 0.02
@@ -128,19 +134,13 @@
       "xPos": 0.4,
       "yPos": 10.48,
       "xDim": 0.2,
-      "yDim": 0.01
-    },
-    {
-      "xPos": 0,
-      "yPos": 11.6,
-      "xDim": 1,
-      "yDim": 0.01
+      "yDim": 0.04
     }
   ],
   "deadlyPlatform": [
     {
       "xPos": 0.5,
-      "yPos": 2.8,
+      "yPos": 2.4,
       "xDim": 0.5,
       "yDim": 0.01
     },
@@ -152,14 +152,20 @@
     },
     {
       "xPos": 0.0,
-      "yPos": 10.5,
-      "xDim": 0.4,
+      "yPos": 6,
+      "xDim": 0.2,
       "yDim": 0.01
     },
     {
-      "xPos": 0.6,
-      "yPos": 10.5,
-      "xDim": 0.4,
+      "xPos": 0.4,
+      "yPos": 6,
+      "xDim": 0.6,
+      "yDim": 0.01
+    },
+    {
+      "xPos": 0,
+      "yPos": 10.48,
+      "xDim": 1,
       "yDim": 0.01
     }
   ],
